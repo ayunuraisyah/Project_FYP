@@ -17,7 +17,7 @@ use App\Http\Controllers\RifadController;
 //     return view('welcome');
 // });
 
-Route::get('/', [RifadController::class, 'home']);
-Route::get('/homepage', [RifadController::class, 'homepage']);
-Route::get('/dashboard', [RifadController::class, 'dashboard']);
-Route::get('/login', [RifadController::class, 'login']);
+Route::get('/', [RifadController::class, 'login']);
+Route::get('/registrasi', [RifadController::class, 'registrasi']);
+// Route::get('/dashboard', [RifadController::class, 'dashboard']);
+// Route::get('/login', [RifadController::class, 'login']);

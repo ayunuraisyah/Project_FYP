@@ -40,7 +40,7 @@
         </form>
 
         <div class="mt-4 text-center">
-            <p class="text-sm font-medium text-gray-900">Don't have an account? <a href="#"
+            <p class="text-sm font-medium text-gray-900">Don't have an account? <a href="/registrasi"
                     class="text-indigo-600 hover:text-indigo-500">Sign-up</a></p>
         </div>
 
