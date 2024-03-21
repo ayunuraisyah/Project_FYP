@@ -314,6 +314,16 @@
         </div>
 
     </div>
+     
+    <button class="w-[250px] h-[62px] left-[1190px] top-[2000px] absolute bg-[#61AE77]  text-white rounded-[10px]">
+        selengkapnya
+    </button>
+
+    <footer class="bottom-0 left-0 w-full h-[422px] mt-[200px] bg-[#61AE77] relative">
+        <img class="w-[331px] h-[331px]" src="img/logo1.png" />
+        <div class="w-[1328px] h-[0px] absolute px-[5px] border-2 border-white"></div>
+    </footer>
+
 
 
     <script>
