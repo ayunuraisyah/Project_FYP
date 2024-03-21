@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="w-[1536px] h-[728px] relative bg-cover bg-center bg-no-repeat  overflow-hidden"
-    style="background-image: url('img/login-bg.jpeg');">
+<body class="relative bg-cover bg-center bg-no-repeat  overflow-hidden"
+    style="background-image: url('../img\logo1.png');">
 
     <div class="w-[598px] h-[575px] left-[513px] top-[85px] absolute bg-green-400 rounded-[50px]">
 
         <div class="w-[244px] h-30 mx-auto">
-            <img src="img/logo1.png" alt="">
+        <img src="{{ ('../img/logo1.png') }}" >
         </div>
 
         <form action="" class="flex flex-col items-center mt-[5px] ">
