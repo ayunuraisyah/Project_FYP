@@ -115,10 +115,10 @@
         <img src="img/Banner2.png" alt="">
     </div>
 
-    <div class="mt-6 grid p-5 grid-cols-2 gap-2  md:grid-cols-4 md:gap-4
-        md:p-4 ">
-        <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-full h-full bg-white rounded-[10px] shadow">
+    <div class="mt-6 grid p-5 grid-cols-2 gap-2  md:grid-cols-3 
+        md:px-5 ">
+        <div class="aspect-[4/3] relative px-5">
+            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                 <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
                     src="img/menupage/Rawon Menupage.jpeg" />
 
@@ -156,8 +156,8 @@
             </div>
 
         </div>
-        <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-full h-full bg-white rounded-[10px] shadow">
+        <div class="aspect-[4/3] relative px-5">
+            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                 <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
                     src="img/menupage/Sate Lilit Menupage.jpeg" />
 
@@ -195,8 +195,8 @@
             </div>
 
         </div>
-        <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-full h-full bg-white rounded-[10px] shadow">
+        <div class="aspect-[4/3] relative px-5">
+            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                 <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
                     src="img/menupage/Coto Makassar Menupage.jpeg" />
 
@@ -235,7 +235,7 @@
 
         </div>
         <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-full h-full bg-white rounded-[10px] shadow">
+            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                 <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
                     src="img/menupage/Gado-Gado Menupage.jpeg" />
 
@@ -274,7 +274,7 @@
 
         </div>
         <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-full h-full bg-white rounded-[10px] shadow">
+            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                 <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
                     src="img/menupage/Naniura Menupage.jpeg" />
 
@@ -319,7 +319,7 @@
         selengkapnya
     </button>
 
-    <footer class="bottom-0 left-0 w-full h-[422px] mt-[200px] bg-[#61AE77] relative">
+    <footer class="bottom-0 left-0 w-full h-[422px] mt-[80px] bg-[#61AE77] relative">
         <img class="w-[331px] h-[331px]" src="img/logo1.png" />
         <div class="w-[1328px] h-[0px] absolute px-[5px] border-2 border-white"></div>
     </footer>

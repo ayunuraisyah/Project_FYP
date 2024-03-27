@@ -17,5 +17,8 @@ class RifadController extends Controller
     public function registrasi(){
         return view('registrasi');
     }
+    public function admin(){
+        return view('admin');
+    }
 
 }

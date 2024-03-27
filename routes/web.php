@@ -20,5 +20,5 @@ use App\Http\Controllers\RifadController;
 Route::get('/', [RifadController::class, 'menupage']);
 Route::get('/login', [RifadController::class, 'login']);
 Route::get('/registrasi', [RifadController::class, 'registrasi']);
-// Route::get('/dashboard', [RifadController::class, 'dashboard']);
+Route::get('/admin', [RifadController::class, 'admin']);
 // Route::get('/login', [RifadController::class, 'login']);
