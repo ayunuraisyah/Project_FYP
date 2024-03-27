@@ -1,0 +1,31 @@
+<style>
+    @media only screen and (min-width: 768px) {
+        .menu-icon {
+            display: none;
+        }
+        .navbar-content {
+            display: flex !important;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+    
+    @media only screen and (max-width: 767px) {
+        .menu-icon {
+            display: block;
+        }
+        .navbar-content {
+            display: none !important;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+    
+    @media only screen and (max-width: 767px) {
+        .sidebar.open {
+            display: block;
+        }
+    }
+</style>

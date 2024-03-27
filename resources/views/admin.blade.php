@@ -16,7 +16,7 @@
 
 <body>
     <div class="flex h-screen bg-gray-200">
-        <div class="w-64 bg-[#61AE77]">
+        <div class="w-64 bg-[#61AE77] h-screen">
             <div class="w-[200px] h-[200px] flex items-center">
                 <img src="img/logo1.png" alt="">
             </div>
@@ -39,7 +39,7 @@
                 </div>
             </form>
             <div class="p-5 flex-1">
-                <div class="w-[500px] h-[550px] rounded-[10px] bg-green-500 text-center">
+                <div class="w-[500px] h-[650px] rounded-[10px] bg-green-500 text-center">
                     <p class="text-white text-[20px] font-bold font-[poppins]">Tambah Makanan</p>
 
                     <form action="" class="mt-5" method="post">
@@ -78,6 +78,11 @@
                             <option value="">10</option>
                         </select>
                         <div class="mt-2">
+                            <textarea name="Deskripsi" id="Deskripsi" cols="30" rows="10" placeholder="deskripsi makanan" required class="w-[350px] h-[150px]  bg-black bg-opacity-20  placeholder-white">
+
+                            </textarea>
+                        </div>
+                        <div class="mt-2">
                             <label for="Gambar" class="block text-sm font-medium text-gray-700">Pilih Gambar</label>
                             <div class="mt-1 flex flex-col items-center justify-center">
 
@@ -87,7 +92,7 @@
                                     class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2">
                                     Pilih File
                                 </label>
-                                <span class="h-[200px] w-[250px] rounded-[15px] overflow-hidden bg-gray-100 mb-2">
+                                <span class="h-[150px] w-[250px] rounded-[15px] overflow-hidden bg-gray-100 mb-2">
                                     <img id="preview" src="" alt="" class="h-full w-full">
                                 </span>
                             </div>

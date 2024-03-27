@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../public/css/style.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +37,10 @@
             </a>
         </div>
     </nav>
+
+    <div class="sidebar">
+    <!-- Konten sidebar disini -->
+    </div>
 
     <div class="left-[14px] top-[100px] absolute text-black text-[30px] font-bold font-['Poppins']">
         Hi Ayu</div>
@@ -328,6 +333,10 @@
 
     <script>
         feather.replace();
+
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('open');
+    });
     </script>
 </body>
 
