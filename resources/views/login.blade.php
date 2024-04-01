@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+$_SESSION ['error'] = '';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,24 +24,30 @@
         <div class="w-[244px] h-30 mx-auto">
         <img src="{{ ('../img/logo1.png') }}" >
         </div>
-
-        <form action="" class="flex flex-col items-center mt-[5px] ">
+        <?php
+            if($_SESSION['error'] === 1){
+        ?>
+            <p>akun atau password anda salah</p>
+        <?php
+            }
+        ?>
+        <form action="{{url('function')}}" class="flex flex-col items-center mt-[5px] " method="post">
             <div class="mr-4 mb-4">
-                <input type="text" placeholder="Name" id="username"
+                <input type="email" placeholder="email" id="username" name="email"
                     class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
             </div>
 
             <div class="mr-4 mb-4">
-                <input type="password" placeholder="password" id="password"
+                <input type="password" placeholder="password" id="password" name="sandi"
                     class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
             </div>
 
             <div class="text-black text-sm font-normal font-['Poppins'] mr-[245px] mt-2">
-                <p> Forgot password?</p>
+                <a href="#"> Forgot password?</a>
             </div>
 
             <div class="mt-4 ">
-                <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]">login</button>
+                <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]" name="login">login</button>
             </div>
 
         </form>

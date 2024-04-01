@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RifadController;
+use App\Http\Controllers\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,13 @@ use App\Http\Controllers\RifadController;
 // });
 
 Route::get('/', [RifadController::class, 'menupage']);
+Route::post('/fungsi', function(){
+    return view('fungsi');
+});
 Route::get('/login', [RifadController::class, 'login']);
-Route::get('/registrasi', [RifadController::class, 'registrasi']);
+Route::get('/registrasi', [RegisterController::class, 'index']);
+
+
+Route::post('/registrasi', [RegisterController::class, 'create']);
 Route::get('/admin', [RifadController::class, 'admin']);
 // Route::get('/login', [RifadController::class, 'login']);

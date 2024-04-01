@@ -26,29 +26,30 @@
             </p>
 
 
-            <form action="" class="flex flex-col items-center mt-[30px] ">
+            <form action="/registrasi" class="flex flex-col items-center mt-[30px] " method="post">
+                @csrf
                 <div class="mr-4 mb-4">
-                    <input type="text" placeholder="Name" id="username"
+                    <input type="text" placeholder="Name" id="username" name="nama"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
 
                 <div class="mr-4 mb-4 relative">
-                    <input type="text" placeholder="DD/MM/YYY" id="tgl_lahir"
+                    <input type="date" placeholder="DD/MM/YYY" id="tgl_lahir" name="tanggal"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px] pl-4 pr-10">
 
                     <i data-feather="calendar" class="absolute inset-y-0 right-0 m-auto mr-3"></i>
 
                 </div>
                 <div class="mr-4 mb-4">
-                    <input type="text" placeholder="Email" id="Email"
+                    <input type="text" placeholder="Email" id="Email" name="email"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
                 <div class="mr-4 mb-4">
-                    <input type="password" placeholder="password" id="password"
+                    <input type="password" placeholder="password" id="password" name="sandi"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
                 <div class="mr-4">
-                    <input type="password" placeholder="Re-password" id="Re-password"
+                    <input type="password" placeholder="Re-password" id="Re-password" name="resandi"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
 
