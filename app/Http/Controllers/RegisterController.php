@@ -16,18 +16,16 @@ class RegisterController extends Controller
         $validate = $request->validate([
             'nama' => 'required|max:255',
             'tanggal' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:dns|unique:users',
             'sandi' => 'required',
-            'resandi' => 'required'
+            'resandi' => 'required|after:sandi'
         ]);
 
-        if($validate['resandi'] === $validate['sandi']){
 
-            $validate['sandi'] = Bcrypt($validate['sandi']);
-    
-            User::create($validate);
-            return redirect('/login');
-        }
+        $validate['sandi'] = Bcrypt($validate['sandi']);
+
+        User::create($validate);
+        return redirect('/login');
 
     }
 }
