@@ -18,7 +18,7 @@ class RegisterController extends Controller
             'tanggal' => 'required',
             'email' => 'required|email:dns|unique:users',
             'sandi' => 'required',
-            'resandi' => 'required|after:sandi'
+            'resandi' => 'required'
         ]);
 
 

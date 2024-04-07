@@ -31,14 +31,28 @@ $_SESSION ['error'] = '';
         <?php
             }
         ?>
-        <form action="{{url('function')}}" class="flex flex-col items-center mt-[5px] " method="post">
+        
+        @if(session()->has('loginError'))
+        <div class="alert alert-danger alert-dissmisable fade show" role="alert">
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        <form action="/login" class="flex flex-col items-center mt-[5px] @error('email') is-invalid @enderror()" method="post">
+            @csrf
             <div class="mr-4 mb-4">
-                <input type="email" placeholder="email" id="username" name="email"
-                    class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
+                <input type="email" placeholder="Email" id="email" name="email"
+                    class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white" autofocus required value="{{ old ('email')}}">
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ "Masukkan Email yang Valid" }}
+                        </div>
+                    @enderror
             </div>
 
             <div class="mr-4 mb-4">
-                <input type="password" placeholder="password" id="password" name="sandi"
+                <input type="password" placeholder="Password" id="sandi" name="sandi"
                     class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
             </div>
 
