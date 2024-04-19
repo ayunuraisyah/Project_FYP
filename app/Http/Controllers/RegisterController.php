@@ -17,12 +17,13 @@ class RegisterController extends Controller
             'nama' => 'required|max:255',
             'tanggal' => 'required',
             'email' => 'required|email:dns|unique:users',
-            'sandi' => 'required',
-            'resandi' => 'required'
+            'password' => 'required',
+            'password' => 'required'
         ]);
 
 
-        $validate['sandi'] = Bcrypt($validate['sandi']);
+
+        $validate['password'] = Bcrypt($validate['password']);
 
         User::create($validate);
         return redirect('/login');

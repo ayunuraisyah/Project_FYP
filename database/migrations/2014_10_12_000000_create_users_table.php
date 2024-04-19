@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('tanggal');
             $table->string('email')->unique();
-            $table->string('sandi');
+            $table->string('password');
             $table->timestamps();
         });
     }

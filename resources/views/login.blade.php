@@ -24,16 +24,9 @@ $_SESSION ['error'] = '';
         <div class="w-[244px] h-30 mx-auto">
         <img src="{{ ('../img/logo1.png') }}" >
         </div>
-        <?php
-            if($_SESSION['error'] === 1){
-        ?>
-            <p>akun atau password anda salah</p>
-        <?php
-            }
-        ?>
-        
+
         @if(session()->has('loginError'))
-        <div class="alert alert-danger alert-dissmisable fade show" role="alert">
+        <div class="alert alert-danger alert-dissmisable fade show text-center" role="alert">
             {{ session('loginError') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -52,19 +45,19 @@ $_SESSION ['error'] = '';
             </div>
 
             <div class="mr-4 mb-4">
-                <input type="password" placeholder="Password" id="sandi" name="sandi"
+                <input type="password" placeholder="Password" id="password" name="password"
                     class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
             </div>
 
-            <div class="text-black text-sm font-normal font-['Poppins'] mr-[245px] mt-2">
-                <a href="#"> Forgot password?</a>
-            </div>
-
+            
             <div class="mt-4 ">
-                <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]" name="login">login</button>
+                <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]" name="login" type="submit">login</button>
             </div>
-
+            
         </form>
+        <div class="text-black text-sm font-normal font-['Poppins'] mt-2 text-center">
+            <a href="#"> Forgot password?</a>
+        </div>
 
         <div class="mt-4 text-center">
             <p class="text-sm font-medium text-gray-900">Don't have an account? <a href="/registrasi"

@@ -25,11 +25,10 @@ Route::post('/fungsi', function(){
     return view('fungsi');
 });
 Route::get('/registrasi', [RegisterController::class, 'index']);
-
-
 Route::post('/registrasi', [RegisterController::class, 'create']);
+
 Route::get('/admin', [RifadController::class, 'admin']);
-// Route::get('/login', [RifadController::class, 'login']);
+
 
 Route::get('/login', [LoginController::class,'login']);
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');

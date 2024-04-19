@@ -45,11 +45,11 @@
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
                 <div class="mr-4 mb-4">
-                    <input type="password" placeholder="password" id="password" name="sandi"
+                    <input type="password" placeholder="password" id="password" name="password"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
                 <div class="mr-4">
-                    <input type="password" placeholder="Re-password" id="Re-password" name="resandi"
+                    <input type="password" placeholder="Re-password" id="Re-password" name="repassword"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
 

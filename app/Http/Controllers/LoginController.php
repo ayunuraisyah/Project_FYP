@@ -18,22 +18,19 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required|email:dns',
-            'sandi' => 'required'
+            'password' => 'required'
         ]);
-
-        $credentials = $request->only('email', 'sandi');
-
-        if (Auth::attempt($credentials)) {
+        
+        $credentials = $request->only(['email','password']);
+        if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
+        
 
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials do not match our records.'],
-        ]);
+        return back()->with('loginError', 'Login failed!');
     }
 }
 ?>
