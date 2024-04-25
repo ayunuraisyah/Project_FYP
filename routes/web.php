@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RifadController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CreateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,8 @@ Route::post('/fungsi', function(){
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
-Route::get('/admin', [RifadController::class, 'admin']);
+Route::get('/admin', [CreateController::class, 'index']);
+Route::post('/admin', [CreateController::class, 'create']);
 
 
 Route::get('/login', [LoginController::class,'login']);

@@ -42,62 +42,43 @@
                 <div class="w-[500px] h-[650px] rounded-[10px] bg-green-500 text-center">
                     <p class="text-white text-[20px] font-bold font-[poppins]">Tambah Makanan</p>
 
-                    <form action="" class="mt-5" method="post">
+                    <form action="/admin" method="post" class="mt-5" method="post">
                         <div>
-                            <input type="text" placeholder="Nama makanan" name="Nama-Makanan" id="Nama-Makanan"
+                            <input type="text" placeholder="Nama makanan" name="namaMakanan" id="Nama-Makanan"
                                 class="w-[350px] h-[40px] rounded-[10px] pl-3 bg-black bg-opacity-20 placeholder-white">
                         </div>
-                        <select name="Daerah" id="Daerah"
+                        <select name="daerah" id="Daerah"
                             class="w-[350px] h-[40px] rounded-[10px] mt-2 text-white bg-black bg-opacity-20"
                             style="text-indent: 5px;">
                             <option value="">daerah Makanan</option>
-                            <option value="">Jawa</option>
-                            <option value="">Sumatra</option>
-                            <option value="">Kalimantan</option>
-                            <option value="">Sulawesi</option>
-                            <option value="">bali</option>
+                            <option value="Jawa">Jawa</option>
+                            <option value="Sumatra">Sumatra</option>
+                            <option value="Kalimantan">Kalimantan</option>
+                            <option value="Sulawesi">Sulawesi</option>
+                            <option value="bali">bali</option>
                         </select>
                         <div class="mt-2">
-                            <input type="number" name="Harga" id="Harga"
+                            <input type="number" name="harga" id="Harga"
                                 class="w-[350px] h-[40px] rounded-[10px] pl-3 bg-black bg-opacity-20 placeholder-white"
                                 placeholder="Harga">
                         </div>
-                        <select name="Stok" id="Stok"
-                            class="w-[350px] h-[40px] rounded-[10px] mt-2 text-white bg-black bg-opacity-20"
-                            style="text-indent: 5px;">
-                            <option value="">Stok</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                        </select>
+                        <input type="number" name="stock" id="" placeholder="stock" class="mt-2 w-[350px] h-[40px] rounded-[10px] pl-3 bg-black bg-opacity-20 placeholder-white">
                         <div class="mt-2">
-                            <textarea name="Deskripsi" id="Deskripsi" cols="30" rows="10" placeholder="deskripsi makanan" required class="w-[350px] h-[150px]  bg-black bg-opacity-20  placeholder-white">
-
-                            </textarea>
+                            <textarea name="deskripsi" id="Deskripsi" cols="30" rows="10" value="deskripsi makanan" required class="w-[350px] h-[150px]  bg-black bg-opacity-20 "></textarea>
                         </div>
                         <div class="mt-2">
                             <label for="Gambar" class="block text-sm font-medium text-gray-700">Pilih Gambar</label>
                             <div class="mt-1 flex flex-col items-center justify-center">
 
-                                <input type="file" id="Gambar" name="Gambar" accept="image/*"
+                                <input type="file" id="Gambar" name="gambar" accept="image/*"
                                     class="sr-only bg-black bg-opacity-20 text-white">
                                 <label for="Gambar"
                                     class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2">
                                     Pilih File
                                 </label>
-                                <span class="h-[150px] w-[250px] rounded-[15px] overflow-hidden bg-gray-100 mb-2">
-                                    <img id="preview" src="" alt="" class="h-full w-full">
-                                </span>
+                                <button class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2">Masukkan Barang</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
