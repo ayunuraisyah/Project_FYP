@@ -25,4 +25,8 @@ class CreateController extends Controller
         items::create($validate);
         return redirect('/admin');
     }
+    public function edit()
+    {
+        return view('adminBarang');
+    }
 }
