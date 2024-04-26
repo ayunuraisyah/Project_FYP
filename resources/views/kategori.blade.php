@@ -1,62 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.templateKategori')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-</head>
+@section('content')
 
-<body>
-    <nav class="flex justify-between items-center bg-[#61AE77] h-[90px] px-[50px]">
-        <div class="flex items-center">
-            <a href="#">
-                <i data-feather="menu" class="text-white w-[35px] h-[30px]"></i>
-            </a>
-            <div class="w-[120px] h-[120px] flex">
-                <img src="img/logo1.png" alt="">
-            </div>
-        </div>
-
-        <form action="" class="flex items-center justify-center flex-grow">
-            <div class="relative flex items-center">
-                <input type="text" placeholder="Cari apa"
-                    class="w-[900px] h-[70px] pl-[50px] bg-zinc-300 rounded-[20px] pr-4 placeholder-lg">
-                <i data-feather="search" class="absolute left-0 top-0 mt-6 ml-3 text-gray-400"></i>
-            </div>
-        </form>
-
-        <div class="flex items-center">
-            <div class="flex items-center">
-                <a href="#" class="mr-5">
-                    <i data-feather="shopping-cart" class=" text-white w-[35px] h-[30px]"></i>
-                </a>
-                <a href="#" class="mr-5">
-                    <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
-                </a>
-                <a href="#">
-                    <img class="w-[50px] h-[50px] rounded-[40px]" src="img/profil.jpg" />
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <div class=" ml-[50px]  absolute text-black text-[30px] font-bold font-['Poppins']">
+    <div class=" ml-[50px]   text-black text-[30px] font-bold font-['Poppins']">
         Hi Ayu</div>
 
-    <div class="ml-[50px] mt-[50px] absolute text-black text-[30px] font-bold font-['Poppins']">
+    <div class="ml-[50px] mt-[10px]  text-black text-[30px] font-bold font-['Poppins']">
         Selamat datang di jawa,mau makan apa?</div>
 
 
 
-    <div class="mt-[150px] grid p-5 grid-cols-2 gap-2  md:grid-cols-3 md:gap-3
+    <div class="mt-[3px] grid p-5 grid-cols-2 gap-2  md:grid-cols-3 md:gap-3
         ">
         <a href="">
             <div class="aspect-[4/3] relative px-6 ">
@@ -270,17 +224,7 @@
         Selengkapnya
     </button>
 
-
-    <footer class="bottom-0 w-full h-[422px] mt-[100px] bg-[#61AE77] relative">
-        <img class="w-[331px] h-[331px]" src="img/logo1.png" />
-        <div class="w-[1328px] h-[0px] absolute px-[5px] border-2 border-white"></div>
-    </footer>
+    @endsection
 
 
-
-    <script>
-        feather.replace();
-    </script>
-</body>
-
-</html>
+   

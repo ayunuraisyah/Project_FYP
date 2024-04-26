@@ -21,10 +21,14 @@ use App\Http\Controllers\CreateController;
 //     return view('welcome');
 // });
 
-Route::get('/', [RifadController::class, 'menupage']);
-Route::post('/fungsi', function(){
-    return view('fungsi');
-});
+Route::get('/', [RifadController::class, 'home']);
+
+Route::get('/menupage', [RifadController::class, 'menupage']);
+
+Route::get('/kategori', [RifadController::class, 'kategori']);
+
+Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
+
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 

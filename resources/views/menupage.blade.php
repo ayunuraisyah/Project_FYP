@@ -1,46 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+   @extends('layout.dashboard')
+   @section('content')
 
-<body class="overflow-x-hidden">
-    <nav class="flex justify-between items-center bg-[#61AE77] h-[90px] px-7">
-        <div class="flex items-center">
-            <a href="#">
-                <i data-feather="menu" class="text-white w-[35px] h-[30px]"></i>
-            </a>
-            <div class="w-[120px] h-[120px] flex">
-                <img src="img/logo1.png" alt="">
-            </div>
-        </div>
-        <div class="flex items-center">
-            <a href="#" class="mr-5">
-                <i data-feather="shopping-cart" class=" text-white w-[35px] h-[30px]"></i>
-            </a>
-            <a href="#" class="mr-5">
-                <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
-            </a>
-            <a href="#">
-            <img src="{{ ('../img/profil.jpg') }}" class="w-[50px] h-[50px] rounded-[40px]"  >
-            </a>
-        </div>
-    </nav>
-
-    <div class="sidebar">
-    <!-- Konten sidebar disini -->
-    </div>
 
     <div class="left-[14px] top-[100px] absolute text-black text-[30px] font-bold font-['Poppins']">
         Hi Ayu</div>
@@ -324,20 +285,4 @@
         selengkapnya
     </button>
 
-    <footer class="bottom-0 left-0 w-full h-[422px] mt-[80px] bg-[#61AE77] relative">
-        <img class="w-[331px] h-[331px]" src="img/logo1.png" />
-        <div class="w-[1328px] h-[0px] absolute px-[5px] border-2 border-white"></div>
-    </footer>
-
-
-
-    <script>
-        feather.replace();
-
-        document.querySelector('.menu-icon').addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('open');
-    });
-    </script>
-</body>
-
-</html>
+   @endsection

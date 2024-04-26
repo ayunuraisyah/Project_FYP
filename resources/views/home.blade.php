@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.dashboard')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lalezar&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body class="overflow-x-hidden">
-    <nav class="flex justify-between items-center bg-[#61AE77] h-[90px] px-5">
-        <div class="flex items-center">
-            <a href="#">
-                <i data-feather="menu" class="text-white w-[35px] h-[30px]"></i>
-            </a>
-            <div class="w-[120px] h-[120px] flex">
-                <img src="img/logo1.png" alt="">
-            </div>
-        </div>
-        <div class="flex items-center">
-            <a href="" class="mr-6 text-white">Menu</a>
-            <a href="" class="mr-6 text-white">Home</a>
-            <a href="" class="mr-6"><i data-feather="shopping-cart" class="text-white "></i></a>
-            <a href="" class="mr-6"><i data-feather="user" class="text-white "></i></a>
-            <a href="" class="mr-6"><i data-feather="bell" class="text-white "></i></a>
-            <a href="" class="text-white">Login</a>
-        </div>
-
-
-    </nav>
-
+@section('content')
 
     <div class="relative w-full overflow-hidden bg-">
         <img src="img/bg-home/Bg Home.jpeg" alt="" class="w-full h-full object-cover">
@@ -88,14 +53,10 @@
 
     </div>
 
+    @endsection
 
 
 
 
-    <script>
-        feather.replace();
-    </script>
 
-</body>
-
-</html>
+    
