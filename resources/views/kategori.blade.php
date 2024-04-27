@@ -12,7 +12,7 @@
 
     <div class="mt-[3px] grid p-5 grid-cols-2 gap-2  md:grid-cols-3 md:gap-3
         ">
-        <a href="">
+        <a href="/detailProduk">
             <div class="aspect-[4/3] relative px-6 ">
                 <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
                     <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"

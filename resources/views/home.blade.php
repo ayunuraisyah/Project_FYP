@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="relative w-full overflow-hidden bg-">
-        <img src="img/bg-home/Bg Home.jpeg" alt="" class="w-full h-full object-cover">
+        <img src="img/Bg Home.jpeg" alt="" class="w-full h-full object-cover bg-repeat" style="background-size: 600px;">
         <div class="absolute inset-0 flex items-center justify-center flex-col text-center text-white">
             <p class="text-[70px] font-bold font-'Lalezar'">RAGAM MENU PILIHAN</p>
             <p class="w-[510px] h-[0px] border-[3px] border-white mt-3"></p>

@@ -24,8 +24,8 @@
                 <a href="#" class="mr-5">
                     <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
                 </a>
-                <a href="#">
-                    <img class="w-[50px] h-[50px] rounded-[40px]" src="img/profil.jpg" />
+                <a href="/login">
+                    <p>login</p>
                 </a>
             </div>
         </div>

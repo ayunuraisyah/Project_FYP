@@ -8,16 +8,16 @@
             </div>
         </div>
         <div class="flex items-center">
-        <a href="" class="mr-6 text-white">Menu</a>
-            <a href="" class="mr-6 text-white">Home</a>
+            <a href="/menupage" class="mr-6 text-white">Menu</a>
+            <a href="/" class="mr-6 text-white">Home</a>
             <a href="#" class="mr-5">
                 <i data-feather="shopping-cart" class=" text-white w-[35px] h-[30px]"></i>
             </a>
-            <a href="#" class="mr-5">
+            <!-- <a href="#" class="mr-5">
                 <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
-            </a>
-            <a href="#">
-            <img src="{{ ('../img/profil.jpg') }}" class="w-[50px] h-[50px] rounded-[40px]"  >
+            </a> -->
+            <a href="login">
+            <p>login</p>
             </a>
         </div>
     </nav>

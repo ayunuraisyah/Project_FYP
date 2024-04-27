@@ -15,9 +15,9 @@
 
 </head>
 
-<body class="w-[1536px] h-[728px] relative bg-[#61AE77] overflow-hidden">
-    <div class="relative bg-green-400">
-        <div class="w-[526px] h-[562px] left-[493px] top-[119px] absolute bg-white rounded-[50px]">
+<body class=" relative bg-[#61AE77] overflow-hidden">
+    <div class=" bg-green-400 h-[100vh] flex justify-center items-center">
+        <div class="w-[526px] bg-white rounded-[50px]">
             <p class="text-green-900 text-[32px] font-bold font-['Poppins'] flex item-center justify-center mt-6">
                 Welcome To FYP!
             </p>
@@ -59,9 +59,9 @@
             </form>
 
 
-            <div class="mt-4 text-center">
-                <p class="text-sm font-medium text-gray-900">Don't have an account? <a href="#"
-                        class="text-indigo-600 hover:text-indigo-500">Sign-up</a></p>
+            <div class="mt-4 mb-3 text-center">
+                <p class="text-sm font-medium text-gray-900">Already have an account? <a href="/login"
+             class="text-indigo-600 hover:text-indigo-500">Sign-in</a></p>
             </div>
         </div>
 

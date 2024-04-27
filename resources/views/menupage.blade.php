@@ -26,7 +26,7 @@
 
     <div class=" mt-[10px] grid grid-cols-2  md:grid-cols-5 md:p-4 ">
 
-        <a href="">
+        <a href="/kategori">
             <div class="w-[280px] h-[200px] relative shadow">
                 <img class="w-[239.32px] h-[133.33px] left-[21.78px] top-[17.78px] absolute rounded-[20px]"
                     src="img/peta-daerah/Jawa.jpeg" />
