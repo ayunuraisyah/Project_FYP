@@ -11,7 +11,7 @@ $_SESSION ['error'] = '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ $tittle }} | {{ $active }}</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -28,7 +28,7 @@ $_SESSION ['error'] = '';
             </div>
     
             @if(session()->has('loginError'))
-            <div class="alert alert-danger alert-dissmisable fade show text-center" role="alert">
+            <div class="text-red-600 text-center" role="alert">
                 {{ session('loginError') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -36,17 +36,17 @@ $_SESSION ['error'] = '';
     
             <form action="/login" class="flex flex-col items-center mt-[5px] @error('email') is-invalid @enderror()" method="post">
                 @csrf
-                <div class="mr-4 mb-4">
+                <div class="mt-4">
                     <input type="email" placeholder="Email" id="email" name="email"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white" autofocus required value="{{ old ('email')}}">
                         @error('email')
                             <div class="invalid-feedback">
-                                {{ "Masukkan Email yang Valid" }}
+                                {{ "Please enter a valid email" }}
                             </div>
                         @enderror
                 </div>
     
-                <div class="mr-4 mb-4">
+                <div class="mt-4">
                     <input type="password" placeholder="Password" id="password" name="password"
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4 placeholder-white">
                 </div>

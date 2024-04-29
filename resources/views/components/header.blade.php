@@ -16,8 +16,16 @@
             <!-- <a href="#" class="mr-5">
                 <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
             </a> -->
-            <a href="login">
-            <p>login</p>
-            </a>
+            @auth
+            
+                <a href="/profile" class="mr-6 text-white">Welcome {{ auth()->user()->name }}!</a>
+
+            @else
+            
+                <a href="/login" class="mr-6 text-white">
+                    <p>login</p>
+                </a>
+            
+            @endauth
         </div>
     </nav>

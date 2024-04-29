@@ -9,24 +9,33 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('registrasi');
+        return view('registrasi',
+    [
+        'tittle' => 'FYP',
+        'active' => 'Registration'
+    ]);
     }
     public function create(Request $request)
     {
         $validate = $request->validate([
-            'nama' => 'required|max:255',
-            'tanggal' => 'required',
+            'name' => 'required|max:255',
+            'date' => 'required',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required',
-            'password' => 'required'
+            'repassword' => 'required',
+            'address' => 'required',
+            'status' => 'required',
         ]);
 
+        if($validate['repassword'] === $validate['password'])
+        {
+            $validate['password'] = Bcrypt($validate['password']);
+    
+            User::create($validate);
+            return redirect('/login');
+        }
+            return back()->with('registerError', 'Password not macth!');
 
-
-        $validate['password'] = Bcrypt($validate['password']);
-
-        User::create($validate);
-        return redirect('/login');
 
     }
 }

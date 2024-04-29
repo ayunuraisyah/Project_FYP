@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RifadController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CreateController;
+use App\Http\Controllers\itemsPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +32,10 @@ Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
-Route::get('/admin', [CreateController::class, 'index']);
-Route::post('/admin', [CreateController::class, 'create']);
-Route::get('/adminBarang', [CreateController::class, 'edit']);
+Route::resource('/admin', itemsPostController::class)->middleware('auth');
+Route::get('/adminBarang', [RifadController::class, 'edit']);
 
+Route::get('/login', [LoginController::class,'login'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/login', [LoginController::class,'login']);
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::post('masuk', [ 'as' => 'login', 'uses' => 'LoginController@do']);
