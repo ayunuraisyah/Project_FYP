@@ -15,7 +15,7 @@ class itemsPostController extends Controller
     {
         return view('admin',
     [
-        'tittle' => 'FYP',
+        'title' => 'FYP',
         'active' => 'Admin'
     ]);
     }
@@ -33,7 +33,18 @@ class itemsPostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $item = new Item;
+        $item->title = $request->input('title');
+        $item->origin = $request->input('origin');  
+        $item->stock = $request->input('stock');  
+        $item->rating = $request->input('rating');  
+        $item->sold = $request->input('sold');
+        $item->thumbnail = $request->file('thumbnail')->store('thumbnail');;  
+        $item->price = $request->input('price');  
+        $item->description = $request->input('description');  
+        $item->save();
+
+        return redirect()->back()->with('success', 'Succeed');
     }
 
     /**
@@ -41,7 +52,18 @@ class itemsPostController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        // $items = Item::get();
+        // foreach($items as $item){
+        //     $title[] = $item->title;
+        //     $origin[] = $item->origin;
+        //     $stock[] = $item->stock;
+        //     $rating[] = $item->rating;
+        //     $sold[] = $item->sold;
+        //     $thumbnail[] = $item->thumbnail;
+        //     $slug[] = $item->slug;
+        //     $price[] = $item->price;
+        //     $description[] = $item->description;
+        // }
     }
 
     /**

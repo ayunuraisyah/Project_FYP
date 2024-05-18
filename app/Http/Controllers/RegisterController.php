@@ -11,7 +11,7 @@ class RegisterController extends Controller
     {
         return view('registrasi',
     [
-        'tittle' => 'FYP',
+        'title' => 'FYP',
         'active' => 'Registration'
     ]);
     }

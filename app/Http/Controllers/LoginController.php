@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function login()
     {
         return view("login", [
-            'tittle' => 'FYP',
+            'title' => 'FYP',
             'active' => 'Login'
         ]);
     }

@@ -20,4 +20,8 @@ class Item extends Model
         ];
     }
 
+    protected $table = 'items';
+    protected $guarded = ['id'];
+    // public $timestamps = false;
+
 }

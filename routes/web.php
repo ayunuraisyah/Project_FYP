@@ -5,6 +5,8 @@ use App\Http\Controllers\RifadController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\itemsPostController;
+use App\Http\Controllers\ReaditemController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,7 @@ Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
 Route::resource('/admin', itemsPostController::class)->middleware('auth');
-Route::get('/adminBarang', [RifadController::class, 'edit']);
+Route::get('/adminBarang', [ReaditemController::class,'view'])->middleware('auth');
 
 Route::get('/login', [LoginController::class,'login'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
