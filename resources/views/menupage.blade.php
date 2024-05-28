@@ -3,11 +3,12 @@
    @section('content')
 
 
-    <div class="left-[14px] top-[100px] absolute text-black text-[30px] font-bold font-['Poppins']">
+   <div class="left-[14px] top-[100px] absolute text-black text-[30px] font-bold font-['Poppins']">
         Hi Ayu</div>
 
     <div class=" left-[14px] top-[150px] absolute text-black text-[30px] font-bold font-['Poppins']">
         Makanan daerah mana yang kamu mau hari ini?</div>
+
 
     <form action="" class="relative mt-[130px] left-[14px] flex items-center">
         <div class="relative flex items-center">

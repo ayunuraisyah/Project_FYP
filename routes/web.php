@@ -29,6 +29,16 @@ Route::get('/menupage', [RifadController::class, 'menupage']);
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
+Route::get('/profil', [RifadController::class, 'profil']);
+
+Route::get('/adminproduk', [RifadController::class, 'adminproduk']);
+
+Route::get('/beliProduk', [RifadController::class, 'beliProduk']);
+
+Route::get('/statuspembelian', [RifadController::class, 'statuspembelian']);
+
+Route::get('/keranjang', [RifadController::class, 'keranjang']);
+
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 
 Route::get('/registrasi', [RegisterController::class, 'index']);

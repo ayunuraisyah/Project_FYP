@@ -2,7 +2,8 @@
 @extends('layout.adminPage')
 
 @section('content')
-                <div class=" h-[100%] rounded-[10px] bg-green-500 p-5">
+<div class="flex">
+<div class="w-[600px] h-min-full rounded-[10px] bg-green-500 p-5">
                     <h1 class="text-white text-[3rem] font-bold font-[poppins]">Tambah Makanan</h1>
 
                     <form action="/admin" method="post" class="mt-5" enctype="multipart/form-data">
@@ -49,4 +50,24 @@
                     </form>
                 </div>
 
+                <div class="w-[400px] h-[300px] bg-green-500 rounded-[8px] ml-5 r">
+        <h2 class="text-white text-[2rem] font-bold font-[poppins] text-center mt-5">Tambah Kategori</h2>
+        <p class="text-center mt-4">Kategori</p>
+        <form action="" class="w-full flex justify-center mt-2">
+            <select id="kategori" name="kategori" class="bg-gray-100 rounded-md w-[50%] h-[30px]">
+                <option value="Jawa">Jawa</option>
+                <option value="Sumatra">Sumatra</option>
+                <option value="Bali">Bali</option>
+                <option value="Kalimantan">Kalimantan</option>
+            </select>
+        </form>
+    </div>
+</div>
+              
+
+               
 @endsection
+
+
+
+

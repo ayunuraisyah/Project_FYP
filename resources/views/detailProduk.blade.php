@@ -23,7 +23,9 @@
     <div class="mt-3" >
       <form action="" class="flex">
       <input type="number" class="w-[70%] h-[5vh]  bg-[#D9D9D9] text-white placeholder-black" placeholder="1">
+      <a href="/beliProduk">
       <button class="w-[70%] h-[5vh] bg-[#07511B] rounded-[5px] ml-4">pesan</button>
+      </a>
       </form>
       
     </div>

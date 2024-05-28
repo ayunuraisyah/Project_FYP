@@ -21,6 +21,13 @@ class RifadController extends Controller
         'active' => 'Menupage'
     ]);
     }
+    public function keranjang(){
+        return view('keranjang',
+    [
+        'title' => 'FYP',
+        'active' => 'keranjang'
+    ]);
+    }
     public function detailProduk(){
         return view('detailProduk',
     [
@@ -34,12 +41,40 @@ class RifadController extends Controller
         'title' => 'FYP',
         'active' => 'Category'
     ]);
+}
+    public function profil(){
+        return view('profil',
+    [
+        'title' => 'FYP',
+        'active' => 'profil'
+    ]);
     }
     public function admin(){
         return view('admin',
     [
         'title' => 'FYP',
         'active' => 'Admin'
+    ]);
+}
+    public function adminproduk(){
+        return view('adminproduk',
+    [
+        'title' => 'FYP',
+        'active' => 'adminproduk'
+    ]);
+    }
+    public function beliProduk(){
+        return view('beliProduk',
+    [
+        'title' => 'FYP',
+        'active' => 'beliProduk'
+    ]);
+}
+    public function statuspembelian(){
+        return view('statuspembelian',
+    [
+        'title' => 'FYP',
+        'active' => 'statuspembelian'
     ]);
     }
     public function edit(){
