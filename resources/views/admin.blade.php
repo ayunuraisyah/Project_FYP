@@ -2,11 +2,11 @@
 @extends('layout.adminPage')
 
 @section('content')
-<div class="flex">
-<div class="w-[600px] h-min-full rounded-[10px] bg-green-500 p-5">
+<div class="flex items-center justify-center">
+     <div class="w-[600px] h-min-full rounded-[10px] bg-green-500 p-5">
                     <h1 class="text-white text-[3rem] font-bold font-[poppins]">Tambah Makanan</h1>
 
-                    <form action="/admin" method="post" class="mt-5" enctype="multipart/form-data">
+                    <form action="/admin" method="post" class="mt-2" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <input type="text" placeholder="Nama makanan" name="title" id="title"

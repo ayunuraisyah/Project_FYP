@@ -70,6 +70,13 @@ class RifadController extends Controller
         'active' => 'beliProduk'
     ]);
 }
+    public function test(){
+        return view('test',
+    [
+        'title' => 'FYP',
+        'active' => 'tes'
+    ]);
+}
     public function statuspembelian(){
         return view('statuspembelian',
     [
