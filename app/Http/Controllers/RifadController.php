@@ -55,6 +55,20 @@ class RifadController extends Controller
         'title' => 'FYP',
         'active' => 'Admin'
     ]);
+    }
+    public function profil2(){
+        return view('profil2',
+    [
+        'title' => 'FYP',
+        'active' => 'profil2'
+    ]);
+    }
+    public function keranjang2(){
+        return view('keranjang2',
+    [
+        'title' => 'FYP',
+        'active' => 'keranjang2'
+    ]);
 }
     public function adminproduk(){
         return view('adminproduk',

@@ -39,7 +39,11 @@ Route::get('/test', [RifadController::class, 'test']);
 
 Route::get('/statuspembelian', [RifadController::class, 'statuspembelian']);
 
+Route::get('/profil2', [RifadController::class, 'profil2']);
+
 Route::get('/keranjang', [RifadController::class, 'keranjang']);
+
+Route::get('/keranjang2', [RifadController::class, 'keranjang2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 

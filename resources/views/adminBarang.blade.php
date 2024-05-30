@@ -98,10 +98,10 @@
                 // Fetch item data using itemId and populate the form (this is just an example)
                 // In a real application, you might fetch data from the server
                 const item = {
-                    title: "Example Title",
-                    origin: "Example Origin",
-                    price: "123.45",
-                    stock: "tersedia"
+                    title: "",
+                    origin: "",
+                    price: "",
+                    stock: ""
                 };
                 document.getElementById('Nama').value = item.title;
                 document.getElementById('kategori').value = item.origin;
