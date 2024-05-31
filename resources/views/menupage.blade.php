@@ -84,201 +84,22 @@
 
     <div class="mt-6 grid p-5 grid-cols-2 gap-2  md:grid-cols-3 
         md:px-5 ">
-        <div class="aspect-[4/3] relative px-5">
-            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
-                    src="img/menupage/Rawon Menupage.jpeg" />
 
+        @foreach($items as $item)
+        <div class="top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
+                <img class="left-0 top-0 w-[359px] h-[200px] rounded-[10px]" src="/storage/{{ $item->thumbnail }}" />
+                <div class="px-[3px] bg-white rounded-[5px]">
+                    <button><i class="w-[17px] h-[15px] text-yellow-600" data-feather="star"></i></button>{{ $item->rating }}({{ $item->sold }})
+                    <p>{{ $item->title }}, {{ $item->origin }}</p>
+                    <p>{{ $item->price }}</p>
 
-                <div class="absolute left-[16.85px] top-[11.88px] w-[115.17px] h-[24.67px] bg-white rounded-[20px]">
-
-                    <div class="absolute flex items-center ml-2">
-                        <i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i>
-                        <div class="ml-2">
-                            <span>4.6</span>
-                            <span>(120)</span>
-                        </div>
+                    <div class="flex justify-between mt-3">
+                        <button class="success-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2"><a href="{{ route('produk.show', $item->slug) }}">Buy</a></button>
+                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-800 cursor-pointer mb-2" data-item-id="{{ $item->id }}">Cart</button>
                     </div>
-
-                </div>
-
-                <div
-                    class="absolute left-[48.69px] top-[160px] w-[106.75px] h-[36.55px] text-white text-xl font-bold font-Mulish leading-relaxed">
-                    0.5 km
-                </div>
-
-                <div class="absolute left-[20.28px] top-[165px]">
-                    <i data-feather="map-pin" class="text-white "></i>
-                </div>
-
-                <div
-                    class="absolute left-[16.85px] top-[200px] w-[481.52px] h-[62.73px] text-black text-[20px] font-bold font-Mulish leading-[45.50px]">
-                    Rawon, Jawa Timur
-                </div>
-
-                <div
-                    class="absolute left-[20.60px] top-[230px] w-[168.55px] h-[39.29px] text-zinc-500 text-[20px] font-normal font-Mulish leading-loose">
-                    Rp. 18.000
                 </div>
             </div>
-
-        </div>
-        <div class="aspect-[4/3] relative px-5">
-            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
-                    src="img/menupage/Sate Lilit Menupage.jpeg" />
-
-
-                <div class="absolute left-[16.85px] top-[11.88px] w-[115.17px] h-[24.67px] bg-white rounded-[20px]">
-
-                    <div class="absolute flex items-center ml-2">
-                        <i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i>
-                        <div class="ml-2">
-                            <span>4.5</span>
-                            <span>(120)</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="absolute left-[48.69px] top-[160px] w-[106.75px] h-[36.55px] text-white text-xl font-bold font-Mulish leading-relaxed">
-                    0.5 km
-                </div>
-
-                <div class="absolute left-[20.28px] top-[165px]">
-                    <i data-feather="map-pin" class="text-white "></i>
-                </div>
-
-                <div
-                    class="absolute left-[16.85px] top-[200px] w-[481.52px] h-[62.73px] text-black text-[20px] font-bold font-Mulish leading-[45.50px]">
-                    sate lilit, Bali
-                </div>
-
-                <div
-                    class="absolute left-[20.60px] top-[230px] w-[168.55px] h-[39.29px] text-zinc-500 text-[20px] font-normal font-Mulish leading-loose">
-                    Rp. 23.000
-                </div>
-            </div>
-
-        </div>
-        <div class="aspect-[4/3] relative px-5">
-            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
-                    src="img/menupage/Coto Makassar Menupage.jpeg" />
-
-
-                <div class="absolute left-[16.85px] top-[11.88px] w-[115.17px] h-[24.67px] bg-white rounded-[20px]">
-
-                    <div class="absolute flex items-center ml-2">
-                        <i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i>
-                        <div class="ml-2">
-                            <span>4.6</span>
-                            <span>(120)</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="absolute left-[48.69px] top-[160px] w-[106.75px] h-[36.55px] text-white text-xl font-bold font-Mulish leading-relaxed">
-                    0.5 km
-                </div>
-
-                <div class="absolute left-[20.28px] top-[165px]">
-                    <i data-feather="map-pin" class="text-white "></i>
-                </div>
-
-                <div
-                    class="absolute left-[16.85px] top-[200px] w-[481.52px] h-[62.73px] text-black text-[20px] font-bold font-Mulish leading-[45.50px]">
-                    coto Makassar, sulawesi
-                </div>
-
-                <div
-                    class="absolute left-[20.60px] top-[230px] w-[168.55px] h-[39.29px] text-zinc-500 text-[20px] font-normal font-Mulish leading-loose">
-                    Rp. 25.000
-                </div>
-            </div>
-
-        </div>
-        <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
-                    src="img/menupage/Gado-Gado Menupage.jpeg" />
-
-
-                <div class="absolute left-[16.85px] top-[11.88px] w-[115.17px] h-[24.67px] bg-white rounded-[20px]">
-
-                    <div class="absolute flex items-center ml-2">
-                        <i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i>
-                        <div class="ml-2">
-                            <span>4.6</span>
-                            <span>(120)</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="absolute left-[48.69px] top-[160px] w-[106.75px] h-[36.55px] text-white text-xl font-bold font-Mulish leading-relaxed">
-                    0.5 km
-                </div>
-
-                <div class="absolute left-[20.28px] top-[165px]">
-                    <i data-feather="map-pin" class="text-white "></i>
-                </div>
-
-                <div
-                    class="absolute left-[16.85px] top-[200px] w-[481.52px] h-[62.73px] text-black text-[20px] font-bold font-Mulish leading-[45.50px]">
-                    Gado-Gado, Jakarta
-                </div>
-
-                <div
-                    class="absolute left-[20.60px] top-[230px] w-[168.55px] h-[39.29px] text-zinc-500 text-[20px] font-normal font-Mulish leading-loose">
-                    Rp. 10.000
-                </div>
-            </div>
-
-        </div>
-        <div class="aspect-[4/3] relative ">
-            <div class="absolute top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="absolute left-0 top-0 w-[359px] h-[200px] rounded-[10px]"
-                    src="img/menupage/Naniura Menupage.jpeg" />
-
-
-                <div class="absolute left-[16.85px] top-[11.88px] w-[115.17px] h-[24.67px] bg-white rounded-[20px]">
-
-                    <div class="absolute flex items-center ml-2">
-                        <i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i>
-                        <div class="ml-2">
-                            <span>4.5</span>
-                            <span>(120)</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="absolute left-[48.69px] top-[160px] w-[106.75px] h-[36.55px] text-white text-xl font-bold font-Mulish leading-relaxed">
-                    0.5 km
-                </div>
-
-                <div class="absolute left-[20.28px] top-[165px]">
-                    <i data-feather="map-pin" class="text-white "></i>
-                </div>
-
-                <div
-                    class="absolute left-[16.85px] top-[200px] w-[481.52px] h-[62.73px] text-black text-[20px] font-bold font-Mulish leading-[45.50px]">
-                    naniura, sumatra utara
-                </div>
-
-                <div
-                    class="absolute left-[20.60px] top-[230px] w-[168.55px] h-[39.29px] text-zinc-500 text-[20px] font-normal font-Mulish leading-loose">
-                    Rp. 35.000
-                </div>
-            </div>
-
-        </div>
+        @endforeach
 
     </div>
      

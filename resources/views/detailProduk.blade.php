@@ -4,15 +4,15 @@
 
 <div class="container items-center justify-center flex gap-20 mt-[50px]">
   <div class="h-[40vh] ">
-    <img src="img/menupage/Rawon Menupage.jpeg" alt="" class="rounded-[20px]">
+    <img src="/storage/{{ $item->thumbnail }}" alt="" class="rounded-[20px]">
   </div>
   
   <div class="flex items-start">
     <div class=" h-[40vh]">
-    <h2>rawon,jawa timur</h2>
+    <h2>{{ $item->title }},{{ $item->origin }}</h2>
     <div>
-      <button><i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i></button> 4.6 (tersisa 20)
-      <p>Rp. 18.000</p>
+      <button><i class=" w-[17px] h-[15px] text-yellow-600" data-feather="star"></i></button> {{ $item->rating }} (tersisa {{ $item->stock }})
+      <p>Rp. {{ $item->price }}</p>
     </div>
     
 
@@ -37,8 +37,8 @@
 
 <div class=" w-[100%]  container items-center justify-center flex  mt-[50px]">
   <div>
- <h1><b>Deskripsi:</b></h1>
-  <p>Rawon (Aksara Jawa:ꦫꦮꦺꦴꦤ꧀) adalah masakan khas Indonesia yang berasal dari Ponorogo, Jawa Timur, yang berupa sup daging berkuah hitam dengan campuran bumbu khas yang menggunakan kluwek. Makanan ini telah berusia lebih dari 1.000 tahun. Daging untuk rawon umumnya adalah daging sapi yang dipotong kecil-kecil, Namun terkadang rawon juga hadir dengan daging ayam. Rawon disajikan bersama nasi, dilengkapi dengan tauge berekor pendek, telur asin, daun bawang, kerupuk udang, daging sapi goreng (empal), dan sambal.</p>
+    <h1><b>Deskripsi:</b></h1>
+    <p>{{ $item->deskripsi }}.</p>
   </div>
   
 </div>

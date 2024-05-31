@@ -25,8 +25,6 @@ use App\Http\Controllers\ReaditemController;
 
 Route::get('/', [RifadController::class, 'home']);
 
-Route::get('/menupage', [RifadController::class, 'menupage']);
-
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
 Route::get('/profil', [RifadController::class, 'profil']);
@@ -52,6 +50,9 @@ Route::post('/registrasi', [RegisterController::class, 'create']);
 
 Route::resource('/admin', itemsPostController::class)->middleware('auth');
 Route::get('/adminBarang', [ReaditemController::class,'view'])->middleware('auth');
+
+Route::get('/menupage', [ReaditemController::class,'menuPage']);
+Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');
 
 Route::get('/login', [LoginController::class,'login'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

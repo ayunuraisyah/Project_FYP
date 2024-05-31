@@ -22,6 +22,8 @@ class Item extends Model
 
     protected $table = 'items';
     protected $guarded = ['id'];
+    protected $primaryKey = 'slug';
+    public $incrementing = false;
     // public $timestamps = false;
 
 }

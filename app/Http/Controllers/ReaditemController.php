@@ -18,4 +18,31 @@ class ReaditemController extends Controller
             'items' => Item::all(),
         ]);
     }
+
+    public function menuPage()
+    {
+        return view('menupage', 
+        [
+            'title' => 'FYP',
+            'active' => 'Admin',
+            'items' => Item::all(),
+        ]);
+    }
+
+    public function detail($slug){
+        $item = Item::find($slug);
+
+        if($item)
+        {
+            return view('detailProduk', [
+                'title' => 'FYP',
+                'active' => 'Product Detail',
+                'item' => $item
+            ]);
+        }
+        else
+        {
+            redirect()->back()->with('error', 'Item Not Found');
+        }
+    }
 }
