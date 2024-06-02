@@ -38,7 +38,7 @@
 <div class=" w-[100%]  container items-center justify-center flex  mt-[50px]">
   <div>
     <h1><b>Deskripsi:</b></h1>
-    <p>{{ $item->deskripsi }}.</p>
+    <p>{{ $item->description }}.</p>
   </div>
   
 </div>
