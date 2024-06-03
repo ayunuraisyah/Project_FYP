@@ -20,85 +20,79 @@
                     <p>{{ $item->price }}</p>
 
                     <div class="flex justify-between mt-3">
-                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" data-item-id="{{ $item->id }}">Edit</button>
-                        <button class="delete-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-800 cursor-pointer mb-2" data-item-id="{{ $item->id }}">Delete</button>
+                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Edit</button>
+                        <button class="delete-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-800 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Delete</button>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
-
-    <!-- Modal Edit -->
-    <div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
-            <div class="flex justify-between items-center">
-                <h2 class="text-xl font-semibold">Edit Produk</h2>
-                <button id="closeEditModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
+            <!-- Modal Edit -->
+            <div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-semibold">Edit Produk</h2>
+                        <button id="closeEditModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
+                    </div>
+                    <form method="POST" id="editproduk" action="{{ route('item.update', $item->slug) }}" enctype="multipart/form-data">
+        
+                        @csrf
+                        @method('PUT')
+                        <div class="mt-4">
+                            <label for="title" class="block text-sm font-medium text-gray-700">Nama makanan</label>
+                            <input type="text" id="title" name="title" class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                        <div class="mt-4">
+                            <label for="origin" class="block text-sm font-medium text-gray-700">Asal daerah</label>
+                            <input type="text" id="origin" name="origin" class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                        <div class="mt-4">
+                            <label for="stock" class="block text-sm font-medium text-gray-700">Stok</label>
+                            <input type="number" id="stock" name="stock" class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                        <div class="mt-4">
+                            <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
+                            <input type="file" id="thumbnail" name="thumbnail" class="mt-1 p-2 w-full border rounded-md" accept="image/*">
+                        </div>
+                        <div class="mt-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+                            <input type="number" id="price" name="price" class="mt-1 p-2 w-full border rounded-md">
+                        </div>
+                        <div class="mt-4">
+                            <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                            <input id="x" type="hidden" name="description" id="description">
+                            <trix-editor input="x" class="w-[100%] h-[150px]  bg-black bg-opacity-20 border-0" name="description" id="description"></trix-editor>
+                        </div>
+                        <div class="mt-6 flex justify-end">
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form method="POST" id="editproduk" action="{{ route('adminBarang.update', $item->id) }}" enctype="multipart/form-data">
-
-                @csrf
-                @method('PUT')
-                <div class="mt-4">
-                    <label for="title" class="block text-sm font-medium text-gray-700">Nama makanan</label>
-                    <input type="text" id="title" name="title" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="origin" class="block text-sm font-medium text-gray-700">Asal daerah</label>
-                    <input type="text" id="origin" name="origin" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="stock" class="block text-sm font-medium text-gray-700">Stok</label>
-                    <input type="number" id="stock" name="stock" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
-                    <input type="number" id="rating" name="rating" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="sold" class="block text-sm font-medium text-gray-700">Terjual</label>
-                    <input type="number" id="sold" name="sold" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
-                    <input type="img" id="thumbnail" name="thumbnail" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
-                    <input type="number" id="price" name="price" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-4">
-                    <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                    <input type="hidden" id="description" name="description" class="mt-1 p-2 w-full border rounded-md">
-                </div>
-                <div class="mt-6 flex justify-end">
-                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+        
+            <!-- Modal Delete -->
+            <div id="deleteModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                <form method="POST" id="deleteForm" action="{{ route('item.delete',$item->slug) }}">
+                    @csrf
+                <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-semibold">Delete Confirmation</h2>
+                        <button id="closeDeleteModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
+                    </div>
+                    <div class="mt-4">
+                        <p>Are you sure you want to delete this item?</p>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <button id="confirmDeleteButton" class="px-4 py-2 bg-red-600 text-white rounded mr-2">Delete</button>
+                        <button id="cancelDeleteButton" class="px-4 py-2 bg-gray-300 text-black rounded">Cancel</button>
+                    </div>
                 </div>
             </form>
-        </div>
-    </div>
+            </div>
 
-    <!-- Modal Delete -->
-    <div id="deleteModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <form method="POST" id="deleteForm">
-            @csrf
-            @method('DELETE')
-        <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
-            <div class="flex justify-between items-center">
-                <h2 class="text-xl font-semibold">Delete Confirmation</h2>
-                <button id="closeDeleteModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
-            </div>
-            <div class="mt-4">
-                <p>Are you sure you want to delete this item?</p>
-            </div>
-            <div class="mt-6 flex justify-end">
-                <button id="confirmDeleteButton" class="px-4 py-2 bg-red-600 text-white rounded mr-2">Delete</button>
-                <button id="cancelDeleteButton" class="px-4 py-2 bg-gray-300 text-black rounded">Cancel</button>
-            </div>
-        </div>
-    </form>
-    </div>
-
+            <?php
+                $descriptionItem = strip_tags($item->description);
+            ?>
     <script>
         // JavaScript to handle modals
         const editButtons = document.querySelectorAll('.edit-button');
@@ -122,18 +116,14 @@
                     title: "{{ $item->title }}",
                     origin: "{{ $item->origin }}",
                     stock: "{{ $item->stock }}",
-                    rating: "{{ $item->rating }}",
-                    sold: "{{ $item->sold }}",
                     thumbnail: "{{ $item->thumbnail }}",
                     price: "{{ $item->price }}",
-                    description: "{{ $item->description }}"
+                    description: "{{ $descriptionItem }}"
                 };
                 document.getElementById('title').value = item.title;
                 document.getElementById('origin').value = item.origin;
                 document.getElementById('stock').value = item.stock;
-                document.getElementById('rating').value = item.rating;
-                document.getElementById('sold').value = item.sold;
-                document.getElementById('thumbnail').value = item.thumbnail;
+                // document.getElementById('thumbnail').value = item.thumbnail;
                 document.getElementById('price').value = item.price;
                 document.getElementById('description').value = item.description;
                 editModal.classList.remove('hidden');
@@ -180,6 +170,8 @@
             deleteForm.submit(); // Submit the form to delete the item
         });
     </script>
+
+
 </body>
 </html>
 

@@ -44,18 +44,26 @@ Route::get('/keranjang', [RifadController::class, 'keranjang']);
 Route::get('/keranjang2', [RifadController::class, 'keranjang2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
+
+// REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
-Route::resource('/admin', itemsPostController::class)->middleware('auth');
-Route::get('/adminBarang', [ReaditemController::class,'view'])->middleware('auth');
-Route::put('/adminBarang/{id}', [ReaditemController::class, 'update'])->name('adminBarang.update')->middleware('auth');
-Route::delete('/adminBarang/{id}', [itemsPostController::class, 'delete'])->name('item.delete');
 
+// ITEM CRUD
+Route::resource('/admin', itemsPostController::class)->middleware('auth');
+Route::post('/adminBarang', [itemsPostController::class, 'store'])->name('item.store')->middleware('auth');
+Route::get('/adminBarang', [ReaditemController::class,'view'])->middleware('auth');
+Route::put('/adminBarang/{slug}', [itemsPostController::class, 'update'])->name('item.update')->middleware('auth');
+Route::post('/adminBarang/{slug}', [itemsPostController::class, 'delete'])->name('item.delete')->middleware('auth');
+
+// MENUPAGE
 Route::get('/menupage', [ReaditemController::class,'menuPage']);
 Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');
 
+// LOGIN DAN LOGOUT
 Route::get('/login', [LoginController::class,'login'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::post('masuk', [ 'as' => 'login', 'uses' => 'LoginController@do']);

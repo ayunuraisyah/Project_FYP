@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class itemsPostController extends Controller
 {
@@ -81,23 +82,30 @@ class itemsPostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Item $item)
+    public function update(Request $request, Item $item, $slug)
     {
-        if ($item) {
-            $item->title = $request->input('title');
-            $item->origin = $request->input('origin');  
-            $item->stock = $request->input('stock');  
-            $item->rating = $request->input('rating');  
-            $item->sold = $request->input('sold');
+        $itemSlug = Item::find($slug);
+        if($itemSlug)
+        {
+            $itemSlug->title = $request->input('title');
+            $itemSlug->origin = $request->input('origin');  
+            $itemSlug->stock = $request->input('stock');  
+            $itemSlug->rating = $itemSlug->rating;  
+            $itemSlug->sold = $itemSlug->sold;  
             if ($request->hasFile('thumbnail')) {
-                $item->thumbnail = $request->file('thumbnail')->store('thumbnail');
+                Storage::delete($itemSlug->thumbnail);
+                $itemSlug->thumbnail = $request->file('thumbnail')->store('thumbnail');
             }
-            $item->price = $request->input('price');  
-            $item->description = $request->input('description');  
-            $item->save();
+            $itemSlug->price = $request->input('price');  
+            $itemSlug->description = $request->input('description');  
+            $itemSlug->save();
 
-            return redirect()->route('adminBarang')->with('success', 'Item Berhasil Di Update');
-        } else {
+            // dd(Item::find($slug));
+
+            return redirect()->route('item.store')->with('success', 'Item Berhasil Di Update');
+        }
+        else 
+        {
             return redirect()->back()->with('error', 'Item Tidak Ditemukan');
         }
     }
@@ -111,9 +119,10 @@ class itemsPostController extends Controller
         //
     }
 
-    public function delete($id){
-        $item = Item::where('id', $id)->first();
+    public function delete($slug){
+        $item = Item::where('slug', $slug)->first();
         if ($item) {
+            Storage::delete($item->thumbnail);
             $item->delete();
             return redirect()->back()->with('success', 'Item Berhasil Dihapus');
         } else {
