@@ -35,25 +35,41 @@
                 <h2 class="text-xl font-semibold">Edit Produk</h2>
                 <button id="closeEditModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
             </div>
-            <form id="editproduk">
+            <form method="POST" id="editproduk" action="{{ route('adminBarang.update', $item->id) }}" enctype="multipart/form-data">
+
+                @csrf
+                @method('PUT')
                 <div class="mt-4">
-                    <label for="Nama" class="block text-sm font-medium text-gray-700">Nama makanan</label>
-                    <input type="text" id="Nama" name="Nama" class="mt-1 p-2 w-full border rounded-md">
+                    <label for="title" class="block text-sm font-medium text-gray-700">Nama makanan</label>
+                    <input type="text" id="title" name="title" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mt-4">
-                    <label for="kategori" class="block text-sm font-medium text-gray-700">Asal daerah</label>
-                    <input type="text" id="kategori" name="kategori" class="mt-1 p-2 w-full border rounded-md">
+                    <label for="origin" class="block text-sm font-medium text-gray-700">Asal daerah</label>
+                    <input type="text" id="origin" name="origin" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mt-4">
-                    <label for="Harga" class="block text-sm font-medium text-gray-700">Harga</label>
-                    <input type="text" id="Harga" name="Harga" class="mt-1 p-2 w-full border rounded-md">
+                    <label for="stock" class="block text-sm font-medium text-gray-700">Stok</label>
+                    <input type="number" id="stock" name="stock" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mt-4">
-                    <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
-                    <select name="stock" id="stock" class="w-[100%] h-[40px] rounded-[10px]" style="text-indent: 5px;">
-                        <option value="tersedia">Tersedia</option>
-                        <option value="habis">Habis</option>
-                    </select>
+                    <label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                    <input type="number" id="rating" name="rating" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mt-4">
+                    <label for="sold" class="block text-sm font-medium text-gray-700">Terjual</label>
+                    <input type="number" id="sold" name="sold" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mt-4">
+                    <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
+                    <input type="img" id="thumbnail" name="thumbnail" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mt-4">
+                    <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+                    <input type="number" id="price" name="price" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mt-4">
+                    <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                    <input type="hidden" id="description" name="description" class="mt-1 p-2 w-full border rounded-md">
                 </div>
                 <div class="mt-6 flex justify-end">
                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
@@ -64,6 +80,9 @@
 
     <!-- Modal Delete -->
     <div id="deleteModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <form method="POST" id="deleteForm">
+            @csrf
+            @method('DELETE')
         <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
             <div class="flex justify-between items-center">
                 <h2 class="text-xl font-semibold">Delete Confirmation</h2>
@@ -77,6 +96,7 @@
                 <button id="cancelDeleteButton" class="px-4 py-2 bg-gray-300 text-black rounded">Cancel</button>
             </div>
         </div>
+    </form>
     </div>
 
     <script>
@@ -90,6 +110,7 @@
         const cancelDeleteButton = document.getElementById('cancelDeleteButton');
         const confirmDeleteButton = document.getElementById('confirmDeleteButton');
         const editForm = document.getElementById('editproduk');
+        const deleteForm = document.getElementById('deleteForm');
         let itemIdToDelete = null;
 
         editButtons.forEach(button => {
@@ -98,15 +119,23 @@
                 // Fetch item data using itemId and populate the form (this is just an example)
                 // In a real application, you might fetch data from the server
                 const item = {
-                    title: "",
-                    origin: "",
-                    price: "",
-                    stock: ""
+                    title: "{{ $item->title }}",
+                    origin: "{{ $item->origin }}",
+                    stock: "{{ $item->stock }}",
+                    rating: "{{ $item->rating }}",
+                    sold: "{{ $item->sold }}",
+                    thumbnail: "{{ $item->thumbnail }}",
+                    price: "{{ $item->price }}",
+                    description: "{{ $item->description }}"
                 };
-                document.getElementById('Nama').value = item.title;
-                document.getElementById('kategori').value = item.origin;
-                document.getElementById('Harga').value = item.price;
+                document.getElementById('title').value = item.title;
+                document.getElementById('origin').value = item.origin;
                 document.getElementById('stock').value = item.stock;
+                document.getElementById('rating').value = item.rating;
+                document.getElementById('sold').value = item.sold;
+                document.getElementById('thumbnail').value = item.thumbnail;
+                document.getElementById('price').value = item.price;
+                document.getElementById('description').value = item.description;
                 editModal.classList.remove('hidden');
             });
         });
@@ -114,6 +143,7 @@
         deleteButtons.forEach(button => {
             button.addEventListener('click', () => {
                 itemIdToDelete = button.getAttribute('data-item-id');
+                deleteForm.action = `/adminBarang/${itemIdToDelete}`; // dynamically set form action
                 deleteModal.classList.remove('hidden');
             });
         });
@@ -147,9 +177,7 @@
         });
 
         confirmDeleteButton.addEventListener('click', () => {
-            // Handle delete logic (e.g., send delete request to the server)
-            alert(`Item with ID ${itemIdToDelete} has been deleted.`);
-            deleteModal.classList.add('hidden');
+            deleteForm.submit(); // Submit the form to delete the item
         });
     </script>
 </body>

@@ -44,12 +44,13 @@ Route::get('/keranjang', [RifadController::class, 'keranjang']);
 Route::get('/keranjang2', [RifadController::class, 'keranjang2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
-
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
 Route::resource('/admin', itemsPostController::class)->middleware('auth');
 Route::get('/adminBarang', [ReaditemController::class,'view'])->middleware('auth');
+Route::put('/adminBarang/{id}', [ReaditemController::class, 'update'])->name('adminBarang.update')->middleware('auth');
+Route::delete('/adminBarang/{id}', [itemsPostController::class, 'delete'])->name('item.delete');
 
 Route::get('/menupage', [ReaditemController::class,'menuPage']);
 Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');

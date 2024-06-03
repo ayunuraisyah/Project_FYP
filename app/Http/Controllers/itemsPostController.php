@@ -71,7 +71,11 @@ class itemsPostController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        if ($item) {
+            return view('adminBarang', compact('item'));
+        } else {
+            return redirect()->back()->with('error', 'Item Tidak Ditemukan');
+        }
     }
 
     /**
@@ -79,8 +83,25 @@ class itemsPostController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        if ($item) {
+            $item->title = $request->input('title');
+            $item->origin = $request->input('origin');  
+            $item->stock = $request->input('stock');  
+            $item->rating = $request->input('rating');  
+            $item->sold = $request->input('sold');
+            if ($request->hasFile('thumbnail')) {
+                $item->thumbnail = $request->file('thumbnail')->store('thumbnail');
+            }
+            $item->price = $request->input('price');  
+            $item->description = $request->input('description');  
+            $item->save();
+
+            return redirect()->route('adminBarang')->with('success', 'Item Berhasil Di Update');
+        } else {
+            return redirect()->back()->with('error', 'Item Tidak Ditemukan');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,5 +110,16 @@ class itemsPostController extends Controller
     {
         //
     }
+
+    public function delete($id){
+        $item = Item::where('id', $id)->first();
+        if ($item) {
+            $item->delete();
+            return redirect()->back()->with('success', 'Item Berhasil Dihapus');
+        } else {
+            return redirect()->back()->with('error', 'Item Tidak Ditemukan');
+        }
+    }
 }
+
 
