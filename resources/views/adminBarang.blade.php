@@ -72,8 +72,6 @@
         
             <!-- Modal Delete -->
             <div id="deleteModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-                <form method="POST" id="deleteForm" action="{{ route('item.delete',$item->slug) }}">
-                    @csrf
                 <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
                     <div class="flex justify-between items-center">
                         <h2 class="text-xl font-semibold">Delete Confirmation</h2>
@@ -83,11 +81,13 @@
                         <p>Are you sure you want to delete this item?</p>
                     </div>
                     <div class="mt-6 flex justify-end">
+                        <form method="POST" id="deleteForm" action="{{ route('item.delete',$item->slug) }}">
+                            @csrf
                         <button id="confirmDeleteButton" class="px-4 py-2 bg-red-600 text-white rounded mr-2">Delete</button>
+                    </form>
                         <button id="cancelDeleteButton" class="px-4 py-2 bg-gray-300 text-black rounded">Cancel</button>
                     </div>
                 </div>
-            </form>
             </div>
 
             <?php
@@ -159,12 +159,7 @@
             }
         });
 
-        editForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            // Handle form submission logic (e.g., send data to the server)
-            alert('Form submitted');
-            editModal.classList.add('hidden');
-        });
+        
 
         confirmDeleteButton.addEventListener('click', () => {
             deleteForm.submit(); // Submit the form to delete the item
