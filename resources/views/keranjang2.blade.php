@@ -32,7 +32,7 @@
             <label for="">Pilih semua</label>
             </form>                    
          </div>
-         <div class="flex gap-16 mr-6">
+         <div class="flex md:gap-16 md:mr-6">
            <a href="">harga satuan</a>
            <a href="">kuantitas</a>
            <a href="">total harga</a>
