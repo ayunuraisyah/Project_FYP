@@ -1,4 +1,4 @@
-@extends('layout.templateKategori')
+@extends('layout.dashboard2')
    @section('content')
 
    <div class=" w-[1000px] h-[100vh] mx-auto">
@@ -7,7 +7,7 @@
         <hr class="w-full h-[10px] text-black">
     </div>
 
-    <div class="w-full h-full -300 mt-[50px]  ">
+    <div class="w-full h-auto mt-[50px]  ">
         <div class="w-[900px] h-[200px] bg-gray-400  mx-auto">
             <div class="flex justify-between pt-6 px-3">
                 <div class="flex space-x-2">
@@ -82,7 +82,27 @@
 
         </div>
 
+        <div class="w-[900px] h-[600px] bg-gray-500">
+           <div class= "flex mt-6 ml-8 w-[700px] h-[70px] bg-red-500 justify-around">
+               <h2>Metode Pembayaran</h2>
+
+                   <div class="w-[100px] h-[50px] bg-green-500">
+                     <p>cod</p>
+                  </div>
+
+                    <div class="w-[100px] h-[50px] bg-green-500">
+                      <p>transfer bank</p>
+                     </div>
+   
+        
+
+                       <hr class="w-full">
+           </div>
+        </div>
+
     </div>
+
+   
 
    </div>
 
