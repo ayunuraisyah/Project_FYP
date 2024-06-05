@@ -55,9 +55,9 @@
                 </tr>
                 <tr >
                     <td class="flex mt-5"><img src="img/menupage/Rawon Menupage.jpeg" alt="makanan" class="w-[120px] h-[100px]"><p class="ml-6 mt-5">mie titi,<br>makassar</p></td>
-                    <td>Rp.24.000</td>
-                    <td>2</td>
-                    <td>Rp.48.000</td>
+                    <td class="pl-3">Rp.24.000</td>
+                    <td class="pl-3">2</td>
+                    <td class="pl-3">Rp.48.000</td>
                 </tr>
             </table>
 
@@ -69,13 +69,15 @@
                 </div>
             </div>
 
-            <table class="ml-8">
+            <table class="ml-8 mt-4">
                 <tr>
-                    <td class="w-[30%]"></td>
-                    <td class="w-[30%]"></td>
-                    <td class="w-[30%]"></td>
-                    <td class="w-[30%]"></td>
+                    <td class="w-[20%]">opsi pengiriman:</td>
+                    <td class="w-[20%] space-x-5"> </td>
+                    <td class="w-[40%]">reguler <span class="ml-6">ubah</span></td>
+                    <td class=""></td>
+                    <td class="w-[20%]">Rp.10.000</td>
                 </tr>
+              
             </table>
 
         </div>
