@@ -6,6 +6,7 @@ use App\Models\Item;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class itemsPostController extends Controller
 {
@@ -35,7 +36,7 @@ class itemsPostController extends Controller
     public function store(Request $request)
     {
         $item = new Item;
-        $item->title = $request->input('title');
+        $item->title = str::ucfirst($request->input('title'));
         $item->origin = $request->input('origin');  
         $item->stock = $request->input('stock');  
         $item->rating = $request->input('rating');  
@@ -87,7 +88,7 @@ class itemsPostController extends Controller
         $itemSlug = Item::find($slug);
         if($itemSlug)
         {
-            $itemSlug->title = $request->input('title');
+            $itemSlug->title = str::ucfirst($request->input('title'));
             $itemSlug->origin = $request->input('origin');  
             $itemSlug->stock = $request->input('stock');  
             $itemSlug->rating = $itemSlug->rating;  

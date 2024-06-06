@@ -20,7 +20,7 @@
                     <p>{{ $item->price }}</p>
 
                     <div class="flex justify-between mt-3">
-                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Edit</button>
+                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" id="{!! $no++ !!}" data-item-id="{{ $item->slug }}">Edit</button>
                         <button class="delete-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-800 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Delete</button>
                     </div>
                 </div>
@@ -110,22 +110,17 @@
         editButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const itemId = button.getAttribute('data-item-id');
+                const id = button.getAttribute('id');
                 // Fetch item data using itemId and populate the form (this is just an example)
                 // In a real application, you might fetch data from the server
-                const item = {
-                    title: "{{ $item->title }}",
-                    origin: "{{ $item->origin }}",
-                    stock: "{{ $item->stock }}",
-                    thumbnail: "{{ $item->thumbnail }}",
-                    price: "{{ $item->price }}",
-                    description: "{{ $descriptionItem }}"
-                };
-                document.getElementById('title').value = item.title;
-                document.getElementById('origin').value = item.origin;
-                document.getElementById('stock').value = item.stock;
+                const item = {!! $data !!};
+                document.getElementById('title').value = item[id]["title"];
+                document.getElementById('origin').value = item[id]["origin"];
+                document.getElementById('stock').value = item[id]["stock"];
                 // document.getElementById('thumbnail').value = item.thumbnail;
-                document.getElementById('price').value = item.price;
-                document.getElementById('description').value = item.description;
+                document.getElementById('price').value = item[id]["price"];
+                document.getElementById('description').value = item[id]["description"];
+                editForm.action = `/adminBarang/${itemId}`; // dynamically set form action
                 editModal.classList.remove('hidden');
             });
         });

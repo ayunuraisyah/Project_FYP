@@ -49,10 +49,10 @@ Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 
 // REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);
-Route::post('/registrasi', [RegisterController::class, 'create']);
+Route::put('/registrasi', [RegisterController::class, 'create'])->name('user.create');
 
 // PROFIL
-Route::get('/profil', [ProfileController::class, 'view'])->middleware('auth');
+Route::get('/profil', [ProfileController::class, 'view'])->name('profile')->middleware('auth');
 // Route::post('/profil', [itemsPostController::class, 'store'])->name('profile.store')->middleware('auth');
 Route::put('/profil/{email}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
@@ -68,8 +68,7 @@ Route::get('/menupage', [ReaditemController::class,'menuPage']);
 Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');
 
 // LOGIN DAN LOGOUT
-Route::get('/login', [LoginController::class,'login'])->middleware('guest');
+Route::get('/login', [LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::post('masuk', [ 'as' => 'login', 'uses' => 'LoginController@do']);

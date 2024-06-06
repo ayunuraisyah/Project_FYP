@@ -92,7 +92,7 @@
       <h2 class="text-xl font-semibold">Update Profil</h2>
       <button id="closeUpdateModalButton" class="text-gray-500 hover:text-gray-700">&times;</button>
     </div>
-    <form id="updateProfileForm">
+    <form id="updateProfileForm" method="post" action="{{ route('profile.update', auth()->user()->email) }}">
       @csrf
       @method('PUT')
       <div class="mt-4">
@@ -126,6 +126,7 @@
   const updateProfileForm = document.getElementById('updateProfileForm');
 
   updateProfileButton.addEventListener('click', () => {
+    // updateProfileForm.action = `/profil/{{ auth()->user()->email }}`; // dynamically set form action
     updateProfileModal.classList.remove('hidden');
   });
 

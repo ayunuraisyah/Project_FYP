@@ -11,12 +11,15 @@ class ReaditemController extends Controller
 {
     public function view()
     {
+        
         return view('adminBarang', 
         [
             'title' => 'FYP',
             'active' => 'Admin',
             'items' => Item::all(),
-        ]);
+            'data' => json_encode(Item::all()),
+            'no' => 0,
+            ]);
     }
 
     public function menuPage()

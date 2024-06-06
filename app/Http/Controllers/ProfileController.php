@@ -36,8 +36,9 @@ class ProfileController extends Controller
             $user->email = $request->input('email');
             $user->address = $request->input('address');
             $user->date = $request->input('date');
+            $user->save();
 
-            return redirect()->route('profile.store')->with('success', 'Profil Berhasil Di Update');
+            return redirect()->route('profile')->with('success', 'Profil Berhasil Di Update');
         }
         else 
         {
