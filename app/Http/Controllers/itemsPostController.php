@@ -40,7 +40,7 @@ class itemsPostController extends Controller
         $item->stock = $request->input('stock');  
         $item->rating = $request->input('rating');  
         $item->sold = $request->input('sold');
-        $item->thumbnail = $request->file('thumbnail')->store('thumbnail');;  
+        $item->thumbnail = $request->file('thumbnail')->store('thumbnail');  
         $item->price = $request->input('price');  
         $item->description = $request->input('description');  
         $item->save();

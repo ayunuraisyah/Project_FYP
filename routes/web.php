@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RifadController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\itemsPostController;
 use App\Http\Controllers\ReaditemController;
+
 
 
 /*
@@ -49,6 +51,10 @@ Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 Route::get('/registrasi', [RegisterController::class, 'index']);
 Route::post('/registrasi', [RegisterController::class, 'create']);
 
+// PROFIL
+Route::get('/profil', [ProfileController::class, 'view'])->middleware('auth');
+// Route::post('/profil', [itemsPostController::class, 'store'])->name('profile.store')->middleware('auth');
+Route::put('/profil/{email}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
 // ITEM CRUD
 Route::resource('/admin', itemsPostController::class)->middleware('auth');

@@ -25,7 +25,7 @@
                 Sign-up to continue
             </p>
 
-            <form action="/registrasi" class="flex flex-col items-center mt-[30px] " method="post">
+            <form action="/registrasi" class="flex flex-col items-center mt-[30px] " method="post" enctype="multipart/form-data" >
                 @csrf
                 <div class="mt-4">
                     <input type="text" placeholder="Name" id="username" name="name" value="{{ old('name') }}"
@@ -67,6 +67,7 @@
                 </div>
 
                 <input type="hidden" name="status" value="user" id="">
+                <input type="file" name="photo" id="">
 
                 <div class="mt-4 ">
                     <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]">Sign-up</button>
