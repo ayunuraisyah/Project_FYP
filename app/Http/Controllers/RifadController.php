@@ -13,6 +13,28 @@ class RifadController extends Controller
         'title' => 'FYP',
         'active' => 'Home'
     ]);
+}
+    public function pembayaran(){
+        return view('pembayaran',
+    [
+        'title' => 'FYP',
+        'active' => 'pembayaran'
+    ]);
+}
+    public function opsipengiriman(){
+        return view('opsipengiriman',
+    [
+        'title' => 'FYP',
+        'active' => 'opsipengiriman'
+    ]);
+}
+    
+    public function daftar_alamat(){
+        return view('daftar_alamat',
+    [
+        'title' => 'FYP',
+        'active' => 'daftar_alamat'
+    ]);
     }
     public function menupage(){
         return view('menupage',

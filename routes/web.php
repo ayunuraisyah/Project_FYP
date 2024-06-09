@@ -27,6 +27,12 @@ use App\Http\Controllers\ReaditemController;
 
 Route::get('/', [RifadController::class, 'home']);
 
+Route::get('/pembayaran', [RifadController::class, 'pembayaran']);
+
+Route::get('/opsipengiriman', [RifadController::class, 'opsipengiriman']);
+
+Route::get('/daftar_alamat', [RifadController::class, 'daftar_alamat']);
+
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
 Route::get('/profil', [RifadController::class, 'profil']);
