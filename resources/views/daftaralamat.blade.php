@@ -14,7 +14,7 @@
 </head>
 <body class = "flex items-center justify-center h-screen">
     <div class = "md:w-[700px] md:h-[500px] bg-green-500">
-<div class ="w-[86%] h-full mx-auto bg-red-300">
+<div class ="w-[86%] h-full mx-auto ">
     <div class ="pt-6">
         <h2 class ="ml-8">Daftar Alamat</h2>
         <div class ="w-full h-1 bg-white flex items-center">
@@ -49,9 +49,9 @@
 <p>Detail Lainnya (cth. Blok/unit, No, Patokan)</p>
 <input type="text" class ="w-[330px] h-[40px] rounded-[10px]">
 </div>
-<div class = "mt-4 flex justify-end w-full h-[70px] bg-slate-500 space-x-6">
-    <div><button class ="w-[20px] h-[20px] bg-gray-500">Batal Simpan</button></div>
-<div><button class ="w-[20px] h-[20px] bg-green-500">Simpan Alamat</button></div>
+<div class = "mt-4 flex justify-end w-full h-[70px] space-x-6">
+<button class ="w-[100px] h-[40px] bg-gray-500">Batal Simpan</button>
+<button class ="w-[130px] h-[40px] bg-[#07511B]">Simpan Alamat</button>
 </div>
 </div>
     </div>

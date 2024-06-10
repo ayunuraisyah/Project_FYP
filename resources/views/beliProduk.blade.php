@@ -1,114 +1,173 @@
 @extends('layout.dashboard2')
    @section('content')
 
-   <div class=" w-[1000px] h-[100vh] mx-auto">
+   <div class="w-[1000px] h-[100vh] mx-auto">
     <div class="pt-[60px]">
-        <h2 class="text-3xl font-bold font-['poppins']">checkout</h2>
-        <hr class="w-full h-[10px] text-black">
+        <h2 class="text-3xl font-bold font-['poppins'] ml-[50px]">checkout</h2>
+        <div class="w-[95%] h-[2px] bg-black mx-auto">
+
+</div>
     </div>
 
-    <div class="w-full h-auto mt-[50px]  ">
-        <div class="w-[900px] h-[200px] bg-gray-400  mx-auto">
+    <div class="w-full h-[1000px] mt-[50px]">
+        <div class="w-[900px] h-[200px] bg-[#D9D9D9] mx-auto">
             <div class="flex justify-between pt-6 px-3">
                 <div class="flex space-x-2">
-                <i data-feather="map-pin"></i>
-                <p>Alamat pengiriman</p>
+                    <i data-feather="map-pin"></i>
+                    <p>Alamat pengiriman</p>
                 </div>
-                <div class="w-[180px] h-[30px] bg-red-400 flex space-x-2 px-2 items-center justify-center">
+                <a href="/daftaralamat">
+                <div class="w-[180px] h-[30px] bg-[#07511B] flex space-x-2 px-2 items-center justify-center text-white">
                     <i data-feather="plus"></i>
                     <p>Daftar alamat</p>
-
                 </div>
-
+                </a>
+                
             </div>
 
             <div class="flex">
-            <div class="w-[200px] h-[50px]  ml-[40px] block mt-4">
-                <p>Ayu nuraisyah (+62) 812345678</p>
-
-            </div>
-
-            <div class="w-[600px] h-[50px]  ml-[8px] mt-4 block">
-                <p>Jl. Ahmad Yani, Tlk. Tering, Kec. Batam Kota, Kota Batam, Kepulauan Riau 29461</p>
-            </div>
-
-            <div class="flex mt-5 space-x-5 mr-4 ">
-            <i data-feather="edit-2"></i>
-                <i data-feather="delete"></i>
-            </div>
-
-
-            </div>
-
-            <hr class="w-full h-[20px] flex items-center justify-center mt-5">
-
-          
-        </div>
-
-        <div class="w-[900px] h-[600px] bg-gray-500 mx-auto mt-6">
-            <table class="ml-8">
-                <tr>
-                    <td class="w-[30%]">Makanan dipesan</td>
-                    <td class="w-[30%]">Harga satuan</td>
-                    <td class="w-[30%]">jumlah</td>
-                    <td class="w-[30%]">Total harga</td>
-                </tr>
-                <tr >
-                    <td class="flex mt-5"><img src="img/menupage/Rawon Menupage.jpeg" alt="makanan" class="w-[120px] h-[100px]"><p class="ml-6 mt-5">mie titi,<br>makassar</p></td>
-                    <td class="pl-3">Rp.24.000</td>
-                    <td class="pl-3">2</td>
-                    <td class="pl-3">Rp.48.000</td>
-                </tr>
-            </table>
-
-            <div class="flex mt-6 ml-8 space-x-4">
-                <h2>catatan: </h2>
-                <div class="w-[160px] h-[30px] bg-slate-200 rounded-[10px]">
-                    <p class="text-black pl-2">Tinggalkan pesan</p>
-
+                <div class="w-[200px] h-[50px] ml-[40px] block mt-4">
+                    <p>Ayu nuraisyah (+62) 812345678</p>
+                </div>
+                <div class="w-[600px] h-[50px] ml-[8px] mt-4 block">
+                    <p>Jl. Ahmad Yani, Tlk. Tering, Kec. Batam Kota, Kota Batam, Kepulauan Riau 29461</p>
+                </div>
+                <div class="flex mt-5 space-x-5 mr-4">
+                    <i data-feather="edit-2"></i>
+                    <i data-feather="delete"></i>
                 </div>
             </div>
 
-            <table class="ml-8 mt-4">
-                <tr>
-                    <td class="w-[20%]">opsi pengiriman:</td>
-                    <td class="w-[20%] space-x-5"> </td>
-                    <td class="w-[40%]">reguler <span class="ml-6">ubah</span></td>
-                    <td class=""></td>
-                    <td class="w-[20%]">Rp.10.000</td>
+            <hr class="w-full h-[20px] flex items-center justify-center mt-5">
+        </div>
+
+        <div class="w-[900px] h-[374px] bg-[#D9D9D9] mx-auto mt-6">
+            <table class="ml-6">
+                <tr class="">
+                    <td class="w-[30%] pt-6">Makanan di pesan</td>
+                    <td class="w-[30%] pt-6">Harga satuan</td>
+                    <td class="w-[30%] pt-6">jumlah</td>
+                    <td class="w-[30%] pt-6">Total harga</td>
                 </tr>
-              
+                <tr>
+                    <td class="flex mt-4"><img src="img/menupage/Rawon Menupage.jpeg" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">mie titi,<br>Makassar</p></td>
+                    <td class="pl-2">Rp.24.000</td>
+                    <td class="pl-2">2</td>
+                    <td class="pl-2">Rp.48.000</td>
+                </tr>
+                <tr>
+                    <td class="flex mt-4">catatan: <div class="w-[160px] h-[30px] bg-[#A5A5A5] rounded-[10px] ml-6 flex justify-center items-center">
+                    <p class="text-[#818181]">Tinggalkan pesan</p>
+                </div></td>
+                </tr>
+                <tr>
+                    <td class="pt-5">opsi pengiriman:</td>
+                    <td class="cols-span-1 pt-5 font-bold">reguler <span class="ml-14 text-[#07511B]">ubah</span><br><p  class="text-sm ">Akan di terima 24 menit</p></td>
+                    <td></td>
+                    <td class="pt-5">Rp.48.000</td>
+                </tr>
             </table>
+            <div class="w-[95%] h-[2px] bg-black mx-auto mt-6">
+                <table>
+                    <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                    </tr>
+                    <tr>
+                    <td colspan="3" class="border-b"></td>
+                    <td colspan="1" class="pt-6 text-right w-[100%] font-bold">Total Pesanan (2 Makanan): <span class="ml-[70px] mr-[50px] text-[#07511B]">Rp. 58.000</span></td>
+                    </tr>
+                </table>
 
+</div>
+
+</div>
+
+        <div class="w-[900px] h-[550px] bg-[#D9D9D9] mx-auto mt-6">
+            <div class="w-[600px] h-[100px]  items-center flex justify-between">
+
+            <div class="pl-[50px]">
+                <h2>metode pembayaran</h2>
+            </div>
+
+            <div class="w-[100px] h-[50px] bg-[#A5A5A5]  text-center flex items-center justify-center rounded-[10px]">
+                <p class="text-white font-bold">COD</p>
+            </div>
+
+            <div class="w-[160px] h-[50px] bg-[#07511B] flex items-center justify-center rounded-[10px]">
+                <p class="text-white font-bold">Transfer bank</p>
+            </div>
+
+            </div>
+
+            <div class="w-[95%] h-[2px] bg-black mx-auto">
+
+            </div>
+
+            <div class="w-[350px] h-[100px]  items-center flex justify-between">
+                <div class="pl-[50px]">
+                    <h2>pilih bank:</h2>
+                </div>
+
+                <div>
+                    <input type="checkbox">
+                </div>
+
+                <div class="w-[50px] h-[50px] border border-green-600 flex items-center justify-center">
+                    <img src="img\bank.jpeg" alt="" class="w-[35px] h-[35px]">
+                </div>
+
+                <div>
+                    <h2>Bank BNI</h2>
+                </div>
+            </div>
+
+            <div class="w-[95%] h-[2px] bg-black mx-auto">
+
+            </div>
+
+            <div class="w-full h-[200px]  flex justify-end mt-5">
+                <div class="w-[260px] h-[170px]  mr-6">
+                    <div class="flex justify-between">
+                        <h2>Subtotal makanan:</h2>
+                        <h2>Rp.48.000</h2>
+                    </div>
+                    <div class="flex justify-between mt-3">
+                        <h2>Total Ongkos Kirim:</h2>
+                        <h2>Rp.10.000</h2>
+                    </div>
+                    <div class="flex justify-between mt-3">
+                        <h2>Biaya Pelayanan:</h2>
+                        <h2>Rp.10.000</h2>
+                    </div>
+                    <div class="flex justify-between mt-3">
+                        <h2>Total Pembayaran:</h2>
+                        <h2  class="text-xl text-[#07511B] font-bold">Rp.59.000</h2>
+                    </div>
+
+                </div>
+
+                
+
+               
+
+            </div>
+
+            <div class="w-full h-[100px]  flex justify-end ">
+                <button class="w-[190px] h-[60px] bg-[#07511B] mr-6 text-white" >buat pesanan</button>
+
+                
+            </div>
+
+            <div class="w-[95%] h-[2px] bg-black mx-auto">
+
+</div>
+            
+            
         </div>
-
-        <div class="w-[900px] h-[600px] bg-gray-500">
-           <div class= "flex mt-6 ml-8 w-[700px] h-[70px] bg-red-500 justify-around">
-               <h2>Metode Pembayaran</h2>
-
-                   <div class="w-[100px] h-[50px] bg-green-500">
-                     <p>cod</p>
-                  </div>
-
-                    <div class="w-[100px] h-[50px] bg-green-500">
-                      <p>transfer bank</p>
-                     </div>
-   
-        
-
-                       <hr class="w-full">
-           </div>
-        </div>
-
     </div>
+</div>
 
-   
-
-   </div>
-
-
-
-   
-
-
-   @endsection
+@endsection

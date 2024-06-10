@@ -14,17 +14,17 @@
 </head>
 <body class = "flex items-center justify-center h-screen">
     <div class = "w-[700px] h-[500px] rounded-[10px] bg-green-500">
-        <div class ="w-[85%] h-full bg-red-300 mx-auto">
+        <div class ="w-[85%] h-full mx-auto">
         <div class ="pt-6">
         <h2 class ="ml-8">Opsi Pengiriman</h2>
         <div class ="w-full h-1 bg-white flex items-center">
             </div>
         <p class = "mt-4">PILIH JASA PENGIRIMAN <br>Estimasi tanggal diterima tergantung pada waktu pengemasan penjual dan waktu pengiriman ke lokasi anda</p>
     </div>
-    <div class ="w-[400px] h-[100px] bg-red-400 mt-4 rounded-[10px]">
+    <div class ="w-[400px] h-[100px] bg-gray-500 mt-4 rounded-[10px]">
 
 </div>
-<div class ="w-[400px] h-[100px] bg-red-400 mt-4 rounded-[10px]">
+<div class ="w-[400px] h-[100px] bg-gray-500 mt-4 rounded-[10px]">
 
 </div>
         </div>

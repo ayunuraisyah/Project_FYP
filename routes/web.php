@@ -29,9 +29,11 @@ Route::get('/', [RifadController::class, 'home']);
 
 Route::get('/pembayaran', [RifadController::class, 'pembayaran']);
 
+Route::get('/buktipembayaran', [RifadController::class, 'buktipembayaran']);
+
 Route::get('/opsipengiriman', [RifadController::class, 'opsipengiriman']);
 
-Route::get('/daftar_alamat', [RifadController::class, 'daftar_alamat']);
+Route::get('/daftaralamat', [RifadController::class, 'daftaralamat']);
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 

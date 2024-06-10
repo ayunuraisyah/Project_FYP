@@ -21,6 +21,13 @@ class RifadController extends Controller
         'active' => 'pembayaran'
     ]);
 }
+    public function buktipembayaran(){
+        return view('buktipembayaran',
+    [
+        'title' => 'FYP',
+        'active' => 'buktipembayaran'
+    ]);
+}
     public function opsipengiriman(){
         return view('opsipengiriman',
     [
@@ -29,11 +36,11 @@ class RifadController extends Controller
     ]);
 }
     
-    public function daftar_alamat(){
-        return view('daftar_alamat',
+    public function daftaralamat(){
+        return view('daftaralamat',
     [
         'title' => 'FYP',
-        'active' => 'daftar_alamat'
+        'active' => 'daftaralamat'
     ]);
     }
     public function menupage(){
