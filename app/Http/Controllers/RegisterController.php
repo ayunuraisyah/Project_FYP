@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'password' => 'required',
             'repassword' => 'required',
             'address' => 'required',
-            'status' => 'required',
+            'role' => 'required',
             'photo' => 'required'
         ]);
 

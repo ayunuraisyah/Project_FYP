@@ -11,7 +11,7 @@
     <div class="hidden md:flex items-center"> <!-- Menampilkan elemen pada layar sedang dan lebih besar -->
         <a href="/menupage" class="mr-6 text-white">Menu</a>
         <a href="/" class="mr-6 text-white">Home</a>
-        <a href="/keranjang" class="mr-5">
+        <a href="/cart" class="mr-5">
             <i data-feather="shopping-cart" class=" text-white w-[35px] h-[30px]"></i>
         </a>
         <!-- Konten masuk ke dalam sidebar pada layar kecil -->

@@ -66,8 +66,8 @@
                         class="w-[327px] h-12 bg-black bg-opacity-20 rounded-[10px]  pl-4">
                 </div>
 
-                <input type="hidden" name="status" value="user" id="">
-                <input type="file" name="photo" id="">
+                <input type="hidden" name="role" value="user" id="">
+                <input type="file" name="photo" id="" class="mt-4" accept="image/*">
 
                 <div class="mt-4 ">
                     <button class="w-[182px] h-12 rounded-[10px] bg-[#07511B]">Sign-up</button>

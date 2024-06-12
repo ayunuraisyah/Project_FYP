@@ -20,15 +20,87 @@
       
     <div class="w-[60%] h-full ml-[200px]">
      <div class="mt-[65px]">
+      @if(session()->has('deleteCart'))
+      <div class="text-red-600 text-center" role="alert">
+          {{ session('deleteCart') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
        <h2 class="text-4xl ml-[60px]">Keranjang belanja</h2>
        <hr class="w-full border-t-2 border-black mt-3">
      </div>
+
+     <script>
+      function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+                const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                document.getElementById('totalMkn').innerHTML = cb;
+
+                const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'IDN',
+
+                // These options are needed to round to whole numbers if that's what you want.
+                //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+                //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+                });
+
+                let tots = 0;
+        
+                // Add Checkbox values
+                $(".checks:checked").each(function() {
+                  tots += $(this).data("price");
+                });
+                
+                // Update with new Number
+                $('#tots').text(formatter.format(tots));
+
+        }
+      }
+
+      function check(source)
+      {
+        const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        document.getElementById('totalMkn').innerHTML = cb;
+      }
+
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'IDN',
+
+        // These options are needed to round to whole numbers if that's what you want.
+        //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+        //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+      });
+
+      // Total Price Calculator
+      function calc() {
+        let tots = 0;
+        
+        // Add Checkbox values
+        $(".checks:checked").each(function() {
+          tots += $(this).data("price");
+        });
+        
+        // Update with new Number
+        $('#tots').text(formatter.format(tots));
+      }
+
+      $(function() {
+        $(document).on('change', '.checks', calc);
+        calc();
+      });
+
+    </script>
 
 
       <div class="w-full  h-[23px]  rounded-[20px] flex justify-between ">
          <div class="">
             <form action="" class="ml-2">
-            <input type="checkbox">
+            <input type="checkbox" onclick="toggle(this)">
             <label for="">Pilih semua</label>
             </form>                    
          </div>
@@ -41,36 +113,52 @@
        </div>
 
 
+       @isset($dataItems)
+       @foreach($dataCart as $index => $cart)
+            <div class="w-full bg-[#61AE77] h-[200px] mt-3 rounded-[20px] py-10">
+              <div class="flex justify-between items-center px-5">
+                <input type="checkbox" value="{{ $dataItems[$index]->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}">
+                <div>
+                  <img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[100px] h-[100px] rounded-[10px]">
+                    </div>
+                    <h2 class="text-white font-['Poppins']">{{ $dataItems[$index]->title }}, {{ $dataItems[$index]->origin }}</h2>
+                    <h2 class="text-white font-['Poppins']">Rp.{{ number_format($dataItems[$index]->price) }}</h2>
+                    <div>
+                      <form action="{{ route('cart.decreament', $cart->id) }}" method="post" id="decreamentCart">
+                        @csrf
+                        @method('PUT')
+                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}'><</button>
+                      </form>
+                        <span class="px-3" id="quantity-1">{{ $cart->qty }}</span>
+                      <form action="{{ route('cart.increament', $cart->id) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}'>></button>
+                      </form>
+                    </div>
+                    <p class="text-white font-['Poppins']">total harga, Rp. <span id="price">{{ number_format($cart->qty * $dataItems[$index]->price) }}</span></p>
+                    <form action="{{ route('cart.delete', $cart->id) }}" method="post">
+                      @csrf
+                      @method('DELETE')
+                      <button class="px-3 py-1 bg-red-500 text-white rounded-md">
+                          <i data-feather="trash-2" class="w-[35px] h-[30px]"></i>
+                      </button>
+                    </form>
+                </div>
+                </div>
+        @endforeach
+      @else
+          <p>Cart still empty</p>
+      @endisset
 
 
-      <div class="w-full bg-[#61AE77] h-[200px] mt-3 rounded-[20px] py-10">
-    <div class="flex justify-between items-center px-5">
-        <input type="checkbox">
-        <div>
-            <img src="" alt="" class="w-[100px] h-[100px] rounded-[10px]">
-        </div>
-        <h2 class="text-white font-['Poppins']">nasi timbel, sunda</h2>
-        <h2 class="text-white font-['Poppins']">Rp.20.000</h2>
-        <div>
-            <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" onclick="decrement(this)"><</button>
-            <span class="px-3" id="quantity-1">1</span>
-            <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" onclick="increment(this)">></button>
-        </div>
-        <p class="text-white font-['Poppins']">total harga</p>
-        <a href="#">
-            <i data-feather="trash-2" class="w-[35px] h-[30px]"></i>
-        </a>
-    </div>
-</div>
 
       <div class="w-full bg-[#61AE77] h-[100px] mt-6 rounded-[20px] py-7">
     <div class="flex justify-between items-center px-5">
-        <input type="checkbox">
-        <h2 class="text-white font-['Poppins']">pilih semua<br>(1)</h2>
-        <h2 class="text-white font-['Poppins']">total makanan(1)</h2>
-        <p class="text-white font-['Poppins']">Rp.20.000</p>
+        <h2 class="text-white font-['Poppins']">total makanan(<span id="totalMkn">0</span>)</h2>
+        <p class="text-white font-['Poppins']"><span id="tots"></span></p>
         <a href="#">
-        <button class="px-3 py-1 bg-red-500 text-white rounded-md">order</button>
+        <button class="px-3 py-1 bg-yellow-500 text-white rounded-md">order</button>
         </a>
     </div>
 </div>
@@ -82,13 +170,7 @@
     </div>
     
 
-    
-
-    
-
-
   </div>
-
 
 
 

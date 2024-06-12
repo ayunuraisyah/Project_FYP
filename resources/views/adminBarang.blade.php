@@ -127,7 +127,7 @@
 
         deleteButtons.forEach(button => {
             button.addEventListener('click', () => {
-                itemIdToDelete = button.getAttribute('data-item-id');
+                const itemIdToDelete = button.getAttribute('data-item-id');
                 deleteForm.action = `/adminBarang/${itemIdToDelete}`; // dynamically set form action
                 deleteModal.classList.remove('hidden');
             });

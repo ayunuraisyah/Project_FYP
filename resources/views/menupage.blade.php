@@ -94,8 +94,13 @@
                     <p>{{ $item->price }}</p>
 
                     <div class="flex justify-between mt-3">
-                        <button class="success-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2"><a href="{{ route('produk.show', $item->slug) }}">Buy</a></button>
-                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-800 cursor-pointer mb-2" data-item-id="{{ $item->id }}">Cart</button>
+                        <a href="{{ route('produk.show', $item->slug) }}"><button class="success-button py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2">Buy</button></a>
+                        <form method="post" action="{{ route('cart.add') }}">
+                            @csrf
+                            <input type="number" name="qty" id="slug" min="1" required placeholder="please input quantity">
+                            <input type="hidden" name="slug" id="slug" value="{{ $item->slug }}">
+                            <button class="edit-button py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-600 hover:bg-yellow-800 cursor-pointer mb-2">cart</button>
+                        </form>                    
                     </div>
                 </div>
             </div>

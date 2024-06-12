@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('origin');
-            $table->string('stock');
+            $table->integer('stock');
             $table->float('rating');
             $table->integer('sold');
             $table->binary('thumbnail');
             $table->string('slug');
-            $table->string('price');
+            $table->float('price');
             $table->string('description');
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -101,7 +102,13 @@ class itemsPostController extends Controller
             $itemSlug->description = $request->input('description');  
             $itemSlug->save();
 
-            // dd(Item::find($slug));
+            $cart = Cart::where('slug', $slug)->get();
+            foreach($cart as $data)
+            {
+                $data->slug = $itemSlug->slug;
+                $data->save();
+            }
+
 
             return redirect()->route('item.store')->with('success', 'Item Berhasil Di Update');
         }
