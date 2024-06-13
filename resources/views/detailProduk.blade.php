@@ -10,7 +10,7 @@
      <div>
          <h2 class="font-bold font-['Poppins'] text-xl">{{ $item->title }},{{ $item->origin }}</h2>
          <p class="mt-4"> {{ $item->rating }} (tersisa {{ $item->stock }})</p>
-         <p class="font-bold font-['Poppins'] text-xl mt-4">Rp. {{ $item->price }}</p>
+         <p class="font-bold font-['Poppins'] text-xl mt-4">Rp. {{ number_format($item->price) }}</p>
 
          <div class="flex mt-4 space-x-7">
           <div class="flex bg-green-600 rounded-[20px] w-[100px] h-[35px] items-center justify-center space-x-4">
@@ -40,7 +40,7 @@
 
   <div >
     <h1 class="text-2xl font-bold">Deskripsi:</h1>
-    <p>{{ $item->deskripsi }}.</p>
+    <p>{{ strip_tags($item->description) }}.</p>
   </div>
 
 

@@ -148,12 +148,5 @@ class RifadController extends Controller
         'active' => 'Admin'
     ]);
     }
-    public function datapengguna(){
-        return view('datapengguna',
-    [
-        'title' => 'FYP',
-        'active' => 'datapengguna'
-    ]);
-}
 
 }

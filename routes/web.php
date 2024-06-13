@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\itemsPostController;
 use App\Http\Controllers\ReaditemController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -56,7 +57,10 @@ Route::get('/profil2', [RifadController::class, 'profil2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 
-Route::get('/datapengguna', [RifadController::class, 'datapengguna']);
+// USER
+Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user');
+Route::put('/datapengguna/{email}', [UserController::class, 'gantirole'])->name('user.role');
+Route::delete('/datapengguna/{email}', [UserController::class, 'delete'])->name('user.delete');
 
 // REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);

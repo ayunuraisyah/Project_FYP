@@ -25,7 +25,7 @@ class CartController extends Controller
 
             // $dataArray = array_combine($dataCart, $dataItems);
         }
-        // dd($dataArray);
+        // dd($dataCart);
         return view('keranjang2',[
             'title' => 'FYP',
             'active' => 'Cart',
