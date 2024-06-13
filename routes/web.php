@@ -30,9 +30,13 @@ Route::get('/', [RifadController::class, 'home'])->name('home');
 
 Route::get('/pembayaran', [RifadController::class, 'pembayaran']);
 
+Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
+
 Route::get('/buktipembayaran', [RifadController::class, 'buktipembayaran']);
 
 Route::get('/opsipengiriman', [RifadController::class, 'opsipengiriman']);
+
+Route::get('/lupapassword', [RifadController::class, 'lupapassword']);
 
 Route::get('/daftaralamat', [RifadController::class, 'daftaralamat']);
 
@@ -51,6 +55,8 @@ Route::get('/statuspembelian', [RifadController::class, 'statuspembelian']);
 Route::get('/profil2', [RifadController::class, 'profil2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
+
+Route::get('/datapengguna', [RifadController::class, 'datapengguna']);
 
 // REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);

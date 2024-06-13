@@ -157,7 +157,7 @@
     <div class="flex justify-between items-center px-5">
         <h2 class="text-white font-['Poppins']">total makanan(<span id="totalMkn">0</span>)</h2>
         <p class="text-white font-['Poppins']"><span id="tots"></span></p>
-        <a href="#">
+        <a href="/beliproduk">
         <button class="px-3 py-1 bg-yellow-500 text-white rounded-md">order</button>
         </a>
     </div>
