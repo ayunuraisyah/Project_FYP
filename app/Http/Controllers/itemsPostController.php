@@ -131,6 +131,11 @@ class itemsPostController extends Controller
         $item = Item::where('slug', $slug)->first();
         if ($item) {
             Storage::delete($item->thumbnail);
+            $cart = Cart::where('slug', $slug)->get();
+            foreach($cart as $data)
+            {
+                $data->delete();
+            }
             $item->delete();
             return redirect()->back()->with('success', 'Item Berhasil Dihapus');
         } else {

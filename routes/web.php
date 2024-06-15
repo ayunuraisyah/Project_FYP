@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\itemsPostController;
 use App\Http\Controllers\ReaditemController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -30,9 +31,13 @@ Route::get('/', [RifadController::class, 'home'])->name('home');
 
 Route::get('/pembayaran', [RifadController::class, 'pembayaran']);
 
+Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
+
 Route::get('/buktipembayaran', [RifadController::class, 'buktipembayaran']);
 
 Route::get('/opsipengiriman', [RifadController::class, 'opsipengiriman']);
+
+Route::get('/lupapassword', [RifadController::class, 'lupapassword']);
 
 Route::get('/daftaralamat', [RifadController::class, 'daftaralamat']);
 
@@ -51,6 +56,11 @@ Route::get('/statuspembelian', [RifadController::class, 'statuspembelian']);
 Route::get('/profil2', [RifadController::class, 'profil2']);
 
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
+
+// USER
+Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user');
+Route::put('/datapengguna/{email}', [UserController::class, 'gantirole'])->name('user.role');
+Route::delete('/datapengguna/{email}', [UserController::class, 'delete'])->name('user.delete');
 
 // REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);

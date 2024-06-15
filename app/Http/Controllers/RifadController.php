@@ -57,6 +57,20 @@ class RifadController extends Controller
         'active' => 'keranjang'
     ]);
     }
+    public function resetpassword(){
+        return view('resetpassword',
+    [
+        'title' => 'FYP',
+        'active' => 'resetpassword'
+    ]);
+    }
+    public function lupapassword(){
+        return view('lupapassword',
+    [
+        'title' => 'FYP',
+        'active' => 'lupapassword'
+    ]);
+    }
     public function detailProduk(){
         return view('detailProduk',
     [

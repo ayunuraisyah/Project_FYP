@@ -10,23 +10,25 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<div class="flex justify-start items-start h-[100%] flex-wrap gap-[10px]">
-        @foreach ($items as $item)
-            <div class="top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
-                <img class="left-0 top-0 w-[359px] h-[200px] rounded-[10px]" src="/storage/{{ $item->thumbnail }}" />
-                <div class="px-[3px] bg-white rounded-[5px]">
-                    <button><i class="w-[17px] h-[15px] text-yellow-600" data-feather="star"></i></button>{{ $item->rating }}({{ $item->sold }})
-                    <p>{{ $item->title }}, {{ $item->origin }}</p>
-                    <p>{{ $item->price }}</p>
+    @if($items->isNotEmpty())
+        <div class="flex justify-start items-start h-[100%] flex-wrap gap-[10px]">
+                @foreach ($items as $item)
+                    <div class="top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
+                        <img class="left-0 top-0 w-[359px] h-[200px] rounded-[10px]" src="/storage/{{ $item->thumbnail }}" />
+                        <div class="px-[3px] bg-white rounded-[5px]">
+                            <button><i class="w-[17px] h-[15px] text-yellow-600" data-feather="star"></i></button>{{ $item->rating }}({{ $item->sold }})
+                            <p>{{ $item->title }}, {{ $item->origin }}</p>
+                            <p>{{ $item->price }}</p>
 
-                    <div class="flex justify-between mt-3">
-                        <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" id="{!! $no++ !!}" data-item-id="{{ $item->slug }}">Edit</button>
-                        <button class="delete-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-800 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Delete</button>
+                            <div class="flex justify-between mt-3">
+                                <button class="edit-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-indigo-700 cursor-pointer mb-2" id="{!! $no++ !!}" data-item-id="{{ $item->slug }}">Edit</button>
+                                <button class="delete-button w-[45%] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-800 cursor-pointer mb-2" data-item-id="{{ $item->slug }}">Delete</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
+                @endforeach
+
+        </div>
             <!-- Modal Edit -->
             <div id="editModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
                 <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
@@ -89,10 +91,13 @@
                     </div>
                 </div>
             </div>
-
+    @else
+        <p>Barang kosong</p>
+    @endif
             <?php
                 $descriptionItem = strip_tags($item->description);
             ?>
+
     <script>
         // JavaScript to handle modals
         const editButtons = document.querySelectorAll('.edit-button');

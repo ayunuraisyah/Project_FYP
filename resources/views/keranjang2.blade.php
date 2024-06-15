@@ -117,7 +117,7 @@
        @foreach($dataCart as $index => $cart)
             <div class="w-full bg-[#61AE77] h-[200px] mt-3 rounded-[20px] py-10">
               <div class="flex justify-between items-center px-5">
-                <input type="checkbox" value="{{ $dataItems[$index]->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}">
+                <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}">
                 <div>
                   <img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[100px] h-[100px] rounded-[10px]">
                     </div>
@@ -157,7 +157,7 @@
     <div class="flex justify-between items-center px-5">
         <h2 class="text-white font-['Poppins']">total makanan(<span id="totalMkn">0</span>)</h2>
         <p class="text-white font-['Poppins']"><span id="tots"></span></p>
-        <a href="#">
+        <a href="/beliproduk">
         <button class="px-3 py-1 bg-yellow-500 text-white rounded-md">order</button>
         </a>
     </div>
