@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->foreign('slug')->reference('slug')->on('items');
+            $table->string('slug');
             $table->integer('qty');
             $table->string('user');
             $table->timestamps();
