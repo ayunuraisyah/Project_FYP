@@ -9,6 +9,7 @@ use App\Http\Controllers\itemsPostController;
 use App\Http\Controllers\ReaditemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -28,8 +29,6 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/', [RifadController::class, 'home'])->name('home');
-
-Route::get('/pembayaran', [RifadController::class, 'pembayaran']);
 
 Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
 
@@ -61,6 +60,8 @@ Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user');
 Route::put('/datapengguna/{email}', [UserController::class, 'gantirole'])->name('user.role');
 Route::delete('/datapengguna/{email}', [UserController::class, 'delete'])->name('user.delete');
+Route::post('/profile/favorite', [UserController::class, 'favorit'])->name('user.favorite');
+Route::delete('/profile/favorite/{email}', [UserController::class, 'deleteFavorite'])->name('user.deleteFavorite');
 
 // REGISTRASI
 Route::get('/registrasi', [RegisterController::class, 'index']);
@@ -68,8 +69,9 @@ Route::post('/registrasi', [RegisterController::class, 'create'])->name('user.cr
 
 // PROFIL
 Route::get('/profil', [ProfileController::class, 'view'])->name('profile')->middleware('auth');
-// Route::post('/profil', [itemsPostController::class, 'store'])->name('profile.store')->middleware('auth');
 Route::put('/profil/{email}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+Route::put('/profil/photo/{email}', [ProfileController::class, 'changePhoto'])->name('profile.photo')->middleware('auth');
+Route::get('/profile/favorite', [ProfileController::class, 'viewFav'])->name('profile.favorite')->middleware('auth');
 
 // ITEM CRUD
 Route::resource('/admin', itemsPostController::class)->middleware('admin');
@@ -87,10 +89,13 @@ Route::get('/login', [LoginController::class,'login'])->name('login')->middlewar
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-// Cart
+// CART
 Route::get('/cart', [CartController::class, 'view'])->name('cart')->middleware('auth');
 Route::post('/cart', [CartController::class, 'addCart'])->name('cart.add')->middleware('auth');
-Route::put('/cart/decreament/{id}', [CartController::class, 'decreamentCart'])->name('cart.decreament')->middleware('auth');
-Route::put('/cart/increament/{id}', [CartController::class, 'increamentCart'])->name('cart.increament')->middleware('auth');
-Route::delete('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete')->middleware('auth');
+// Route::put('/cart/decreament/{id}', [CartController::class, 'decreamentCart'])->name('cart.decreament')->middleware('auth');
+// Route::put('/cart/increament/{id}', [CartController::class, 'increamentCart'])->name('cart.increament')->middleware('auth');
+// Route::delete('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete')->middleware('auth');
+
+// CHECKOUT
+Route::post('/cart/checkout', [CheckoutController::class, 'checkout'])->name('user.checkout')->middleware('auth');
 

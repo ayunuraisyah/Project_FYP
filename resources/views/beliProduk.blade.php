@@ -16,25 +16,18 @@
                     <i data-feather="map-pin"></i>
                     <p>Alamat pengiriman</p>
                 </div>
-                <a href="/daftaralamat">
-                <div class="w-[180px] h-[30px] bg-[#07511B] flex space-x-2 px-2 items-center justify-center text-white">
-                    <i data-feather="plus"></i>
-                    <p>Daftar alamat</p>
-                </div>
-                </a>
                 
             </div>
 
             <div class="flex">
                 <div class="w-[200px] h-[50px] ml-[40px] block mt-4">
-                    <p>Ayu nuraisyah (+62) 812345678</p>
+                    <p>{{ auth()->user()->name }}</p>
                 </div>
                 <div class="w-[600px] h-[50px] ml-[8px] mt-4 block">
-                    <p>Jl. Ahmad Yani, Tlk. Tering, Kec. Batam Kota, Kota Batam, Kepulauan Riau 29461</p>
+                    <p>{{ auth()->user()->address }}</p>
                 </div>
                 <div class="flex mt-5 space-x-5 mr-4">
                     <i data-feather="edit-2"></i>
-                    <i data-feather="delete"></i>
                 </div>
             </div>
 
@@ -49,22 +42,24 @@
                     <td class="w-[30%] pt-6">jumlah</td>
                     <td class="w-[30%] pt-6">Total harga</td>
                 </tr>
+                @foreach ($dataCarts as $index => $cart)
+                    <tr>
+                        <td class="flex mt-4"><img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">{{ $dataItems[$index]->title }},<br>{{ $dataItems[$index]->origin }}</p></td>
+                        <td class="pl-2">Rp {{ number_format($dataItems[$index]->price) }}</td>
+                        <td class="pl-2">{{ $cart->qty }}</td>
+                        <td class="pl-2">Rp {{ number_format($cart->qty * $dataItems[$index]->price) }}</td>
+                    </tr>
+                @endforeach
                 <tr>
-                    <td class="flex mt-4"><img src="img/menupage/Rawon Menupage.jpeg" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">mie titi,<br>Makassar</p></td>
-                    <td class="pl-2">Rp.24.000</td>
-                    <td class="pl-2">2</td>
-                    <td class="pl-2">Rp.48.000</td>
-                </tr>
-                <tr>
-                    <td class="flex mt-4">catatan: <div class="w-[160px] h-[30px] bg-[#A5A5A5] rounded-[10px] ml-6 flex justify-center items-center">
-                    <p class="text-[#818181]">Tinggalkan pesan</p>
-                </div></td>
+                    <td class="flex mt-4">catatan:
+                        <input type="text" name="note" id="note" placeholder="note" class="bg-[#A5A5A5] rounded-[10px] ml-6">
+                    </td>
                 </tr>
                 <tr>
                     <td class="pt-5">opsi pengiriman:</td>
                     <td class="cols-span-1 pt-5 font-bold">reguler <span class="ml-14 text-[#07511B]">ubah</span><br><p  class="text-sm ">Akan di terima 24 menit</p></td>
                     <td></td>
-                    <td class="pt-5">Rp.48.000</td>
+                    <td class="pt-5">Rp {{ number_format($totalHarga) }}</td>
                 </tr>
             </table>
             <div class="w-[95%] h-[2px] bg-black mx-auto mt-6">
@@ -77,7 +72,7 @@
                     </tr>
                     <tr>
                     <td colspan="3" class="border-b"></td>
-                    <td colspan="1" class="pt-6 text-right w-[100%] font-bold">Total Pesanan (2 Makanan): <span class="ml-[70px] mr-[50px] text-[#07511B]">Rp. 58.000</span></td>
+                    <td colspan="1" class="pt-6 text-right w-[100%] font-bold">Total Pesanan ({{ $totalItem }} Makanan): <span class="ml-[70px] mr-[50px] text-[#07511B]">Rp. {{ number_format($totalHarga) }}</span></td>
                     </tr>
                 </table>
 
@@ -116,7 +111,7 @@
                 </div>
 
                 <div class="w-[50px] h-[50px] border border-green-600 flex items-center justify-center">
-                    <img src="img\bank.jpeg" alt="" class="w-[35px] h-[35px]">
+                    <img src="/img/bank.jpeg" alt="" class="w-[35px] h-[35px]">
                 </div>
 
                 <div>

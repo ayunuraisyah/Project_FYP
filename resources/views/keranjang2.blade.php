@@ -1,4 +1,4 @@
-@extends('layout.templateKategori')
+@extends('layout.dashboard2')
 
 @section('content')
 
@@ -6,26 +6,12 @@
 
     <div class="w-[300px] h-full">
      <div class=" mt-[80px] ml-[30px]">
-        <div class="flex space-x-4">
-          <i data-feather="user" class="w-[30px] h-[30px]"></i>
-          <a href="" class="text-3xl text-[#61AE77]">Profil</a>
-       </div>
-
-         <div class="flex mt-6 space-x-4">
-           <i data-feather="shopping-cart" class="w-[30px] h-[30px] "></i>
-           <a href="" class="text-3xl text-[#61AE77]">Keranjang</a>
-        </div>
-    </div>
+        @include('components.userSideBar')
+      </div>
     </div>
       
     <div class="w-[60%] h-full ml-[200px]">
      <div class="mt-[65px]">
-      @if(session()->has('deleteCart'))
-      <div class="text-red-600 text-center" role="alert">
-          {{ session('deleteCart') }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
        <h2 class="text-4xl ml-[60px]">Keranjang belanja</h2>
        <hr class="w-full border-t-2 border-black mt-3">
      </div>
@@ -38,6 +24,8 @@
                 checkboxes[i].checked = source.checked;
                 const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
                 document.getElementById('totalMkn').innerHTML = cb;
+                document.getElementById('totalItem').value = cb - 1;
+
 
                 const formatter = new Intl.NumberFormat('en-US', {
                 style: 'currency',
@@ -53,10 +41,12 @@
                 // Add Checkbox values
                 $(".checks:checked").each(function() {
                   tots += $(this).data("price");
+
                 });
                 
                 // Update with new Number
                 $('#tots').text(formatter.format(tots));
+                document.getElementById('totalHarga').value = tots;
 
         }
       }
@@ -65,6 +55,7 @@
       {
         const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
         document.getElementById('totalMkn').innerHTML = cb;
+        document.getElementById('totalItem').value = cb;
       }
 
       const formatter = new Intl.NumberFormat('en-US', {
@@ -87,6 +78,8 @@
         
         // Update with new Number
         $('#tots').text(formatter.format(tots));
+        document.getElementById('totalHarga').value = tots;
+
       }
 
       $(function() {
@@ -111,44 +104,47 @@
            <a href="">aksi</a>
          </div>
        </div>
-
-
+       @error('itemCart')
+       <div class="invalid-feedback text-center text-red-600">
+           {{ "Please select at least one item before order" }}
+       </div>
+        @enderror
+        @if(session()->has('deleteCart'))
+        <div class="text-red-600 text-center" role="alert">
+            {{ session('deleteCart') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
        @isset($dataItems)
+       <form action="{{ route('user.checkout') }}" method="post" id="checkoutForm">
        @foreach($dataCart as $index => $cart)
             <div class="w-full bg-[#61AE77] h-[200px] mt-3 rounded-[20px] py-10">
               <div class="flex justify-between items-center px-5">
-                <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}">
-                <div>
+                  @csrf
+                  <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}" name="itemCart[]">
+                  <input type="hidden" value="{{ $cart->id }}" class="" name="idCart">
+                  
+              <div>
                   <img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[100px] h-[100px] rounded-[10px]">
                     </div>
                     <h2 class="text-white font-['Poppins']">{{ $dataItems[$index]->title }}, {{ $dataItems[$index]->origin }}</h2>
                     <h2 class="text-white font-['Poppins']">Rp.{{ number_format($dataItems[$index]->price) }}</h2>
                     <div>
-                      <form action="{{ route('cart.decreament', $cart->id) }}" method="post" id="decreamentCart">
-                        @csrf
-                        @method('PUT')
-                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}'><</button>
-                      </form>
+                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}' name="action" type="submit" value="decreament"><</button>
                         <span class="px-3" id="quantity-1">{{ $cart->qty }}</span>
-                      <form action="{{ route('cart.increament', $cart->id) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}'>></button>
-                      </form>
+                        <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}' name="action" type="submit" value="increament">></button>
                     </div>
                     <p class="text-white font-['Poppins']">total harga, Rp. <span id="price">{{ number_format($cart->qty * $dataItems[$index]->price) }}</span></p>
-                    <form action="{{ route('cart.delete', $cart->id) }}" method="post">
-                      @csrf
-                      @method('DELETE')
-                      <button class="px-3 py-1 bg-red-500 text-white rounded-md">
+                      <button class="px-3 py-1 bg-red-500 text-white rounded-md" type="submit" value="delete" name="action">
                           <i data-feather="trash-2" class="w-[35px] h-[30px]"></i>
                       </button>
-                    </form>
                 </div>
                 </div>
         @endforeach
       @else
-          <p>Cart still empty</p>
+          <div class="text-center">
+            <h1>Cart still empty</h1>
+          </div>
       @endisset
 
 
@@ -157,10 +153,12 @@
     <div class="flex justify-between items-center px-5">
         <h2 class="text-white font-['Poppins']">total makanan(<span id="totalMkn">0</span>)</h2>
         <p class="text-white font-['Poppins']"><span id="tots"></span></p>
-        <a href="/beliproduk">
-        <button class="px-3 py-1 bg-yellow-500 text-white rounded-md">order</button>
-        </a>
+        <input type="hidden" name="totalHarga" id="totalHarga">
+        <input type="hidden" name="totalItem" id="totalItem">
+        <button class="px-3 py-1 bg-yellow-500 text-white rounded-md"  type="submit" name="action" value="checkout">order</button>
     </div>
+  </form>
+
 </div>
 
 

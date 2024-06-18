@@ -4,7 +4,7 @@
                 <i data-feather="menu" class="text-white w-[35px] h-[30px]"></i>
             </a>
             <div class="w-[120px] h-[120px] flex">
-                <img src="img/logo1.png" alt="">
+                <img src="/img/logo1.png" alt="">
             </div>
         </div>
 
@@ -18,11 +18,11 @@
 
         <div class="flex items-center">
             <div class="flex items-center">
-                <a href="#" class="mr-5">
+                <a href="/cart" class="mr-5">
                     <i data-feather="shopping-cart" class=" text-white w-[35px] h-[30px]"></i>
                 </a>
-                <a href="#" class="mr-5">
-                    <i data-feather="bell" class=" text-white w-[35px] h-[30px]"></i>
+                <a href="/profile/favorite" class="mr-5">
+                    <i data-feather="star" class=" text-white w-[35px] h-[30px]"></i>
                 </a>
                 @auth
             <a href="/profil" class="mr-6 text-white">Welcome {{ auth()->user()->name }}!</a>

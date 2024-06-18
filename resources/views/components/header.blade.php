@@ -8,7 +8,7 @@
             </a>
             
             <div class="hidden md:flex w-[120px] h-[120px]">
-                <img src="img/logo1.png" alt="Logo">
+                <img src="/img/logo1.png" alt="Logo">
             </div>
         </div>
         <div class="hidden md:flex items-center"> 

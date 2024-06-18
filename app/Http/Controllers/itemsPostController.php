@@ -40,7 +40,7 @@ class itemsPostController extends Controller
         $item->title = str::ucfirst($request->input('title'));
         $item->origin = $request->input('origin');  
         $item->stock = $request->input('stock');  
-        $item->rating = $request->input('rating');  
+        $item->favorite = $request->input('favorite');  
         $item->sold = $request->input('sold');
         $item->thumbnail = $request->file('thumbnail')->store('thumbnail');  
         $item->price = $request->input('price');  
@@ -92,7 +92,7 @@ class itemsPostController extends Controller
             $itemSlug->title = str::ucfirst($request->input('title'));
             $itemSlug->origin = $request->input('origin');  
             $itemSlug->stock = $request->input('stock');  
-            $itemSlug->rating = $itemSlug->rating;  
+            $itemSlug->favorite = $itemSlug->favorite;  
             $itemSlug->sold = $itemSlug->sold;  
             if ($request->hasFile('thumbnail')) {
                 Storage::delete($itemSlug->thumbnail);

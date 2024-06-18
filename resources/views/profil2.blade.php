@@ -6,12 +6,12 @@
       <div class=" mt-[80px] ml-[30px]">
          <div class="flex space-x-4">
           <i data-feather="user" class="w-[27px] h-[34px] text-[#61AE77]"></i>
-          <a href="" class="text-3xl text-[#61AE77]">Profil</a>
+          <a href="/profil" class="text-3xl text-[#61AE77]">Profil</a>
       </div>
 
          <div class="flex mt-6 space-x-4">
            <i data-feather="shopping-cart" class="w-[27px] h-[34px] text-[#61AE77]"></i>
-           <a href="" class="text-3xl text-[#61AE77]">Keranjang</a>
+           <a href="/cart" class="text-3xl text-[#61AE77]">Keranjang</a>
         </div>
     </div>
     </div>

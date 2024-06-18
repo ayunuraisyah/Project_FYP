@@ -22,7 +22,7 @@
 <div class ="w-[90%] h-[80%] bg-gray-400">
 <div class="w-[90%] h-[30px] bg-red-300 mx-auto justify-between flex">
     <h2>Total pembayaran</h2>
-    <h2>Rp. 59.000</h2>
+    <h2>Rp. {{ number_format($totalHarga) }}</h2>
    
     </div>
     <div class ="w-[90%] h-1 bg-white mx-auto">

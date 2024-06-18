@@ -31,21 +31,6 @@ class CartController extends Controller
             'active' => 'Cart',
             'dataItems' => $dataItems ?? null,
             'dataCart' => $dataCart ?? null,
-            // 'all' => $dataArray,
-            'a' => 0,
-            'b' => 0,
-            'c' => 0,
-            'd' => 0,
-            'e' => 0,
-            'f' => 0,
-            'g' => 0,
-            'h' => 0,
-            'o' => 0,
-            'j' => 0,
-            'k' => 0,
-            'l' => 0,
-            'm' => 0,
-            'n' => 0,
         ]);
     }
 
@@ -75,31 +60,5 @@ class CartController extends Controller
                 return redirect()->route('cart')->with('cartSuccess', 'Item succes add to cart');
             }
         }
-    }
-
-    public function decreamentCart($id)
-    {
-        $cart = Cart::find($id);
-        $cart->qty = $cart->qty - 1;
-        $cart->save();
-
-        return redirect()->route('cart.add');
-    }
-
-    public function increamentCart($id)
-    {
-        $cart = Cart::find($id);
-        $cart->qty = $cart->qty + 1;
-        $cart->save();
-
-        return redirect()->route('cart.add');
-    }
-
-    public function delete($id)
-    {
-        $cart = Cart::find($id);
-        $cart->delete();
-
-        return redirect()->back()->with("deleteCart", "Delete cart success");
     }
 }

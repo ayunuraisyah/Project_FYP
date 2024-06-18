@@ -32,7 +32,7 @@
                             <input id="x" type="hidden" name="description" >
                             <trix-editor input="x" class="w-[100%] h-[150px]  bg-black bg-opacity-20 border-0 "></trix-editor>
                         </div>
-                        <input type="hidden" name="rating" value="0" id="">
+                        <input type="hidden" name="favorite" value="0" id="">
                         <input type="hidden" name="sold" value="0" id="">
                         <div class="mt-2">
                             <label for="Gambar" class="block text-sm font-medium text-gray-700 text-center">Pilih Gambar</label>

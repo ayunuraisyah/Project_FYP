@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('favorits', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('origin');
-            $table->integer('stock');
-            $table->integer('favorite');
-            $table->integer('sold');
-            $table->binary('thumbnail');
             $table->string('slug');
-            $table->float('price');
-            $table->text('description');
+            $table->string('user');
             $table->timestamps();
         });
     }
@@ -31,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('favorits');
     }
 };

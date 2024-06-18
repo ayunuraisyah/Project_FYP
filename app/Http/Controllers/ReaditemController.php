@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Favorit;
+
 
 
 
@@ -16,7 +18,7 @@ class ReaditemController extends Controller
         [
             'title' => 'FYP',
             'active' => 'Admin',
-            'items' =>  $dataItems,
+            'items' =>  $dataItems ?? NULL,
             'data' => json_encode(Item::all()),
             'no' => 0,
         ]);
@@ -24,6 +26,7 @@ class ReaditemController extends Controller
 
     public function menuPage()
     {
+
         return view('menupage', 
         [
             'title' => 'FYP',
