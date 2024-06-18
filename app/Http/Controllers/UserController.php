@@ -28,9 +28,17 @@ class UserController extends Controller
 
     public function delete($email)
     {
+        $userCart = Cart::find($email);
+        $userCart->delete();
+
+        
+        $userFavorit = Favorit::find($email);
+        $userFavorit->delete();
+
         $user = User::find($email);
         Storage::delete($user->photo);
         $user->delete();
+        
         return back()->with('delete','User Telah Dihapus');
     }
 
