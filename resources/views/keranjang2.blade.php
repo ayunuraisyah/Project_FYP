@@ -118,7 +118,7 @@
        @isset($dataItems)
        <form action="{{ route('user.checkout') }}" method="post" id="checkoutForm">
        @foreach($dataCart as $index => $cart)
-            <div class="w-full bg-[#61AE77] h-[200px] mt-3 rounded-[20px] py-10">
+            <div class="w-full bg-[#61AE77] min-h-[200px] mt-3 rounded-[20px] py-10">
               <div class="flex justify-between items-center px-5">
                   @csrf
                   <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}" name="itemCart[]">

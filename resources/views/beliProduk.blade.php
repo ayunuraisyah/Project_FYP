@@ -27,7 +27,8 @@
                     <p>{{ auth()->user()->address }}</p>
                 </div>
                 <div class="flex mt-5 space-x-5 mr-4">
-                    <i data-feather="edit-2"></i>
+                <a href="#" id="editLink"><i data-feather="edit-2"></i></a>
+                    
                 </div>
             </div>
 
@@ -164,5 +165,47 @@
         </div>
     </div>
 </div>
+
+
+<div id="editModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-full max-w-md">
+            <h2 class="text-xl mb-4">Edit alamat</h2>
+            <form id="editForm">
+                <div class="mb-4">
+                    <label for="address" class="block text-gray-700">alamat lengkap:</label>
+                    <input type="text" id="address" name="address" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" id="cancelButton" class="mr-2 bg-gray-500 text-white py-2 px-4 rounded">Cancel</button>
+                    <button type="submit" class="bg-[#07511B] text-white py-2 px-4 rounded">simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            const editLink = document.getElementById('editLink');
+            const editModal = document.getElementById('editModal');
+            const cancelButton = document.getElementById('cancelButton');
+
+            editLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                editModal.classList.remove('hidden');
+            });
+
+            cancelButton.addEventListener('click', () => {
+                editModal.classList.add('hidden');
+            });
+
+            document.getElementById('editForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+              
+                editModal.classList.add('hidden');
+            });
+        });
+    </script>
 
 @endsection
