@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -31,6 +32,7 @@ class RegisterController extends Controller
 
         if($validate['repassword'] === $validate['password'])
         {
+            $validate['name'] = Str::ucfirst($validate['name']);
             $validate['password'] = Bcrypt($validate['password']);
             $validate['photo'] = $request->file('photo')->store('profile'); 
             

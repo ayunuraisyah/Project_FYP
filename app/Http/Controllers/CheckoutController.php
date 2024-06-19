@@ -36,23 +36,61 @@ class checkoutController extends Controller
                 $validate = $request->validate([
                     'itemCart' => 'required',
                 ]);
-                $a = 0;
                 foreach($validate as $data)
                 {
                     $slug = $data;
-                    $dataItems = Item::find($slug);
+                    $dataItems = Item::whereIn('slug', $slug)->get();
                     $dataCarts = Cart::whereIn('slug', $slug)->where('user', [auth()->user()->email])->get();
                 }
-
+                
                 $totalHarga = $request->input('totalHarga');
                 $totalItem = $request->input('totalItem');
-                // dd($totalHarga);
                 $title = "FYP";
                 $active = "Checkout";
+                
+                session()->put('slug', $slug);
+                
+                session()->put('totalHarga', $totalHarga);
+                
+                session()->put('totalItem', $totalItem);
 
-                return view('beliproduk', compact('dataCarts','dataItems','totalHarga', 'totalItem', 'title', 'active'));
+                return redirect()->route('checkout');
                 break;
         }
         
+    }
+
+    public function checkoutView()
+    {
+        if(session()->has('slug'))
+        {
+            $slugSession = session()->get('slug');
+            $totalHargaSession = session()->get('totalHarga');
+            
+            foreach($slugSession as $data)
+            {
+                $slug[] = $data;
+                $dataItems = Item::whereIn('slug', $slug)->get();
+                $dataCarts = Cart::whereIn('slug', $slug)->where('user', [auth()->user()->email])->get();
+            }
+    
+            $totalHarga = $totalHargaSession;
+            session()->put('total', $totalHargaSession + 10000 + 2000);
+            foreach($dataCarts as $data)
+            {
+                $qty = $data;
+                $totalQty[] = $qty['qty'];
+            }
+            session()->put('totalQty', $totalQty);
+            $qty = (array_sum(session()->get('totalQty')));
+            $total = session()->get('total');
+            $title = "FYP";
+            $active = "Checkout";
+    
+            return view('beliproduk', compact('dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
+        }else{
+
+            return redirect()->route('cart');
+        }
     }
 }

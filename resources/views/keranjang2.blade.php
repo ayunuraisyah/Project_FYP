@@ -24,8 +24,6 @@
                 checkboxes[i].checked = source.checked;
                 const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
                 document.getElementById('totalMkn').innerHTML = cb;
-                document.getElementById('totalItem').value = cb - 1;
-
 
                 const formatter = new Intl.NumberFormat('en-US', {
                 style: 'currency',
@@ -55,7 +53,6 @@
       {
         const cb = document.querySelectorAll('input[type="checkbox"]:checked').length;
         document.getElementById('totalMkn').innerHTML = cb;
-        document.getElementById('totalItem').value = cb;
       }
 
       const formatter = new Intl.NumberFormat('en-US', {
@@ -74,6 +71,7 @@
         // Add Checkbox values
         $(".checks:checked").each(function() {
           tots += $(this).data("price");
+          // totsqty += $(this).data("quantity");
         });
         
         // Update with new Number
@@ -121,7 +119,7 @@
             <div class="w-full bg-[#61AE77] min-h-[200px] mt-3 rounded-[20px] py-10">
               <div class="flex justify-between items-center px-5">
                   @csrf
-                  <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-price="{{ $cart->qty * $dataItems[$index]->price}}" name="itemCart[]">
+                  <input type="checkbox" value="{{ $cart->slug }}" class="checks" onclick="check(this)" data-quantity="{{ $cart->qty }}" data-price="{{ $cart->qty * $dataItems[$index]->price}}" name="itemCart[]">
                   <input type="hidden" value="{{ $cart->id }}" class="" name="idCart">
                   
               <div>
@@ -154,7 +152,6 @@
         <h2 class="text-white font-['Poppins']">total makanan(<span id="totalMkn">0</span>)</h2>
         <p class="text-white font-['Poppins']"><span id="tots"></span></p>
         <input type="hidden" name="totalHarga" id="totalHarga">
-        <input type="hidden" name="totalItem" id="totalItem">
         <button class="px-3 py-1 bg-yellow-500 text-white rounded-md"  type="submit" name="action" value="checkout">order</button>
     </div>
   </form>

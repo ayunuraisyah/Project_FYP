@@ -10,6 +10,7 @@ use App\Http\Controllers\ReaditemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -34,11 +35,7 @@ Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
 
 Route::get('/buktipembayaran', [RifadController::class, 'buktipembayaran']);
 
-Route::get('/opsipengiriman', [RifadController::class, 'opsipengiriman']);
-
 Route::get('/lupapassword', [RifadController::class, 'lupapassword']);
-
-Route::get('/daftaralamat', [RifadController::class, 'daftaralamat']);
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
@@ -57,9 +54,9 @@ Route::get('/profil2', [RifadController::class, 'profil2']);
 Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
 
 // USER
-Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user');
-Route::put('/datapengguna/{email}', [UserController::class, 'gantirole'])->name('user.role');
-Route::delete('/datapengguna/{email}', [UserController::class, 'delete'])->name('user.delete');
+Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user')->middleware('admin');
+Route::put('/datapengguna/{email}', [UserController::class, 'gantirole'])->name('user.role')->middleware('admin');
+Route::delete('/datapengguna/{email}', [UserController::class, 'delete'])->name('user.delete')->middleware('admin');
 Route::post('/profile/favorite', [UserController::class, 'favorit'])->name('user.favorite');
 Route::delete('/profile/favorite/{email}', [UserController::class, 'deleteFavorite'])->name('user.deleteFavorite');
 
@@ -72,6 +69,8 @@ Route::get('/profil', [ProfileController::class, 'view'])->name('profile')->midd
 Route::put('/profil/{email}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 Route::put('/profil/photo/{email}', [ProfileController::class, 'changePhoto'])->name('profile.photo')->middleware('auth');
 Route::get('/profile/favorite', [ProfileController::class, 'viewFav'])->name('profile.favorite')->middleware('auth');
+Route::put('/profile/location/{email}', [ProfileController::class, 'changeLoc'])->name('profile.location')->middleware('auth');
+Route::get('/profile/status', [ProfileController::class, 'viewStat'])->name('profile.status')->middleware('auth');
 
 // ITEM CRUD
 Route::resource('/admin', itemsPostController::class)->middleware('admin');
@@ -92,10 +91,18 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // CART
 Route::get('/cart', [CartController::class, 'view'])->name('cart')->middleware('auth');
 Route::post('/cart', [CartController::class, 'addCart'])->name('cart.add')->middleware('auth');
-// Route::put('/cart/decreament/{id}', [CartController::class, 'decreamentCart'])->name('cart.decreament')->middleware('auth');
-// Route::put('/cart/increament/{id}', [CartController::class, 'increamentCart'])->name('cart.increament')->middleware('auth');
-// Route::delete('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete')->middleware('auth');
 
 // CHECKOUT
-Route::post('/cart/checkout', [CheckoutController::class, 'checkout'])->name('user.checkout')->middleware('auth');
+Route::get('/cart/checkout', [CheckoutController::class, 'checkoutView'])->name('checkout')->middleware('auth');
+Route::post('/cart/checkout', [CheckoutController::class, 'checkout'])->name('user.checkout')->middleware('auth'); 
 
+// PAYMENT
+Route::post('/cart/checkout/payment', [PaymentController::class, 'create'])->name('user.payment')->middleware('auth'); 
+Route::post('/cart/checkout/payment/{orderNum}', [PaymentController::class, 'createPay'])->name('user.pay')->middleware('auth'); 
+Route::get('/cart/checkout/payment', [PaymentController::class, 'view'])->name('user.payment')->middleware('auth'); 
+Route::put('/cart/checkout/payment/receipt/{orderNum}', [PaymentController::class, 'receipt'])->name('user.confirm')->middleware('auth'); 
+
+// STATUS PEMBELIAN
+Route::get('/status', [UserController::class,'status'])->name('status')->middleware('admin');
+Route::put('/status/change/{orderNum}', [UserController::class,'changeStatus'])->name('user.changeStatus')->middleware('admin');
+Route::delete('/status/delete/{orderNum}', [UserController::class,'deleteStatus'])->name('user.deleteStatus')->middleware('admin');

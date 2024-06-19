@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Favorit;
 use App\Models\Item;
+use App\Models\Order;
 
 
 class ProfileController extends Controller
@@ -39,6 +40,14 @@ class ProfileController extends Controller
             $user->address = $request->input('address');
             $user->date = $request->input('date');
             $user->save();
+
+            $userCart = Cart::find($email);
+            $userCart->user = $request->input('email');
+            $userCart->save();
+
+            $userFav = Favorit::find($email);
+            $userFav->user = $request->input('email');
+            $userFav->save();
 
             return redirect()->route('profile')->with('success', 'Profil Berhasil Di Update');
         }
@@ -76,6 +85,25 @@ class ProfileController extends Controller
         $title = 'FYP';
         $active = 'Favorite';
         return view('favorit', compact('items', 'title', 'active'));
+    }
+
+    
+    public function changeLoc(Request $request, $email)
+    {
+        $dataUser = User::find($email);
+        $dataUser->address = $request->input('address');
+        $dataUser->save();
+
+        return redirect()->route('checkout');
+    }
+
+    public function viewStat()
+    {
+        $title = 'FYP';
+        $active = 'Status';
+        $items = Order::where('user', auth()->user()->email)->get();
+
+        return view('statusItem', compact('items', 'title', 'active'));
     }
 
 }

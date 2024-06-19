@@ -12,7 +12,7 @@
             <div class="w-[75%] h-[95%] ">
                 <div class="flex justify-between">
                     <h2 class="text-[18px]">total pembayaran</h2>
-                    <h2 class="text-[18px] text-[#07511B] font-bold">Rp.52.000</h2>
+                    <h2 class="text-[18px] text-[#07511B] font-bold">Rp {{ number_format($total) }}</h2>
                 </div>
                 <div class="w-full h-[2px] bg-white mt-3"></div>
 
@@ -24,8 +24,8 @@
                 <div class="w-[89%] h-auto ml-14">
                     <p>No rekening</p>
                     <div class="flex">
-                        <p class="text-[#07511B] font-bold">8805 240 1050 5060 4</p>
-                        <p class="ml-12 text-[#61AE77]">SALIN</p>
+                        <input type="text" name="input" id="input" value="8805 240 1050 5060 4" class="text-[#07511B] font-bold bg-transparent border-none focus:outline-none hover:cursor-default" readonly>
+                        <button class="ml-12 text-[#61AE77]" onclick="copy()">SALIN</button>
                     </div>
                     <p class="mt-3 text-[#61AE77]">Proses verifikasi kurang dari 10 menit setelah pembayaran berhasil</p>
                     <p class="mt-3">Bayar pesanan ke Virtual Account di atas sebelum membuat pesanan kembali dengan Virtual Account agar nomor tetap sama.</p>
@@ -61,7 +61,12 @@
                    </ul>
 
                    <div class="flex items-center justify-center mt-4">
-                    <button class="w-[150px] h-[30px] bg-[#07511B] text-white font-bold">Ok</button>
+                    <form method="post" action="{{ route('user.confirm', $orderNum) }}"  enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <input type="file" name="receipt" id="receipt" accept="image/*">
+                        <button class="w-[150px] h-[30px] bg-[#07511B] text-white font-bold">Ok</button>
+                    </form>
                    </div>
 
 
@@ -74,4 +79,16 @@
     </div>
 
 </div>
+
+<script>
+    function copy()
+    {
+        const copyText = document.getElementById("input");
+    
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); 
+    
+        navigator.clipboard.writeText(copyText.value);
+    }
+</script>
    @endsection

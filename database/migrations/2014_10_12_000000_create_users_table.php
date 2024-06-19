@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('address');
+            $table->text('address');
             $table->string('role');
             $table->binary('photo');
             $table->timestamps();

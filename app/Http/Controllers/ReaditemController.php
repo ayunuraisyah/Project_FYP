@@ -17,7 +17,7 @@ class ReaditemController extends Controller
         return view('adminBarang', 
         [
             'title' => 'FYP',
-            'active' => 'Admin',
+            'active' => 'AdminBarang',
             'items' =>  $dataItems ?? NULL,
             'data' => json_encode(Item::all()),
             'no' => 0,
@@ -30,7 +30,7 @@ class ReaditemController extends Controller
         return view('menupage', 
         [
             'title' => 'FYP',
-            'active' => 'Admin',
+            'active' => 'MenuPage',
             'items' => Item::all(),
         ]);
     }
