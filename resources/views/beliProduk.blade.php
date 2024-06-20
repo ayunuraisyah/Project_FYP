@@ -43,15 +43,27 @@
                             <td class="w-[30%] pt-6">jumlah</td>
                             <td class="w-[30%] pt-6">Total harga</td>
                         </tr>
-                        @foreach ($dataCarts as $index => $cart)
-                            <tr>
-                                <td class="flex mt-4"><img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">{{ $dataItems[$index]->title }},<br>{{ $dataItems[$index]->origin }}</p></td>
-                                <td class="pl-2">Rp {{ number_format($dataItems[$index]->price) }}</td>
-                                <td class="pl-2">{{ $cart->qty }}</td>
-                                <td class="pl-2">Rp {{ number_format($cart->qty * $dataItems[$index]->price) }}</td>
-                            </tr>
+                        @if(session()->has('buyNow'))
+                            @foreach ($dataCarts as $index => $cart)
 
+                                <tr>
+                                    <td class="flex mt-4"><img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">{{ $dataItems[$index]->title }},<br>{{ $dataItems[$index]->origin }}</p></td>
+                                    <td class="pl-2">Rp {{ number_format($dataItems[$index]->price) }}</td>
+                                    <td class="pl-2">{{ $totalqtyBuyNow }}</td>
+                                    <td class="pl-2">Rp {{ number_format($totalqtyBuyNow * $dataItems[$index]->price) }}</td>
+                                </tr>   
                             @endforeach
+                        @else
+                            @foreach ($dataCarts as $index => $cart)
+                                <tr>
+                                    <td class="flex mt-4"><img src="/storage/{{ $dataItems[$index]->thumbnail }}" alt="" class="w-[130px] h-[100px]"><p class="ml-6 mt-6">{{ $dataItems[$index]->title }},<br>{{ $dataItems[$index]->origin }}</p></td>
+                                    <td class="pl-2">Rp {{ number_format($dataItems[$index]->price) }}</td>
+                                    <td class="pl-2">{{ $cart->qty }}</td>
+                                    <td class="pl-2">Rp {{ number_format($cart->qty * $dataItems[$index]->price) }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
                         <tr>
                             <td class="flex mt-4">catatan:
                                 <input type="text" name="note" id="note" placeholder="note" class="bg-[#A5A5A5] rounded-[10px] ml-6">

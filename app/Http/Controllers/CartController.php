@@ -23,9 +23,7 @@ class CartController extends Controller
             $dataItems[] = Item::find($data[$a++]);
             $dataCart[] = Cart::find($dataid[$c++]);
 
-            // $dataArray = array_combine($dataCart, $dataItems);
         }
-        // dd($dataCart);
         return view('keranjang2',[
             'title' => 'FYP',
             'active' => 'Cart',

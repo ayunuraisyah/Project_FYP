@@ -33,25 +33,13 @@ Route::get('/', [RifadController::class, 'home'])->name('home');
 
 Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
 
-Route::get('/buktipembayaran', [RifadController::class, 'buktipembayaran']);
-
 Route::get('/lupapassword', [RifadController::class, 'lupapassword']);
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
-Route::get('/profil', [RifadController::class, 'profil']);
+// Route::get('/adminproduk', [RifadController::class, 'adminproduk']);
 
-Route::get('/adminproduk', [RifadController::class, 'adminproduk']);
-
-Route::get('/beliProduk', [RifadController::class, 'beliProduk']);
-
-Route::get('/test', [RifadController::class, 'test']);
-
-Route::get('/statuspembelian', [RifadController::class, 'statuspembelian']);
-
-Route::get('/profil2', [RifadController::class, 'profil2']);
-
-Route::get('/detailProduk', [RifadController::class, 'detailProduk']);
+// Route::get('/test', [RifadController::class, 'test']);
 
 // USER
 Route::get('/datapengguna', [UserController::class, 'datapengguna'])->name('user')->middleware('admin');
@@ -95,6 +83,7 @@ Route::post('/cart', [CartController::class, 'addCart'])->name('cart.add')->midd
 // CHECKOUT
 Route::get('/cart/checkout', [CheckoutController::class, 'checkoutView'])->name('checkout')->middleware('auth');
 Route::post('/cart/checkout', [CheckoutController::class, 'checkout'])->name('user.checkout')->middleware('auth'); 
+Route::post('/cart/buyNow', [CheckoutController::class, 'buyNow'])->name('user.buyNow')->middleware('auth'); 
 
 // PAYMENT
 Route::post('/cart/checkout/payment', [PaymentController::class, 'create'])->name('user.payment')->middleware('auth'); 

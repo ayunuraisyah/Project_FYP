@@ -54,10 +54,34 @@ class checkoutController extends Controller
                 
                 session()->put('totalItem', $totalItem);
 
+                session()->put('from', "checkout");
+
+
                 return redirect()->route('checkout');
                 break;
         }
         
+    }
+
+    public function buyNow(Request $request)
+    {
+        $validate = $request->validate([
+            'qty' => 'required',
+        ]);
+
+        $slug[] = $request->input('slug');
+
+        session()->put('totalHarga', $request->input('totalHarga') * $request->input('qty'));
+
+        session()->put('slug', $slug);
+        $qty = session()->put('totalQtyBuyNow', $request->input('qty'));
+
+        session()->put('buyNow', TRUE);
+
+        session()->put('from', "buyNow");
+
+        return redirect()->route('checkout');
+
     }
 
     public function checkoutView()
@@ -66,6 +90,14 @@ class checkoutController extends Controller
         {
             $slugSession = session()->get('slug');
             $totalHargaSession = session()->get('totalHarga');
+            $buyNow = session()->get('buyNow');
+            $totalqtyBuyNow= session()->get('totalQtyBuyNow');
+            $from = session()->get('from');
+
+            if($from != 'buyNow')
+            {
+                session()->forget('buyNow');
+            }
             
             foreach($slugSession as $data)
             {
@@ -86,8 +118,10 @@ class checkoutController extends Controller
             $total = session()->get('total');
             $title = "FYP";
             $active = "Checkout";
+
+
     
-            return view('beliproduk', compact('dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
+            return view('beliproduk', compact('buyNow','totalqtyBuyNow','dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
         }else{
 
             return redirect()->route('cart');

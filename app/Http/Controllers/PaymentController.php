@@ -53,6 +53,8 @@ class PaymentController extends Controller
         return redirect()->route('user.payment');
     }
 
+
+
     public function createPay($orderNum)
     {
         $datas = Order::where('orderNum', $orderNum)->get();
@@ -69,6 +71,8 @@ class PaymentController extends Controller
         
         return redirect()->route('user.payment');
     }
+
+    
 
     public function receipt(Request $request, $orderNum)
     {
@@ -90,7 +94,9 @@ class PaymentController extends Controller
             $item->sold = $item->sold + $qty[$b++];
             $item->save();
         }
-        
+
         return redirect()->route('profile.status');
     }
+
+   
 }
