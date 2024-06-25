@@ -58,7 +58,7 @@ $_SESSION ['error'] = '';
                 
             </form>
             <div class="text-black text-sm font-normal font-['Poppins'] mt-2 text-center">
-                <a href="#"> Forgot password?</a>
+                <a href="{{ route('lupapassword')}}"> Forgot password?</a>
             </div>
     
             <div class="mt-4 text-center">

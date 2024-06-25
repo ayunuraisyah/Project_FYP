@@ -19,21 +19,22 @@
             <div class="w-full h-1 bg-white mt-2"></div>
         </div>
 
-        <form action="{{ route ('lupapasswordact')}}" method="post" class="flex items-center justify-center mt-4">
+        <form action="{{ route ('validasipasswordact')}}" method="post" class="flex items-center justify-center mt-4">
             @csrf
         <div class="mt-4">
             @if(session()->has('success'))
             <p class="ml-4 text-yellow-500">{{ session()->get('success') }}</p>
             @endif
-            <h2 class="ml-4 text-white text-xl ">Please enter your email address or mobile number to search for your account.</h2>
-                <input type="email" name="email" class="ml-4 mt-4 mr-4 w-[565px] h-[55px] bg-[#A5A5A5] pl-4 placeholder-white text-white" placeholder="Email">
-                @error('email')
+            <input type="hidden" name="token" id="token" value="token">
+            <h2 class="ml-4 text-white text-xl ">Enter Your New Password</h2>
+                <input type="password" name="password" class="ml-4 mt-4 mr-4 w-[565px] h-[55px] bg-[#A5A5A5] pl-4 placeholder-white text-white" placeholder="New Password">
+                @error('password')
                 <small class="ml-4 text-red-500">{{ $message }}</small>
                 @enderror
                 
                 <div class="flex ml-4 mt-5 space-x-10 mr-6">
                     {{-- <button class="w-[100px] h-[37px] bg-[#A5A5A5] rounded-[10px]">cancel</button> --}}
-                    <button class="w-[160px] h-[37px] bg-green-400">Send Reset Password</button>
+                    <button class="w-[160px] h-[37px] bg-green-400">Change Password</button>
                 </div>
                 
                 

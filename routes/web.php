@@ -31,9 +31,9 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('/', [RifadController::class, 'home'])->name('home');
 
-Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
 
-Route::get('/lupapassword', [RifadController::class, 'lupapassword']);
+
+
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
@@ -71,10 +71,16 @@ Route::post('/adminBarang/{slug}', [itemsPostController::class, 'delete'])->name
 Route::get('/menupage', [ReaditemController::class,'menuPage']);
 Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');
 
-// LOGIN DAN LOGOUT
+// AKUN
 Route::get('/login', [LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/resetpassword', [RifadController::class, 'resetpassword']);
+Route::get('/lupapassword', [LoginController::class, 'lupapassword'])->name('lupapassword');
+Route::post('/lupapasswordact', [LoginController::class, 'lupapasswordact'])->name('lupapasswordact');
+
+Route::get('/validasipassword/{token}', [LoginController::class, 'validasipassword'])->name('validasipassword');
+Route::post('/validasipasswordact', [LoginController::class, 'validasipasswordact'])->name('validasipasswordact');
 
 // CART
 Route::get('/cart', [CartController::class, 'view'])->name('cart')->middleware('auth');
