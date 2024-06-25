@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('favorits', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('user');
+            $table->foreignId('slug')->constrained(
+                table: 'items', indexName: 'slugFav'
+            );
+            $table->foreignId('email')->constrained(
+                table: 'users', indexName: 'emailFav'
+            );
             $table->timestamps();
         });
     }

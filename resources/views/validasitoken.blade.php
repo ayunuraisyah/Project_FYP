@@ -25,7 +25,7 @@
             @if(session()->has('success'))
             <p class="ml-4 text-yellow-500">{{ session()->get('success') }}</p>
             @endif
-            <input type="hidden" name="token" id="token" value="token">
+            <input type="hidden" name="token" id="token" value="{{ $token }}">
             <h2 class="ml-4 text-white text-xl ">Enter Your New Password</h2>
                 <input type="password" name="password" class="ml-4 mt-4 mr-4 w-[565px] h-[55px] bg-[#A5A5A5] pl-4 placeholder-white text-white" placeholder="New Password">
                 @error('password')

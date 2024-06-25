@@ -11,7 +11,7 @@ class CartController extends Controller
 {
     public function view()
     {
-        $dataCarts = Cart::where('user', [auth()->user()->email])->get();
+        $dataCarts = Cart::where('email', [auth()->user()->email])->get();
         $i = 0;
         $a = 0;
         $b = 0;
@@ -37,7 +37,7 @@ class CartController extends Controller
         $itemData = Item::find($request->input('slug'));
         if($itemData)
         {
-            $data = Cart::where('user', [auth()->user()->email])->where('slug', [$request->input('slug')])->get();
+            $data = Cart::where('email', [auth()->user()->email])->where('slug', [$request->input('slug')])->get();
             if(!$data->isEmpty())
             {
                 foreach($data as $item)
@@ -52,7 +52,7 @@ class CartController extends Controller
                 $item = new Cart;
                 $item->slug = $itemData->slug;
                 $item->qty = $request->input('qty');
-                $item->user = Auth()->user()->email;
+                $item->email = Auth()->user()->email;
                 $item->save();
     
                 return redirect()->route('cart')->with('cartSuccess', 'Item succes add to cart');

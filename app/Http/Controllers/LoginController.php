@@ -75,15 +75,18 @@ class LoginController extends Controller
 
         $user = User::where('email', $token->email)->first();
 
+
         if (!$user) {
             return redirect()->route('login')->with('failed','Email not registered');
         }
 
         $user->update([
-            'password' => Hash::make($request->password)
+            'password' => Bcrypt($request->password)
         ]);
 
-        $user->delete();
+        // $user->save();
+
+        $token->delete();
 
         return redirect()->route('login')->with('success','Your password has been changed');
     }

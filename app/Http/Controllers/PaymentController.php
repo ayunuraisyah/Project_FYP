@@ -45,7 +45,7 @@ class PaymentController extends Controller
         $order->note =  $request->input('note');
         $order->method =  $request->input('bank');
         $order->status =  "Waiting for payment";
-        $order->user =  auth()->user()->email;
+        $order->email =  auth()->user()->email;
         $order->OrderNum = implode($orderNum);
         $order->save();
 

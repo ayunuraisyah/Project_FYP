@@ -11,6 +11,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\KategoriController;
 
 
 
@@ -101,3 +102,6 @@ Route::put('/cart/checkout/payment/receipt/{orderNum}', [PaymentController::clas
 Route::get('/status', [UserController::class,'status'])->name('status')->middleware('admin');
 Route::put('/status/change/{orderNum}', [UserController::class,'changeStatus'])->name('user.changeStatus')->middleware('admin');
 Route::delete('/status/delete/{orderNum}', [UserController::class,'deleteStatus'])->name('user.deleteStatus')->middleware('admin');
+
+// KATEGORI
+Route::get('/kategori/{origin}', [KategoriController::class,'viewKategori'])->name('kategori')->middleware('auth');
