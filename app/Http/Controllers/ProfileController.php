@@ -101,7 +101,7 @@ class ProfileController extends Controller
     {
         $title = 'FYP';
         $active = 'Status';
-        $items = Order::where('user', auth()->user()->email)->get();
+        $items = Order::where('email', auth()->user()->email)->get();
 
         return view('statusItem', compact('items', 'title', 'active'));
     }

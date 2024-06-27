@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         $fav = new Favorit;
         $fav->slug = $request->input('favorit');
-        $fav->user = auth()->user()->email;
+        $fav->email = auth()->user()->email;
         $fav->save();
 
         $cekItem = Item::find($request->input('favorit'));

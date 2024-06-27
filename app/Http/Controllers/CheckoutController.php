@@ -40,7 +40,7 @@ class checkoutController extends Controller
                 {
                     $slug = $data;
                     $dataItems = Item::whereIn('slug', $slug)->get();
-                    $dataCarts = Cart::whereIn('slug', $slug)->where('user', [auth()->user()->email])->get();
+                    $dataCarts = Cart::whereIn('slug', $slug)->where('email', [auth()->user()->email])->get();
                 }
                 
                 $totalHarga = $request->input('totalHarga');
@@ -103,7 +103,7 @@ class checkoutController extends Controller
             {
                 $slug[] = $data;
                 $dataItems = Item::whereIn('slug', $slug)->get();
-                $dataCarts = Cart::whereIn('slug', $slug)->where('user', [auth()->user()->email])->get();
+                $dataCarts = Cart::whereIn('slug', $slug)->where('email', [auth()->user()->email])->get();
             }
     
             $totalHarga = $totalHargaSession;
