@@ -32,14 +32,18 @@
         </div>
 
         <div class="flex flex-col flex-1">
-            <form action="" class="relative flex items-center mt-3 ml-3">
-                <div class="relative flex items-center">
-                    <input type="text" placeholder="Cari apa"
-                        class="w-[500px] h-[60px] pl-[50px] bg-zinc-300 rounded-[20px] pr-4 placeholder-lg">
-                    <i data-feather="search" class="absolute left-0 top-0 mt-5 ml-3 text-gray-400"></i>
+            @if($active == 'Admin')
+            @else
+                <form action="{{ route('user.searchStatus', $active) }}" method="post" class="relative flex items-center mt-3 ml-3">
+                    @csrf
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Cari apa" name="query"
+                            class="w-[500px] h-[60px] pl-[50px] bg-zinc-300 rounded-[20px] pr-4 placeholder-lg">
+                        <i data-feather="search" class="absolute left-0 top-0 mt-5 ml-3 text-gray-400"></i>
 
-                </div>
-            </form>
+                    </div>
+                </form>
+            @endif
             <div class="p-5 flex-1">
                 @yield('content')
             </div>

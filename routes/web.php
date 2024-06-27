@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\SearchController;
 
 
 
@@ -105,3 +106,8 @@ Route::delete('/status/delete/{orderNum}', [UserController::class,'deleteStatus'
 
 // KATEGORI
 Route::get('/kategori/{origin}', [KategoriController::class,'viewKategori'])->name('kategori')->middleware('auth');
+
+// SEARCH
+Route::post('/menupage/search', [SearchController::class, 'searchMenu'])->name('user.searchMenu')->middleware('auth');
+Route::post('/kategori/{origin}/search', [SearchController::class, 'searchKategori'])->name('user.searchKategori')->middleware('auth');
+Route::post('{active}/search', [SearchController::class, 'searchStatus'])->name('user.searchStatus')->middleware('auth');

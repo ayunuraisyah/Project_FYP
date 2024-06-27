@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-    <img src="img/logo1.png" alt="" class="w-[200px] h-[200px]">
+    <a href="/"><img src="/img/logo1.png" alt="" class="w-[200px] h-[200px]"></a>
 </div>
 
 <nav class="mt-2">

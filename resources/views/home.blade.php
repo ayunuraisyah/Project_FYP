@@ -7,7 +7,7 @@
         <div class="absolute inset-0 flex items-center justify-center flex-col text-center text-white px-4">
             <p class="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[70px] font-bold font-Lalezar">RAGAM MENU PILIHAN</p>
             <div class="w-full md:w-[510px] h-[0px] border-[3px] border-white mt-3"></div>
-            <a href="#">
+            <a href="/menupage">
                 <button class="bg-[#61AE77] w-[175px] sm:w-[225px] h-[50px] sm:h-[75px] rounded-[10px] mt-[20px] sm:mt-[30px]">Selengkapnya</button>
             </a>
         </div>

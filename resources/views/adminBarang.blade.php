@@ -31,6 +31,7 @@
                                 ?>
                                 {{ $item->favorite }}({{ $item->sold }})
                             </div>
+                            {{ $item->title }}
                             <p>Rp {{ number_format($item->price) }}</p>
 
                             <div class="flex justify-between mt-3">
