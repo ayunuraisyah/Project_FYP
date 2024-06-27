@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('slug')->constrained(
-                table: 'items', indexName: 'slugOrders'
-            );
+            $table->string('slug');
+            $table->foreign('slug')->references('slug')->on('items');
             $table->string('qty');
             $table->integer('total');
             $table->text('note')->nullable();
             $table->string('method');
             $table->string('status');
-            $table->foreignId('email')->constrained(
-                table: 'users', indexName: 'emailOrders'
-            );
+            $table->string('email');
+            $table->foreign('email')->references('email')->on('users');
             $table->binary('receipt')->nullable();
             $table->string('orderNum')->unique();
             $table->timestamps();

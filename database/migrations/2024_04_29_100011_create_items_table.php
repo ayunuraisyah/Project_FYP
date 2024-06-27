@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('favorite');
             $table->integer('sold');
             $table->binary('thumbnail');
-            $table->string('slug')->unique();
+            $table->string('slug')->index()->unique();
             $table->float('price');
             $table->text('description');
             $table->timestamps();

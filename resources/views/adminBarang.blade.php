@@ -9,7 +9,7 @@
                         <div class="px-[3px] bg-white rounded-[5px]">
                             <div class="flex align-center">
                                 <?php
-                                    $cekFav = App\Models\Favorit::where('slug', $item->slug)->where('user', auth()->user()->email);
+                                    $cekFav = App\Models\Favorit::where('slug', $item->slug)->where('email', auth()->user()->email);
                                     if ($cekFav->count() == 0){
                                 ?>
                                 <form method="post" action="{{ route('user.favorite') }}">

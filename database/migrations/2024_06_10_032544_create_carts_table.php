@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('slug')->constrained(
-                table: 'items', indexName: 'slugCarts'
-            );
+            $table->string('slug');
+            $table->foreign('slug')->references('slug')->on('items');
             $table->integer('qty');
-            $table->foreignId('email')->constrained(
-                table: 'users', indexName: 'emailCarts'
-            );
+            $table->string('email');
+            $table->foreign('email')->references('email')->on('users');
             $table->timestamps();
         });
     }
