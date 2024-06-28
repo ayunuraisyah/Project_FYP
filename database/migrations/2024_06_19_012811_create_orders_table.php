@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->foreign('slug')->references('slug')->on('items');
             $table->string('qty');
             $table->integer('total');
             $table->text('note')->nullable();
             $table->string('method');
             $table->string('status');
             $table->string('email');
-            $table->foreign('email')->references('email')->on('users');
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->binary('receipt')->nullable();
             $table->string('orderNum')->unique();
             $table->timestamps();

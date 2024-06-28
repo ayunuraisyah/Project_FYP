@@ -17,7 +17,7 @@
                 <div class="w-full h-[2px] bg-white mt-3"></div>
 
                 <div class="flex mt-4">
-                <img src="img\bank.jpeg" alt="" class="w-[35px] h-[35px]">
+                <img src="/img/WhatsApp Image 2024-06-28 at 14.05.47_67ba990a.jpg" alt="" class="w-[35px] h-[35px]">
                 <p class="ml-5">Bank BNI</p>
                 </div>
 

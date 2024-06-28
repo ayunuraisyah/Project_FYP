@@ -70,8 +70,8 @@ Route::put('/adminBarang/{slug}', [itemsPostController::class, 'update'])->name(
 Route::post('/adminBarang/{slug}', [itemsPostController::class, 'delete'])->name('item.delete')->middleware('admin');
 
 // MENUPAGE
-Route::get('/menupage', [ReaditemController::class,'menuPage']);
-Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show');
+Route::get('/menupage', [ReaditemController::class,'menuPage'])->middleware('auth');
+Route::get('/menupage/{slug}', [ReaditemController::class,'detail'])->name('produk.show')->middleware('auth');
 
 // AKUN
 Route::get('/login', [LoginController::class,'login'])->name('login')->middleware('guest');

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->foreign('slug')->references('slug')->on('items');
+            $table->foreign('slug')->references('slug')->on('items')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('qty');
             $table->string('email');
-            $table->foreign('email')->references('email')->on('users');
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

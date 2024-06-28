@@ -128,7 +128,7 @@
                     </div>
     
                     <div class="w-[50px] h-[50px] border border-green-600 flex items-center justify-center">
-                        <img src="/img/bank.jpeg" alt="" class="w-[35px] h-[35px]">
+                        <img src="/img/WhatsApp Image 2024-06-28 at 14.05.47_67ba990a.jpg" alt="" class="w-[35px] h-[35px]">
                     </div>
     
                     <div>
