@@ -13,16 +13,51 @@
         rel="stylesheet">
         <style>
       
-        .sidebar {
+      .sidebar {
             transition: transform 0.3s ease-in-out;
-            z-index: 1000; 
+            z-index: 50; /* Ensure it appears above other content */
         }
-        .sidebar-hidden {
+        .sidebar-closed {
             transform: translateX(-100%);
         }
-        .sidebar-visible {
+        .sidebar-open {
             transform: translateX(0);
         }
+        /* Overlay to darken the rest of the page */
+        .overlay {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 40;
+        }
+        .overlay-open {
+            opacity: 0.5;
+            visibility: visible;
+        }
+    
+        .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -40,7 +75,49 @@
     </footer>
 
     <script>
+          document.addEventListener('DOMContentLoaded', function () {
         feather.replace();
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', function () {
+            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('sidebar-closed');
+            overlay.classList.toggle('overlay-open');
+        });
+
+        closeSidebar.addEventListener('click', function () {
+            sidebar.classList.add('sidebar-closed');
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-open');
+        });
+
+        overlay.addEventListener('click', function () {
+            sidebar.classList.add('sidebar-closed');
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-open');
+        });
+    });
+
+
+        feather.replace();
+        let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
     </script>
 </body>
 </html>

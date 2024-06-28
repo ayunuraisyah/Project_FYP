@@ -5,7 +5,7 @@
 <div class="flex items-center justify-center">
 <div class="w-[700px] h-[500px]">
   <div class="flex w-full h-[80%]justify-center space-x-8 pt-[75px] ">
-     <img src="/storage/{{ $item->thumbnail }}" alt="rawon" class="w-[250px] h-[250px] rounded-[10px]">
+     <img src="/storage/{{ $item->thumbnail }}" alt="rawon" class="w-[340px] h-[250px] rounded-[10px]">
 
      <div>
          <h2 class="font-bold font-['Poppins'] text-xl">{{ $item->title }},{{ $item->origin }}</h2>
@@ -34,7 +34,7 @@
               {{-- <button class="px-2 py-2 text-white  bg-gray-400">></button> --}}
             </div>
   
-            <div class=" bg-green-600 rounded-[20px] w-[130px] h-[35px] flex justify-center items-center">
+            <div class=" bg-green-600 rounded-[20px] w-[130px] h-[35px] flex justify-center items-center mt-4">
               <button>beli sekarang</button>
             </div>
   
