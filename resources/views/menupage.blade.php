@@ -4,7 +4,7 @@
 
 
    <div class="left-[14px] top-[100px] absolute text-black text-[30px] font-bold font-['Poppins']">
-        Hi Ayu</div>
+        Hi {{ auth()->user()->name }}</div>
 
     <div class=" left-[14px] top-[150px] absolute text-black text-[30px] font-bold font-['Poppins']">
         Makanan daerah mana yang kamu mau hari ini?</div>
@@ -92,8 +92,11 @@
 
     </div>
      
-    <button class="w-[250px] h-[62px] left-[1190px] top-[2000px] absolute bg-[#61AE77]  text-white rounded-[10px]">
+    <div class="flex justify-end mr-4">
+    <button class="w-[250px] h-[62px]  mb-4  bg-[#61AE77]  text-white rounded-[10px]">
         selengkapnya
     </button>
+    </div>
+   
 
    @endsection

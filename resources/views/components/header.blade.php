@@ -29,48 +29,27 @@
     </nav>
 
     
-    <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-[#61AE77] sidebar sidebar-hidden md:hidden">
-        <div class="p-4 flex flex-col h-full">
-            <div class="flex justify-between items-center">
-                <h2 class="text-white text-2xl">Menu</h2>
-                <a href="#" id="menu-close">
-                    <i data-feather="x" class="text-white w-[35px] h-[30px]"></i>
-                </a>
-            </div>
-           
-            <div class="w-full h-[120px] flex justify-center items-center mt-4">
-                <img src="img/logo1.png" alt="Logo">
-            </div>
-            <a href="/menupage" class="mt-6 text-white">Menu</a>
-            <a href="/" class="mt-6 text-white">Home</a>
-            <a href="/cart" class="mt-6 text-white">
-                <i data-feather="shopping-cart" class="text-white w-[35px] h-[30px]"></i>
-            </a>
-            @auth
-                <a href="/profil" class="mt-6 text-white">Welcome {{ auth()->user()->name }}!</a>
-            @else
-                <a href="/login" class="mt-6 text-white">Login</a>
-            @endauth
-        </div>
-    </div>
+    <div id="overlay" class="fixed inset-0 bg-black overlay"></div>
 
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            feather.replace();
-
-            const menuToggle = document.getElementById('menu-toggle');
-            const menuClose = document.getElementById('menu-close');
-            const sidebar = document.getElementById('sidebar');
-
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('sidebar-hidden');
-                sidebar.classList.toggle('sidebar-visible');
-            });
-
-            menuClose.addEventListener('click', function() {
-                sidebar.classList.toggle('sidebar-hidden');
-                sidebar.classList.toggle('sidebar-visible');
-            });
-        });
-    </script>
+<div id="sidebar" class="fixed inset-y-0 left-0 bg-[#61AE77] w-[250px] sidebar sidebar-closed md:hidden">
+<div class="flex flex-col p-6 relatve">
+    <a href="#" id="close-sidebar" class="absolute top-2 right-2 text-white">
+        <i data-feather="x" class="text-white w-[35px] h-[30px]"></i>
+    </a>
+    <div class="w-[150px] h-[150px] mb-4">
+        <img src="/img/logo1.png" alt="Logo">
+    </div class="py-3">
+    <a href="/menupage" class="mb-4 text-white">Menu</a>
+    <a href="/" class="mb-4 text-white">Home</a>
+    <a href="/cart" class="mb-4 text-white">
+        <i data-feather="shopping-cart" class="text-white w-[35px] h-[30px]"></i>
+    </a>
+    @auth
+        <a href="/profil" class="mb-4 text-white">Welcome {{ auth()->user()->name }}!</a>
+    @else
+        <a href="/login" class="mb-4 text-white">
+            <p>Login</p>
+        </a>
+    @endauth
+</div>
+</div>
