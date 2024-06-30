@@ -73,8 +73,7 @@ class LoginController extends Controller
             return redirect()->route('login')->with('failed','Invalid Token');
         }
 
-        $user = User::where('email', $token->email)->first();
-
+        $user = User::where('email', $token['email'])->first();
 
         if (!$user) {
             return redirect()->route('login')->with('failed','Email not registered');
@@ -83,8 +82,6 @@ class LoginController extends Controller
         $user->update([
             'password' => Bcrypt($request->password)
         ]);
-
-        // $user->save();
 
         $token->delete();
 
