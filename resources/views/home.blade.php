@@ -2,38 +2,16 @@
 
 @section('content')
 
-<div class="slideshow-container relative w-full overflow-hidden">
-    <div class="mySlides fade">
-        <img src="img/Bg Home.jpeg" alt="Background Image 1" class="w-full h-full object-cover bg-repeat" style="background-size: 600px;">
+<div class="relative w-full overflow-hidden">
+        <img src="img/Bg Home.jpeg" alt="Background Image" class="w-full h-full object-cover bg-repeat" style="background-size: 600px;">
         <div class="absolute inset-0 flex items-center justify-center flex-col text-center text-white px-4">
-            <p class="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[70px] font-bold font-Lalezar">RAGAM MENU PILIHAN 1</p>
+            <p class="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[70px] font-bold font-Lalezar">RAGAM MENU PILIHAN</p>
             <div class="w-full md:w-[510px] h-[0px] border-[3px] border-white mt-3"></div>
-            <a href="/menupage1">
+            <a href="/menupage">
                 <button class="bg-[#61AE77] w-[175px] sm:w-[225px] h-[50px] sm:h-[75px] rounded-[10px] mt-[20px] sm:mt-[30px]">Selengkapnya</button>
             </a>
         </div>
     </div>
-    <div class="mySlides fade">
-        <img src="img/Bg Home.jpeg" alt="Background Image 2" class="w-full h-full object-cover bg-repeat" style="background-size: 600px;">
-        <div class="absolute inset-0 flex items-center justify-center flex-col text-center text-white px-4">
-            <p class="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[70px] font-bold font-Lalezar">RAGAM MENU PILIHAN 2</p>
-            <div class="w-full md:w-[510px] h-[0px] border-[3px] border-white mt-3"></div>
-            <a href="/menupage2">
-                <button class="bg-[#61AE77] w-[175px] sm:w-[225px] h-[50px] sm:h-[75px] rounded-[10px] mt-[20px] sm:mt-[30px]">Selengkapnya</button>
-            </a>
-        </div>
-    </div>
-    <div class="mySlides fade">
-        <img src="img/Bg Home3.jpeg" alt="Background Image 3" class="w-full h-full object-cover bg-repeat" style="background-size: 600px;">
-        <div class="absolute inset-0 flex items-center justify-center flex-col text-center text-white px-4">
-            <p class="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[70px] font-bold font-Lalezar">RAGAM MENU PILIHAN 3</p>
-            <div class="w-full md:w-[510px] h-[0px] border-[3px] border-white mt-3"></div>
-            <a href="/menupage3">
-                <button class="bg-[#61AE77] w-[175px] sm:w-[225px] h-[50px] sm:h-[75px] rounded-[10px] mt-[20px] sm:mt-[30px]">Selengkapnya</button>
-            </a>
-        </div>
-    </div>
-</div>
 
 
     <div class="relative w-full h-auto bg-[#61AE77] py-10">
