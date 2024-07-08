@@ -61,7 +61,6 @@
     </table>
 </div>
 
-<!-- Modal -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
     <div class="bg-white p-4 rounded w-[350px]  flex flex-col items-center">
         <span class="close cursor-pointer text-red-600 self-end" onclick="closeModal()">&times;</span>
