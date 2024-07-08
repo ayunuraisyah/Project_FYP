@@ -14,6 +14,13 @@ class RifadController extends Controller
         'active' => 'Home'
     ]);
 }
+    public function struk(){
+        return view('struk',
+    [
+        'title' => 'FYP',
+        'active' => 'struk'
+    ]);
+}
     public function pembayaran(){
         return view('pembayaran',
     [

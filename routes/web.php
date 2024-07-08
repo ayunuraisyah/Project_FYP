@@ -39,6 +39,9 @@ Route::get('/', [RifadController::class, 'home'])->name('home');
 
 Route::get('/kategori', [RifadController::class, 'kategori']);
 
+// struk pembayaran
+Route::get('/struk', [RifadController::class, 'struk']);
+
 // Route::get('/adminproduk', [RifadController::class, 'adminproduk']);
 
 // Route::get('/test', [RifadController::class, 'test']);

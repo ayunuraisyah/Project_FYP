@@ -3,7 +3,7 @@
 <nav class="flex justify-between items-center bg-[#61AE77] h-[90px] px-7">
         <div class="flex items-center">
            
-            <a href="#" class="" id="menu-toggle">
+            <a href="#" class="md:hidden" id="menu-toggle">
                 <i data-feather="menu" class="text-white w-[35px] h-[30px]"></i>
             </a>
             
