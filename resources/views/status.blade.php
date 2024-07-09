@@ -23,7 +23,7 @@
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ Str::replace('-', ' ', $item->slug) }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->qty }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">
-                        <a href="javascript:void(0)" onclick="showImage('{{ $item->img }}')"><img src="Storage/{{ $item->img }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded"></a>
+                        <a href="javascript:void(0)" onclick="showImage('{{ $item->receipt }}')"><img src="Storage/{{ $item->receipt }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded"></a>
                     </td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">Rp {{ number_format($item->total) }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->note }}</td>

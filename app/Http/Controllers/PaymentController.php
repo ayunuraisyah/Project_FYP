@@ -98,5 +98,30 @@ class PaymentController extends Controller
         return redirect()->route('profile.status');
     }
 
+    public function struk($orderNum)
+    {
+
+        $item = Order::where('orderNum', $orderNum)->get();
+
+        foreach ($item as $data)
+        {
+            $itemsName = explode(',' , $data['slug']);
+            $qtyOrder = explode(',' , $data['qty']);
+            $total = $data['total'];
+            $created_at = $data['created_at'];
+        }
+
+        $qtyOrderCombine = array_combine($itemsName, $qtyOrder);
+
+        $dataItems = Item::whereIn('slug', $itemsName)->get();
+
+
+        $title = 'FYP';
+        $active = 'Struk';
+        $no = 1;
+
+        return view('struk', compact('item','dataItems','qtyOrderCombine','created_at','total','title','active','no'));
+    }
+
    
 }

@@ -20,8 +20,9 @@
                 <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Jumlah makanan</th>
                 <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Sub Total</th>
                 <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Note</th>
-                <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Status</th>
-                <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Gambar</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold text-center">Status</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Receipt</th>
+                <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Order Number</th>
                 <th class="px-6 py-3 border-b border-gray-200 text-gray-600 text-left text-sm uppercase font-bold">Aksi</th>
             </tr>
         </thead>
@@ -32,13 +33,15 @@
                 <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->qty }}</td>
                 <td class="px-6 py-4 border-b border-gray-200 text-sm">Rp {{ number_format($item->total) }}</td>
                 <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->note }}</td>
-                <td class="px-6 py-4 border-b border-gray-200 text-sm">
+                <td class="px-6 py-4 border-b border-gray-200 text-sm text-center" width="120%">
                     <span class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">{{ $item->status }}</span>
                 </td>
-                <td class="px-6 py-4 border-b border-gray-200 text-sm">
-                    <img src="{{ $item->image_url }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded">
-                </td>
                 @if($item->receipt == NULL)
+                <td>
+                </td>
+                <td>
+
+                </td>
                 <td class="px-6 py-4 border-b border-gray-200 text-sm">
                     <form action="{{ route('user.pay', $item->orderNum) }}" method="post">
                         @csrf
@@ -47,6 +50,19 @@
                         </button>
                     </form>
                 </td>
+                @else
+                    <td class="px-6 py-4 border-b border-gray-200 text-sm">
+                        <img src="/storage/{{ $item->receipt }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded">
+                    </td>
+                    <td class="px-6 py-4 border-b border-gray-200 text-sm">
+                        {{ $item->orderNum }}
+                    </td>
+                    <td>
+                        <form action="{{ route('user.struk', $item->orderNum) }}" method="post">
+                            @csrf
+                            <button class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">See Struk</button>
+                        </form>
+                    </td>
                 @endif
             </tr>
             @endforeach

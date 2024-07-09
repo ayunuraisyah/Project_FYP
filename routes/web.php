@@ -102,6 +102,9 @@ Route::post('/cart/checkout/payment/{orderNum}', [PaymentController::class, 'cre
 Route::get('/cart/checkout/payment', [PaymentController::class, 'view'])->name('user.payment')->middleware('auth'); 
 Route::put('/cart/checkout/payment/receipt/{orderNum}', [PaymentController::class, 'receipt'])->name('user.confirm')->middleware('auth'); 
 
+// STRUK
+Route::post('/struk/{orderNum}', [PaymentController::class, 'struk'])->name('user.struk')->middleware('auth'); 
+
 // STATUS PEMBELIAN
 Route::get('/status', [UserController::class,'status'])->name('status')->middleware('admin');
 Route::put('/status/change/{orderNum}', [UserController::class,'changeStatus'])->name('user.changeStatus')->middleware('admin');
