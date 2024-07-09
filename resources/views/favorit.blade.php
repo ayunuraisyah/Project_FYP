@@ -14,9 +14,13 @@
             <hr class="w-full border-t-2 border-black mt-3">
         </div>
         <div class="mt-6 grid p-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-            @foreach ($items as $item)
-                @include('components.itemCard')
-            @endforeach
+            @if($items == NULL)
+                <p>Kamu belum memiliki makanan favorit! <a href="/menu" class="text-[#61AE77]"> click disini untuk melihat menu </a></p>
+            @else
+                @foreach ($items as $item)
+                    @include('components.itemCard')
+                @endforeach
+            @endif
         </div>
     </div>
 </div>

@@ -67,7 +67,7 @@ class UserController extends Controller
 
     public function deleteFavorite(Request $request)
     {
-        $cekFav = Favorit::where('slug', $request->input('favorit'))->where('user', auth()->user()->email);
+        $cekFav = Favorit::where('slug', $request->input('favorit'))->where('email', auth()->user()->email);
         $cekFav->delete();
 
         $cekItem = Item::find($request->input('favorit'));

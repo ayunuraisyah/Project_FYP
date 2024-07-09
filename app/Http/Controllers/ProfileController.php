@@ -70,10 +70,16 @@ class ProfileController extends Controller
     public function viewFav()
     {
         $fav = Favorit::where('email', auth()->user()->email)->get();
-        foreach ($fav as $data)
+        if($fav->count() > 0)
         {
-            $slug = $data['slug'];
-            $items[] = Item::find($slug);
+            foreach ($fav as $data)
+            {
+                $slug = $data['slug'];
+                $items[] = Item::find($slug);
+            }
+        }else
+        {
+            $items = NULL;
         }
         $title = 'FYP';
         $active = 'Favorite';

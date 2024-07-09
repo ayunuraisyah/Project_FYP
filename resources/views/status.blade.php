@@ -22,9 +22,15 @@
                 <tr>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ Str::replace('-', ' ', $item->slug) }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->qty }}</td>
-                    <td class="px-6 py-4 border-b border-gray-200 text-sm">
-                        <a href="javascript:void(0)" onclick="showImage('{{ $item->receipt }}')"><img src="Storage/{{ $item->receipt }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded"></a>
-                    </td>
+                    @if($item->receipt == NULL)
+                        <td>
+
+                        </td>
+                    @else
+                        <td class="px-6 py-4 border-b border-gray-200 text-sm">
+                            <a href="javascript:void(0)" onclick="showImage('{{ $item->receipt }}')"><img src="Storage/{{ $item->receipt }}" alt="{{ $item->slug }}" class="w-16 h-16 object-cover rounded"></a>
+                        </td>
+                    @endif
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">Rp {{ number_format($item->total) }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">{{ $item->note }}</td>
                     <td class="px-6 py-4 border-b border-gray-200 text-sm">
@@ -44,7 +50,7 @@
                                 <option value="order received">
                                     <span class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">order received</span>
                                 </option>
-                                <option value="order received">
+                                <option value="Payment invalid">
                                     <span class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">Payment invalid</span>
                                 </option>
                             </select>
