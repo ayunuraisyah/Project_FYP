@@ -13,6 +13,55 @@
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <style>
+      
+        .sidebar {
+              transition: transform 0.3s ease-in-out;
+              z-index: 50; /* Ensure it appears above other content */
+          }
+          .sidebar-closed {
+              transform: translateX(-100%);
+          }
+          .sidebar-open {
+              transform: translateX(0);
+          }
+          /* Overlay to darken the rest of the page */
+          .overlay {
+              transition: opacity 0.3s ease-in-out;
+              opacity: 0;
+              visibility: hidden;
+              z-index: 40;
+          }
+          .overlay-open {
+              opacity: 0.5;
+              visibility: visible;
+          }
+      
+          .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+  }
+  
+  .mySlides {
+      display: none;
+  }
+  
+  img {
+      vertical-align: middle;
+  }
+  
+  .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+  }
+      </style>
+
 </head>
 <body>
 
@@ -27,6 +76,58 @@
 
     <script>
         feather.replace();
+    </script>
+    <script>
+        feather.replace();
+
+    //     const Navbar-Nav = document.querySelector('.Navbar-nav');
+    // document.querySelector('#menu-toggle').onclick = () => {
+    //     NavbarNav.classList.toggle('active');
+    // };
+
+        
+          document.addEventListener('DOMContentLoaded', function () {
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', function () {
+            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('sidebar-closed');
+            overlay.classList.toggle('overlay-open');
+        });
+
+        closeSidebar.addEventListener('click', function () {
+            sidebar.classList.add('sidebar-closed');
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-open');
+        });
+
+        overlay.addEventListener('click', function () {
+            sidebar.classList.add('sidebar-closed');
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-open');
+        });
+    });
+
+
+  
+//         let slideIndex = 0;
+// showSlides();
+
+// function showSlides() {
+//     let i;
+//     let slides = document.getElementsByClassName("mySlides");
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";  
+//     }
+//     slideIndex++;
+//     if (slideIndex > slides.length) {slideIndex = 1}    
+//     slides[slideIndex-1].style.display = "block";  
+//     setTimeout(showSlides, 3000); // Change image every 3 seconds
+// }
     </script>
 </body>
 </html>

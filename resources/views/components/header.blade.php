@@ -29,7 +29,7 @@
     </nav>
 
     
-    <!-- <div id="overlay" class="fixed inset-0 bg-black overlay"></div>
+    <div id="overlay" class="fixed inset-0 bg-black overlay"></div>
 
 <div id="sidebar" class="fixed inset-y-0 left-0 bg-[#61AE77] w-[250px] sidebar sidebar-closed md:hidden">
 <div class="flex flex-col p-6 relatve">
@@ -46,10 +46,41 @@
     </a>
     @auth
         <a href="/profil" class="mb-4 text-white">Welcome {{ auth()->user()->name }}!</a>
+        <div class="">
+            <i data-feather="user" class="w-[27px] h-[34px] text-white"></i>
+            <a href="/profil" class="text-3xl text-white">Profil</a>
+        </div>
+    
+        <div class="">
+            <i data-feather="shopping-cart" class="w-[27px] h-[34px] text-white"></i>
+            <a href="/cart" class="text-3xl text-white">Keranjang</a>
+       </div>
+    
+        <div class="">
+            <i data-feather="star" class="w-[27px] h-[34px] text-white"></i>
+            <a href="/profile/favorite" class="text-3xl text-white">Favorit</a>
+       </div>
+    
+        <div class="">
+            <i data-feather="activity" class="w-[27px] h-[34px] text-white"></i>
+            <a href="/profile/status" class="text-3xl text-white">Status</a>
+       </div>
+    
+        @if(auth()->user()->role == 'admin')
+            <div class="">
+                <i data-feather="codepen" class="w-[27px] h-[34px] text-white"></i>
+                <a href="/admin" class="text-3xl text-white">admin</a>
+            </div>
+        @endif
+    
+        <div class="">
+            <i data-feather="log-out" class="w-[27px] h-[34px] text-white"></i>
+            <a href="/logout" class="text-3xl text-white">Logout</a>
+        </div>
     @else
         <a href="/login" class="mb-4 text-white">
             <p>Login</p>
         </a>
     @endauth
 </div>
-</div> -->
+</div>
