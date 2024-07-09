@@ -44,6 +44,9 @@
                                 <option value="order received">
                                     <span class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">order received</span>
                                 </option>
+                                <option value="order received">
+                                    <span class="px-2 py-1 rounded-full bg-green-500 text-white text-xs">Payment invalid</span>
+                                </option>
                             </select>
                         </form>
                     </td>
