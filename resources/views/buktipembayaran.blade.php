@@ -8,7 +8,7 @@
     </div>
 
     <div class="w-full h-[1400px] border border-green-700 mt-10  flex items-center justify-center rounded-[13px]">
-        <div class="w-[95%] h-[95%] bg-[#D9D9D9] flex items-center justify-center">
+        <div class="w-[95%] py-4 bg-[#D9D9D9] flex items-center justify-center">
             <div class="w-[75%] h-[95%] ">
                 <div class="flex justify-between">
                     <h2 class="text-[18px]">total pembayaran</h2>
@@ -65,7 +65,7 @@
                         @csrf
                         @method('PUT')
                         <input type="file" name="receipt" id="receipt" accept="image/*">
-                        <button class="w-[150px] h-[30px] bg-[#07511B] text-white font-bold">Ok</button>
+                        <button class="w-[150px] h-[30px] bg-[#07511B] text-white font-bold mt-2">Ok</button>
                     </form>
                    </div>
 
