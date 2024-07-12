@@ -28,15 +28,15 @@
 
 <div id="sidebar" class="fixed inset-y-0 left-0 bg-[#61AE77] w-[250px] sidebar sidebar-closed md:hidden">
     <div class="flex flex-col p-6 relative">
-        <!-- Close Sidebar Button -->
+      
         <a href="#" id="close-sidebar" class="absolute top-2 right-2 text-white">
             <i data-feather="x" class="text-white w-7 h-7"></i>
         </a>
-        <!-- Logo -->
+ 
         <div class="w-[170px] h-[150px] mb-6">
             <img src="/img/logo1.png" alt="Logo" class="object-cover h-full">
         </div>
-        <!-- Sidebar Links -->
+      
         <div class="flex flex-col space-y-6">
             @auth
             <a href="/profil" class="text-xl text-white">Welcome {{ auth()->user()->name }}!</a>
@@ -64,8 +64,8 @@
                 <p>Admin</p>
             </a>
             @endif
-            <a href="/logout" class="text-xl text-[#61AE77] flex items-center space-x-2">
-                <i data-feather="log-out" class="w-[27px] h-[34px] text-[#61AE77]"></i>
+            <a href="/logout" class="text-xl text-white flex items-center space-x-2">
+                <i data-feather="log-out" class="w-[27px] h-[34px] text-whhite"></i>
                 <p>Logout</p>
             </a>
         </div>
