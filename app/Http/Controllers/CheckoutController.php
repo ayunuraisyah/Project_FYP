@@ -108,20 +108,31 @@ class checkoutController extends Controller
     
             $totalHarga = $totalHargaSession;
             session()->put('total', $totalHargaSession + 10000 + 2000);
-            foreach($dataCarts as $data)
-            {
-                $qty = $data;
-                $totalQty[] = $qty['qty'];
-            }
-            session()->put('totalQty', $totalQty);
-            $qty = (array_sum(session()->get('totalQty')));
+
             $total = session()->get('total');
             $title = "FYP";
             $active = "Checkout";
 
+            if($dataCarts->count() > 0)
+            {
+                foreach($dataCarts as $data)
+                {
+                    $qty = $data;
+                    $totalQty[] = $qty['qty'];
+                }
+                session()->put('totalQty', $totalQty);
+                $qty = (array_sum(session()->get('totalQty')));
+                return view('beliproduk', compact('buyNow','totalqtyBuyNow','dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
+            }
+            else
+            {
+                $qty = NULL;
+            }
+            
+            return view('beliproduk', compact('buyNow','totalqtyBuyNow','dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
+
 
     
-            return view('beliproduk', compact('buyNow','totalqtyBuyNow','dataCarts','dataItems','totalHarga', 'total', 'qty' , 'title', 'active'));
         }else{
 
             return redirect()->route('cart');
