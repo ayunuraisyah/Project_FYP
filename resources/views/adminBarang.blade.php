@@ -1,7 +1,7 @@
-@extends('layout.adminPage')
+@extends('layout.adminPage2')
 
 @section('content')
-    <div class="flex justify-start items-start h-[100%] flex-wrap gap-[10px]">
+    <div class=" justify-start items-start h-[100%] grid grid-cols-3  gap-3">
         @isset($items)
                 @foreach ($items as $item)
                     <div class="top-0 w-[359px] h-[300px] bg-white rounded-[10px] shadow">
