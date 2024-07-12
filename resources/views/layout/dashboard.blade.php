@@ -11,27 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-        {{-- <style>
-            #menu-toggle{
-                display:none;
-            }
-
-            @media (max-width: 758px) {
-                #menu-toggle {
-                    display: inline-block;
-                }
-
-                .Navbarnav {
-                    position:absolute;
-                    top:100%;
-                    right:-100%;
-                    background-color:green;
-                    width:30rem;
-                    height:100vh;
-                }
-            }
-        </style> --}}
-      
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <style>
       
       .sidebar {
@@ -56,29 +37,61 @@
             visibility: visible;
         }
     
-        .slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-}
+        .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
 
-.mySlides {
-    display: none;
-}
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
 
-img {
-    vertical-align: middle;
-}
+    .swiper-pagination {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        opacity: 0.5;
+        transition: opacity 0.15s ease;
+    }
 
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+
+        .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        opacity: 0.5;
+        transition: opacity 0.15s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -130,7 +143,53 @@ img {
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const slides = document.querySelectorAll('.slideshow-container img');
+        const indicators = document.querySelectorAll('.indicator');
+        let slideIndex = 0;
 
+        function showSlide(index) {
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
+            indicators.forEach((indicator) => {
+                indicator.classList.remove('active');
+            });
+
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            showSlide(slideIndex);
+        }
+
+        setInterval(nextSlide, 5000); // Ganti slide setiap 3 detik
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                slideIndex = index;
+                showSlide(slideIndex);
+            });
+        });
+    });
+
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 3500, // 5 seconds
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+  
   
 //         let slideIndex = 0;
 // showSlides();

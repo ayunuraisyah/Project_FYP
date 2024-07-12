@@ -2,11 +2,12 @@
 @section('content')
 
 <div class="flex flex-col md:flex-row w-full h-auto md:h-[600px]">
-    <div class="w-full md:w-[300px] h-full">
-        <div class="mt-[80px] ml-[30px] md:ml-5">
-            @include('components.userSideBar')
-        </div>
+<div class="flex flex-col md:flex-row w-full min-h-screen">
+<div class="hidden md:block w-full md:w-[300px] h-full">
+    <div class="mt-[80px] ml-[30px] md:ml-4">
+        @include('components.userSideBar')
     </div>
+</div>
 
     <div class="w-full md:w-[95%] h-full md:ml-[190px]">
         <div class="mt-[60px]">

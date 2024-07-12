@@ -66,7 +66,7 @@
 <body>
 
     <nav>
-        @include('components.header')
+        @include('components.header2')
     </nav>
      
     <div>

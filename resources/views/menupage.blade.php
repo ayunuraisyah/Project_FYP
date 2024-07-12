@@ -64,12 +64,31 @@
         </div>
     </a>
 </div>
-
-<div class="mt-6">
-    <img src="img/Banner2.png" alt="">
+<div class="relative mt-6">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/Banner1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/Banner2.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/Banner3.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/Banner4.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/Banner5.png" alt="">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 </div>
 
-<div class="mt-6 grid grid-cols-2 gap-2 px-2 md:grid-cols-4 md:px-5">
+<div class="mt-6 grid grid-cols-2 gap-4 px-2 md:grid-cols-4 md:px-5">
     @foreach($items as $item)
     @include('components.itemCard')
     @endforeach

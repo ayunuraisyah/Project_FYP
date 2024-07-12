@@ -2,14 +2,15 @@
 @section('content')
 
 <div class="flex flex-col md:flex-row w-full min-h-screen">
-  <div class="w-full md:w-[300px] h-full">
+<div class="hidden md:block w-full md:w-[300px] h-full">
     <div class="mt-[80px] ml-[30px] md:ml-4">
-      @include('components.userSideBar')
+        @include('components.userSideBar')
     </div>
-  </div>
+</div>
+
 
   <div class="w-full md:w-[59%] h-full md:ml-[190px] p-4 md:p-0">
-    <div class="mt-[60px]">
+    <div class="mt-[40px]">
       <h2 class="text-2xl md:text-4xl ml-[60px] font-bold font-['Poppins']">Profil Saya</h2>
       <hr class="w-full border-t-2 border-black mt-3">
     </div>

@@ -22,12 +22,39 @@
         trix-toolbar [data-trix-button-group="file-tools"]{
             display:none;
         }
+
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+            z-index: 50; /* Ensure it appears above other content */
+        }
+        .sidebar-closed {
+            transform: translateX(-100%);
+        }
+        .sidebar-open {
+            transform: translateX(0);
+        }
+        /* Overlay to darken the rest of the page */
+        .overlay {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 40;
+        }
+        .overlay-open {
+            opacity: 0.5;
+            visibility: visible;
+        }
     </style>
 </head>
 
 <body>
+
+<nav class="md:hidden">
+        @include('components.header3')
+    </nav>
+
     <div class="flex h-screen bg-gray-200">
-        <div class="w-64 bg-[#61AE77] h-screen">
+        <div class="w-64 bg-[#61AE77] h-screen hidden md:block ">
             @include('components.headerAdmin')
         </div>
 
@@ -55,6 +82,32 @@
         document.addEventListener('trix-file-accept', function(e){
             e.preventDefault()
         })
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+const closeSidebar = document.getElementById('close-sidebar');
+const overlay = document.getElementById('overlay');
+
+menuToggle.addEventListener('click', function () {
+    sidebar.classList.toggle('sidebar-open');
+    sidebar.classList.toggle('sidebar-closed');
+    overlay.classList.toggle('overlay-open');
+});
+
+closeSidebar.addEventListener('click', function () {
+    sidebar.classList.add('sidebar-closed');
+    sidebar.classList.remove('sidebar-open');
+    overlay.classList.remove('overlay-open');
+});
+
+overlay.addEventListener('click', function () {
+    sidebar.classList.add('sidebar-closed');
+    sidebar.classList.remove('sidebar-open');
+    overlay.classList.remove('overlay-open');
+});
+});
     </script>
 
 </body>

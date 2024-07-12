@@ -6,11 +6,12 @@
 
   <div class="flex flex-col md:flex-row w-full h-full md:h-[600px]">
 
-    <div class="w-full md:w-[300px] h-full">
-      <div class="mt-[80px] ml-[30px]">
+  <div class="flex flex-col md:flex-row w-full min-h-screen">
+<div class="hidden md:block w-full md:w-[300px] h-full">
+    <div class="mt-[80px] ml-[30px] md:ml-4">
         @include('components.userSideBar')
-      </div>
     </div>
+</div>
       
     <div class="w-full md:w-[60%] h-full md:ml-[200px]">
       <div class="mt-[65px]">
@@ -118,7 +119,7 @@
                 <h2 class="text-white font-['Poppins']">Rp.{{ number_format($dataItems[$index]->price) }}</h2>
                 <div class="flex items-center">
                   <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}' name="action" type="submit" value="decreament"><</button>
-                  <span class="px-3" id="quantity-1">{{ $cart->qty }}</span>
+                  <span class="px-3 text-white" id="quantity-1">{{ $cart->qty }}</span>
                   <button class="px-2 py-1 bg-grey-500 text-white rounded-md focus:outline-none" data-item-id='{{ $cart->id }}' name="action" type="submit" value="increament">></button>
                 </div>
                 <p class="text-white font-['Poppins']">total harga, Rp. <span id="price">{{ number_format($cart->qty * $dataItems[$index]->price) }}</span></p>
